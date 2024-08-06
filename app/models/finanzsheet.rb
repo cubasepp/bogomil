@@ -1,0 +1,2 @@
+class Finanzsheet < ApplicationRecord
+end
