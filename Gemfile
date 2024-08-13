@@ -1,28 +1,32 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-ruby '3.3.0'
+source "https://rubygems.org"
 
-gem 'bcrypt', '~> 3.1.7'
-gem 'bootsnap', require: false
-gem 'importmap-rails'
-gem 'jbuilder'
-gem 'puma', '>= 5.0'
-gem 'rails', '~> 7.1.3', '>= 7.1.3.3'
-gem 'sprockets-rails'
-gem 'sqlite3', '~> 1.4'
-gem 'stimulus-rails'
-gem 'tailwindcss-rails', '~> 2.7'
-gem 'turbo-rails'
-gem 'tzinfo-data', platforms: %i[windows jruby]
+ruby "3.3.0"
+
+gem "bcrypt", "~> 3.1.7"
+gem "bootsnap", require: false
+gem "importmap-rails"
+gem "jbuilder"
+gem "puma", ">= 5.0"
+gem "rails", "~> 7.1.3", ">= 7.1.3.3"
+gem "sprockets-rails"
+gem "sqlite3", "~> 1.4"
+gem "stimulus-rails"
+gem "tailwindcss-rails", "~> 2.7"
+gem "turbo-rails"
+gem "tzinfo-data", platforms: [:windows, :jruby]
 
 group :development, :test do
-  gem 'debug', platforms: %i[mri windows]
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'rspec-rails', '~> 6.0.0'
-  gem 'shoulda-matchers', '~> 6.0'
+  gem "debug", platforms: [:mri, :windows]
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "rspec-rails", "~> 6.0.0"
+  gem "rubocop-rails", require: false
+  gem "rubocop-shopify", require: false
+  gem "shoulda-matchers", "~> 6.0"
 end
 
 group :development do
-  gem 'web-console'
+  gem "web-console"
 end

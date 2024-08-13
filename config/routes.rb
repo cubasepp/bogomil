@@ -1,6 +1,8 @@
-Rails.application.routes.draw do
-  resource :session, only: %i[new create destroy]
+# frozen_string_literal: true
 
-  get 'up' => 'rails/health#show', as: :rails_health_check
-  root 'dashboard#index'
+Rails.application.routes.draw do
+  resource :session, only: [:new, :create, :destroy]
+
+  get "up" => "rails/health#show", as: :rails_health_check
+  root "dashboard#index"
 end
