@@ -28,4 +28,5 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  errors:
+    unauthorized: "Invalid username or password."
