@@ -2,7 +2,7 @@ module Authentication
   extend ActiveSupport::Concern
 
   included do
-    before_action :authenticate
+    before_action :authenticate, unless: -> { signed_in? }
     helper_method :signed_in?
   end
 

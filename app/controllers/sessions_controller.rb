@@ -10,8 +10,13 @@ class SessionsController < ApplicationController
       cookies.signed.permanent[:user_id] = { value: user.id, httponly: true, same_site: :lax }
       redirect_to root_url
     else
-      flash[:alert] = I18n.t("errors.unauthorized")
+      flash[:alert] = I18n.t('errors.unauthorized')
       render :new, status: :unauthorized
     end
+  end
+
+  def destroy
+    cookies.delete(:user_id)
+    redirect_to new_session_url
   end
 end
