@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark">
+<html class="">
   <head>
     <title>Bogomil</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,13 +11,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="background-primary">
+  <body class="bg-gray-50 dark:bg-gray-900 dark:text-white">
     <%= render "layouts/header" %>
 
-    <div class="flex pt-16 overflow-hidden background-primary">
-      <%= render "layouts/navigation" %>
-      <div class="relative w-full h-full overflow-y-auto lg:ml-64 background-primary">
+    <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+      <div class="relative w-full h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
         <div class="px-4 pt-6">
+	        <%= render "shared/flash_message" %>
           <%= yield %>
         </div>
       </div>

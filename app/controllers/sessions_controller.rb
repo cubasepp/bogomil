@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  layout "session"
   skip_before_action :authenticate, only: [:new, :create]
 
   def new
@@ -19,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:user_id)
-    redirect_to(new_session_url)
+    redirect_to(new_session_url, flash: { notice: I18n.t("messages.session.destroyed") })
   end
 end

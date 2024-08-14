@@ -1,0 +1,17 @@
+<nav class="fixed z-30 h-16 w-full background-primary border-b border-color-primary">
+  <div class="px-3 py-3 lg:px-5 lg:pl-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center justify-start">
+        Bogomil.io
+      </div>
+      <div class="flex items-center">
+        <% if signed_in? %>
+          Hello, <%= Current.user.name %>
+         <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete %>
+        <% else %>
+          <% link_to I18n.t("buttons.session.new"), new_session_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
