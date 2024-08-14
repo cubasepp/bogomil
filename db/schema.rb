@@ -10,18 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_06_156110) do
-  create_table "finanzsheets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_08_06_151645) do
   create_table "spreadsheets", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "user_id"
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_spreadsheets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

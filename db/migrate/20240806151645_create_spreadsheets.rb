@@ -5,6 +5,7 @@ class CreateSpreadsheets < ActiveRecord::Migration[7.1]
     create_table(:spreadsheets) do |t|
       t.string(:name)
       t.text(:description)
+      t.belongs_to(:user)
       t.string(:type)
 
       t.timestamps
