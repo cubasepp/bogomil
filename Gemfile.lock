@@ -247,6 +247,9 @@ GEM
     ruby-progressbar (1.13.0)
     shoulda-matchers (6.3.0)
       activesupport (>= 5.2.0)
+    simple_form (5.3.1)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -318,6 +321,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-shopify
   shoulda-matchers (~> 6.0)
+  simple_form
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

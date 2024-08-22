@@ -15,6 +15,7 @@ gem "sqlite3", "~> 1.4"
 gem "stimulus-rails"
 gem "tailwindcss-rails", "~> 2.7"
 gem "turbo-rails"
+gem "simple_form"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 
 group :development, :test do

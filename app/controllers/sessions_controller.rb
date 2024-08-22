@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if (user = User.active.authenticate_by(email: params[:email], password: params[:password]))
+    if (user = User.active.authenticate_by(email: params[:session][:email], password: params[:session][:password]))
       Current.user = user
       cookies.signed.permanent[:user_id] = { value: user.id, httponly: true, same_site: :lax }
       redirect_to(root_url)

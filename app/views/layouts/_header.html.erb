@@ -6,8 +6,8 @@
       </div>
       <div class="flex items-center">
         <% if signed_in? %>
-          Hello, <%= Current.user.name %>
-         <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete %>
+          <span class="mr-3"> Hello, <%= Current.user.name %></span>
+         <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete, class: "btn-red" %>
         <% else %>
           <% link_to I18n.t("buttons.session.new"), new_session_path %>
         <% end %>
