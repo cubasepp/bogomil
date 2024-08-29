@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "new_spreadsheet" do %>
-  Demo
+<%= turbo_frame_tag Spreadsheet.new do %>
+  <%= render "form" %>
 <% end %>
 

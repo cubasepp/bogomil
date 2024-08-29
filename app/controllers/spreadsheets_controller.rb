@@ -15,8 +15,18 @@ class SpreadsheetsController < ApplicationController
   end
 
   def create
-    @spreadsheet = Spreadsheet.new(permitted_params).tap do |sheet|
-      sheet.user = Current.user
+    @spreadsheet = Spreadsheet.for_type(permitted_params[:type])
+      .new(permitted_params.except(:type)).tap do |sheet|
+        sheet.user = Current.user
+      end
+
+    respond_to do |format|
+      if @spreadsheet.save
+        format.html { redirect_to(spreadsheet_url(@spreadsheet), notice: "Spreadsheet was successfully created.") }
+        format.turbo_stream
+      else
+        format.html { render(:new, status: :unprocessable_entity) }
+      end
     end
   end
 
@@ -34,6 +44,7 @@ class SpreadsheetsController < ApplicationController
     @spreadsheet.destroy!
 
     respond_to do |format|
+      format.turbo_stream
       format.html { redirect_to(spreadsheets_url, notice: "Spreadsheet was successfully destroyed.") }
     end
   end

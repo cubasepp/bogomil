@@ -3,8 +3,8 @@
 require "rails_helper"
 
 RSpec.describe(User, type: :model) do
-  context "associations" do
-    should have_many(:spreadsheets).dependent(:destroy)
+  describe "associations" do
+    it { should have_many(:spreadsheets).dependent(:destroy) }
   end
 
   describe "validations" do
