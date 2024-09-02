@@ -16,10 +16,13 @@ gem "stimulus-rails"
 gem "tailwindcss-rails", "~> 2.7"
 gem "turbo-rails"
 gem "simple_form"
+gem "solid_queue"
+gem "excon"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 
 group :development, :test do
   gem "debug", platforms: [:mri, :windows]
+  gem "dotenv"
   gem "factory_bot_rails"
   gem "faker"
   gem "rspec-rails", "~> 6.0.0"
