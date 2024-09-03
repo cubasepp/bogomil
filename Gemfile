@@ -20,6 +20,10 @@ gem "solid_queue"
 gem "excon"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 
+group :test do
+  gem "webmock"
+end
+
 group :development, :test do
   gem "debug", platforms: [:mri, :windows]
   gem "dotenv"

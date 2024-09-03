@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_02_125039) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_02_174527) do
+  create_table "consumer_indices", force: :cascade do |t|
+    t.integer "year"
+    t.integer "month"
+    t.decimal "index"
+    t.decimal "previous_year"
+    t.decimal "previous_month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["year", "month"], name: "index_consumer_indices_on_year_and_month", unique: true
+  end
+
+  create_table "request_logs", force: :cascade do |t|
+    t.text "body"
+    t.text "data"
+    t.text "class_name"
+    t.integer "status_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solid_queue_blocked_executions", force: :cascade do |t|
     t.integer "job_id", null: false
     t.string "queue_name", null: false
