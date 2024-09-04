@@ -17,6 +17,7 @@ gem "tailwindcss-rails", "~> 2.7"
 gem "turbo-rails"
 gem "simple_form"
 gem "solid_queue"
+gem "chartkick"
 gem "excon"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 
