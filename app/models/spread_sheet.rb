@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Spreadsheet < ApplicationRecord
-  belongs_to :user
+class SpreadSheet < ApplicationRecord
+  belongs_to :user, optional: true
 
   validates :name, presence: true
   validates :type, inclusion: { in: ->() { types } }
@@ -18,7 +18,7 @@ class Spreadsheet < ApplicationRecord
     end
 
     def accessable(user: Current.user)
-      user.spreadsheets
+      user.spread_sheets
     end
   end
 end

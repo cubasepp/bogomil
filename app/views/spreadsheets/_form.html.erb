@@ -1,7 +1,0 @@
-<%= simple_form_for(@spreadsheet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :type, collection: Spreadsheet.subclasses.map(&:name) %>
-
-  <%= f.button :submit %>
-<% end %>

@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-class CreateSpreadsheets < ActiveRecord::Migration[7.1]
+class CreateSpreadSheets < ActiveRecord::Migration[7.1]
   def change
-    create_table(:spreadsheets) do |t|
+    create_table(:spread_sheets) do |t|
       t.string(:name)
       t.text(:description)
       t.belongs_to(:user)
+      t.boolean(:public, default: false)
       t.string(:type)
 
       t.timestamps

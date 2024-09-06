@@ -2,16 +2,16 @@
 
 require "rails_helper"
 
-RSpec.describe("Spreadsheets", type: :request) do
+RSpec.describe("SpreadSheets", type: :request) do
   let(:user) { FactoryBot.create(:user) }
   before do
-    FactoryBot.create_list(:financesheet, 2, user:)
+    FactoryBot.create_list(:finance_sheet, 2, user:)
     sign_in(user)
   end
 
-  describe "GET /spreadsheets" do
+  describe "GET /spread_sheets" do
     it "renders index" do
-      get(spreadsheets_url)
+      get(spread_sheets_url)
 
       expect(response).to(have_http_status(:success))
       assert_select("caption", text: "Spreadsheets:")
@@ -19,31 +19,31 @@ RSpec.describe("Spreadsheets", type: :request) do
     end
   end
 
-  describe "POST /spreadsheets" do
+  describe "POST /spread_sheets" do
     it "create an entry" do
       expect do
-        post(spreadsheets_url, params: {
-          spreadsheet: { name: "New sheet", description: "XX", type: "Financesheet" },
+        post(spread_sheets_url, params: {
+          spread_sheet: { name: "New sheet", description: "XX", type: "FinanceSheet" },
         })
 
         expect(response).to(have_http_status(:redirect))
         follow_redirect!
 
         assert_select("h1", text: "TBD:")
-      end.to(change(user.reload.spreadsheets, :count).by(1))
+      end.to(change(user.reload.spread_sheets, :count).by(1))
     end
   end
 
-  describe "DESTROY /spreadsheets/<id>" do
+  describe "DESTROY /spread_sheets/<id>" do
     it "create an entry" do
       expect do
-        delete(spreadsheet_url(user.spreadsheets.first))
+        delete(spread_sheet_url(user.spread_sheets.first))
         expect(response).to(have_http_status(:redirect))
         follow_redirect!
 
         assert_select("caption", text: "Spreadsheets:")
         assert_select("tbody>tr", 1)
-      end.to(change(user.reload.spreadsheets, :count).by(-1))
+      end.to(change(user.reload.spread_sheets, :count).by(-1))
     end
   end
 end

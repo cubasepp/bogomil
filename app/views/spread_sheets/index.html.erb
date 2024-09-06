@@ -1,9 +1,9 @@
 <div class="flex flex-col h-auto">
   <div class="flex-grow p-4 bg-gray-100">
-    <%= link_to :create, new_spreadsheet_path, class: "default-btn", data: { turbo_frame: dom_id(Spreadsheet.new) } %>
+    <%= link_to :create, new_spread_sheet_path, class: "default-btn", data: { turbo_frame: dom_id(SpreadSheet.new) } %>
   </div>
   <div class="flex-grow p-4 bg-gray-100">
-    <%= turbo_frame_tag Spreadsheet.new %>
+    <%= turbo_frame_tag SpreadSheet.new %>
   </div>
 
   <div class="flex-grow p4 bg-gray-100">
@@ -28,8 +28,8 @@
             </th>
           </tr>
         </thead>
-        <tbody id="spreadsheets">
-          <%= render partial: "spreadsheets/spreadsheet", collection: @spreadsheets, as: :spreadsheet %>
+        <tbody id="spread_sheets">
+          <%= render partial: "spread_sheets/spread_sheet", collection: @spread_sheets, as: :spread_sheet %>
         </tbody>
       </table>
     </div>

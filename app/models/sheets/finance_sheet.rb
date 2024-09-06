@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class Financesheet < Spreadsheet
+class FinanceSheet < SpreadSheet
 end

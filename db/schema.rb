@@ -152,14 +152,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_174527) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
-  create_table "spreadsheets", force: :cascade do |t|
+  create_table "spread_sheets", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "user_id"
+    t.boolean "public", default: false
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_spreadsheets_on_user_id"
+    t.index ["user_id"], name: "index_spread_sheets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

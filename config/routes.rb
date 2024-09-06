@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :spreadsheets
+  resources :spread_sheets
 
   resource :session, only: [:new, :create, :destroy]
 
