@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-Rails.autoloaders.main.collapse(Rails.root.join("app/models/spreadsheets"))
+Rails.autoloaders.main.collapse(Rails.root.join("app/models/sheets"))

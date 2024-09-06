@@ -1,0 +1,2 @@
+<%= turbo_stream.update SpreadSheet.new, "" %>
+<%= turbo_stream.append :spread_sheets, partial: 'spread_sheets/spread_sheet', locals: { spread_sheet: @spread_sheet } %>
