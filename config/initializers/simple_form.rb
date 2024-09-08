@@ -23,6 +23,13 @@ SimpleForm.setup do |config|
     b.use(:error, wrap_with: { tag: :p, class: :error })
   end
 
+  config.wrappers(
+    :plain,
+  ) do |b|
+    b.use(:placeholder)
+    b.use(:input)
+  end
+
   config.default_wrapper = :default
   config.boolean_style = :nested
   config.button_class = "btn-green"

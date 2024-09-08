@@ -1,0 +1,38 @@
+<div class="flex flex-col">
+  <div class="flex snap-x snap-mandatory overflow-hidden" data-consumer-indicies-target="snapContainer">
+    <% grouped_consumer_indicies.each do |frame_id, consumer_indicies| %>
+      <div class="box-no-marging snap-center ml-4 w-full flex-wrap shrink-0">
+        <div>
+          <div class="text-3xl mb-6 border-l-4 pl-2 border-blue-400 font-mono">
+            <%= t("consumer_index.selection.#{frame_id}.description_html") %>
+          </div>
+        </div>
+        <div class="flex flex-wrap m-2 gap-1">
+          <% consumer_indicies.keys.each do |year| %>
+            <%= selection_badge(frame_id, "year", year, year) %>
+          <% end %>
+        </div>
+        <div class="flex flex-wrap m-2 gap-1">
+          <% max_month = consumer_indicies.values.max %>
+          <% Date::MONTHNAMES.compact.map.with_index(1) do |month, index| %>
+            <%= selection_badge(frame_id, "month", index, month, disabled: index > max_month) %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="text-right gap-1 mt-2">
+    <% frame_ids.reverse.each do |frame_id| %>
+      <%= button_tag(
+        type: "button",
+        class: "btn-default disabled:pointer-events-none disabled:bg-gray-400",
+        disabled: true,
+        data: {
+          frame_id: lower_camelize(frame_id),
+          action: "click->consumer-indicies#toggleSnap",
+          consumer_indicies_target: "btn" }) do %>
+          <%= t("consumer_index.btn.snap.#{frame_id}") %>
+        <% end %>
+      <% end %>
+  </div>
+</div>

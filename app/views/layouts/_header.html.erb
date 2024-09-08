@@ -1,21 +1,14 @@
-<nav class="fixed z-30 h-16 w-full background-primary border-b border-color-primary">
-  <div class="px-3 py-3 lg:px-5 lg:pl-3">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center justify-start">
-        Bogomil.io
-      </div>
-      <div class="flex items-center">
-        <div class="w-8 h-8 mr-2" data-action="click->darkmode#toggle">
-          <%= icon(:moon, css: "dark:stroke-white dark:fill-white") %>
-        </div>
-
-        <% if signed_in? %>
-          <span class="mr-3"> Hello, <%= Current.user.name %></span>
-         <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete, class: "btn-red" %>
-        <% else %>
-          <% link_to I18n.t("buttons.session.new"), new_session_path %>
-        <% end %>
-      </div>
+<nav class="background-primary border-b border-color-primary">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <span class="self-center text-2xl font-semibold whitespace-nowrap text-blue-400">
+      <%= t(:'app.title') %>
+    </span>
+  <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+    <div class="w-8 h-8 mr-2" data-action="click->darkmode#toggle">
+      <%= icon(:moon, css: "dark:stroke-white dark:fill-white") %>
     </div>
+    <% if signed_in? %>
+      <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete, class: "btn-red" %>
+    <% end %>
   </div>
 </nav>

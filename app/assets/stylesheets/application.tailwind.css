@@ -7,11 +7,12 @@
   .background-primary {
     @apply text-black dark:text-white bg-gray-50 dark:bg-gray-900 dark:text-white;
   }
+
   .border-color-primary {
     @apply border-gray-200 dark:border-gray-700;
   }
 
-  .default-btn {
+  .btn-default {
     @apply text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
   }
 
@@ -21,6 +22,26 @@
 
   .btn-green {
     @apply text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800;
+  }
+
+  .btn-purple {
+    @apply text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900;
+  }
+
+  .box-default {
+    @apply p-4 sm:p-6 lg:p-8 my-8 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .box-no-marging {
+    @apply p-2 sm:p-4 lg:p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .consumer-index-selection-badge {
+    @apply inline-flex items-center justify-between mr-2 px-5 py-2.5 text-gray-500 bg-white border border-gray-200 rounded-full cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700;
+  }
+
+  .underline-gradient {
+    @apply bg-gradient-to-r from-blue-200 via-blue-400 to-blue-800 bg-[length:100%_4px] bg-no-repeat bg-bottom
   }
 
   .table-w-full {

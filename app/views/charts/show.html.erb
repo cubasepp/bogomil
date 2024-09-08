@@ -1,0 +1,6 @@
+<div class="box-default">
+  <%= turbo_frame_tag @setting.delete(:turbo_frame_tag_id) do %>
+    <%= line_chart @data, **@setting %>
+  <% end %>
+</div>
+

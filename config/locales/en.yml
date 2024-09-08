@@ -1,4 +1,6 @@
 en:
+  app:
+    title: "mv-web.net"
   errors:
     unauthorized: "Invalid username or password."
   buttons:
@@ -8,3 +10,20 @@ en:
   messages:
     session:
       destroyed: "Sucesfully signed out."
+  navigation:
+    link:
+      consumer_index: "Consumer Index Calculator"
+  consumer_index:
+    selection:
+      new_index:
+        description_html: "Calculate rent <span class='underline-gradient'>adjustment to.</span>"
+      old_index:
+        description_html: "Last rent <span class='underline-gradient'>adjustment.</span>"
+    btn:
+      snap:
+        new_index: "Prev"
+        old_index: "Next"
+    chart:
+      title: "Consumer Index Chart"
+      xtitle: "Date"
+      ytitle: "Index"

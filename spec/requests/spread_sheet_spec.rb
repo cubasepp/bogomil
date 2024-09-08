@@ -20,7 +20,7 @@ RSpec.describe("SpreadSheets", type: :request) do
   end
 
   describe "POST /spread_sheets" do
-    it "create an entry" do
+    it "creates an entry" do
       expect do
         post(spread_sheets_url, params: {
           spread_sheet: { name: "New sheet", description: "XX", type: "FinanceSheet" },
@@ -35,7 +35,7 @@ RSpec.describe("SpreadSheets", type: :request) do
   end
 
   describe "DESTROY /spread_sheets/<id>" do
-    it "create an entry" do
+    it "destroys an entry" do
       expect do
         delete(spread_sheet_url(user.spread_sheets.first))
         expect(response).to(have_http_status(:redirect))

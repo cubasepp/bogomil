@@ -40,5 +40,6 @@ module.exports = {
     { pattern: /mb-+/ },
     { pattern: /btn-+/ },
     { pattern: /form-+/ },
+    { pattern: /underline-+/ },
   ]
 }
