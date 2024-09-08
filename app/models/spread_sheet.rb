@@ -18,7 +18,11 @@ class SpreadSheet < ApplicationRecord
     end
 
     def accessable(user: Current.user)
-      user.spread_sheets
+      user.spread_sheets.or(SpreadSheet.where(public: true))
     end
   end
+
+  # def to_partial_path
+  #   "super"
+  # end
 end

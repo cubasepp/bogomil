@@ -1,4 +1,6 @@
 en:
+  app:
+    title: "mv-web.net"
   errors:
     unauthorized: "Invalid username or password."
   buttons:
@@ -8,3 +10,8 @@ en:
   messages:
     session:
       destroyed: "Sucesfully signed out."
+  consumer_index:
+    chart:
+      title: "Consumer Index Chart"
+      xtitle: "Date"
+      ytitle: "Index"
