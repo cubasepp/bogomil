@@ -2,7 +2,7 @@
 
 class CreateConsumerIndices < ActiveRecord::Migration[7.1]
   def change
-    create_table(:consumer_indices) do |t|
+    create_table(:consumer_indices, primary_key: [:year, :month]) do |t|
       t.integer(:year)
       t.integer(:month)
       t.decimal(:index)

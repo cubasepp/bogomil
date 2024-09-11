@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_09_02_174527) do
-  create_table "consumer_indices", force: :cascade do |t|
+  create_table "consumer_indices", primary_key: ["year", "month"], force: :cascade do |t|
     t.integer "year"
     t.integer "month"
     t.decimal "index"
