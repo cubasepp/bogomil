@@ -5,6 +5,10 @@
         Bogomil.io
       </div>
       <div class="flex items-center">
+        <button data-action="click->darkmode#toggle">
+          DrakMode
+        </button>
+
         <% if signed_in? %>
           <span class="mr-3"> Hello, <%= Current.user.name %></span>
          <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete, class: "btn-red" %>
