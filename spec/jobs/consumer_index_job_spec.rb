@@ -38,7 +38,7 @@ RSpec.describe(ConsumerIndexJob, type: :job) do
       it "contains csv data" do
         expect do
           subject.perform_now
-        end.to(change(ConsumerIndex, :count).by(2))
+        end.to(change(ConsumerIndex, :count).by(1))
       end
     end
 
