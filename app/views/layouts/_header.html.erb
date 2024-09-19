@@ -5,9 +5,9 @@
         Bogomil.io
       </div>
       <div class="flex items-center">
-        <button data-action="click->darkmode#toggle">
-          DrakMode
-        </button>
+        <div class="w-8 h-8 mr-2" data-action="click->darkmode#toggle">
+          <%= icon(:moon, css: "dark:stroke-white dark:fill-white") %>
+        </div>
 
         <% if signed_in? %>
           <span class="mr-3"> Hello, <%= Current.user.name %></span>

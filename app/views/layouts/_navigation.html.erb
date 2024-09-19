@@ -1,7 +1,11 @@
-<div class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full pt-16 font-normal lg:flex">
+<div class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 w-64 h-full pt-16 font-normal">
   <div class="relative flex flex-col flex-1 min-h-0 pt-0 border-r border-color-primary">
     <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
-      <%= link_to :Spreadsheets, spreadsheets_url %>
+      <%= link_to spreadsheets_url do %>
+        <div class="flex h-10 justify-center items-center border-black hover:bg-gray-200 dark:hover:bg-blue-700">
+          <%= icon("document", css: "h-6 w-6 ml-2 mr-2") %> Spreadsheets
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
