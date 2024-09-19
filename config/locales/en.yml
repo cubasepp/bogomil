@@ -12,7 +12,7 @@ en:
       destroyed: "Sucesfully signed out."
   navigation:
     link:
-      consumer_index: "Consumer Index Calculator"
+      consumer_index: "Rent Calculator"
   consumer_index:
     selection:
       new_index:
