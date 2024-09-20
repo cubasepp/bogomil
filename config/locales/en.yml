@@ -16,9 +16,9 @@ en:
   consumer_index:
     selection:
       new_index:
-        description_html: "Calculate rent <span class='underline-gradient'>adjustment to.</span>"
+        description_html: "Calculate rent adjustment to."
       old_index:
-        description_html: "Last rent <span class='underline-gradient'>adjustment.</span>"
+        description_html: "Last rent adjustment."
     btn:
       snap:
         new_index: "Prev"

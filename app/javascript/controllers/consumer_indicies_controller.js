@@ -1,35 +1,37 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
-
   static targets = [
     "calculatorOldIndex",
     "calculatorNewIndex",
     "calculatorForm",
     "snapContainer",
     "indexFrame",
-    "btn"
-  ]
+    "btn",
+  ];
 
   initialize() {
-    this.path = "/consumer_indicies/"
+    this.path = "/consumer_indicies/";
     this.indexData = {
       oldIndex: {
         year: null,
-        month: null
+        month: null,
       },
       newIndex: {
         year: null,
-        month: null
-      }
-    }
+        month: null,
+      },
+    };
   }
 
   connect() {
-    this.element.addEventListener('turbo:frame-render', this.onTurboRender.bind(this))
+    this.element.addEventListener(
+      "turbo:frame-render",
+      this.onTurboRender.bind(this),
+    );
   }
 
   disconnect() {
-    this.element.removeEventListener('turbo:frame-render', this.onTurboRender)
+    this.element.removeEventListener("turbo:frame-render", this.onTurboRender);
   }
 
   onTurboRender(event) {
@@ -44,19 +46,20 @@ export default class extends Controller {
     const currentTarget = event.currentTarget;
     const frameId = currentTarget.dataset.frameId;
     const type = currentTarget.dataset.type;
-    const data = this.indexData[frameId]
+    const data = this.indexData[frameId];
 
     if (currentTarget.value) {
-      data[type] = currentTarget.value
+      data[type] = currentTarget.value;
     }
 
     if (data.year && data.month) {
       this.btnTargets.forEach((btn) => {
         if (btn.dataset.frameId === frameId && btn.disabled) {
-          btn.disabled = !btn.disabled
+          btn.disabled = !btn.disabled;
+          btn.click();
         }
       });
-      this.#fetchIndex(frameId, data)
+      this.#fetchIndex(frameId, data);
     }
   }
 
@@ -65,8 +68,8 @@ export default class extends Controller {
     const snapContainer = this.snapContainerTarget;
     let left = null;
 
-    if(direction === "newIndex") {
-      left = snapContainer.scrollLeft - snapContainer.offsetWidth
+    if (direction === "newIndex") {
+      left = snapContainer.scrollLeft - snapContainer.offsetWidth;
     } else {
       left = snapContainer.scrollLeft + snapContainer.offsetWidth;
     }
@@ -76,14 +79,15 @@ export default class extends Controller {
 
   #toggleBtns() {
     this.btnTargets.forEach((btn) => {
-      btn.disabled = !btn.disabled
+      btn.disabled = !btn.disabled;
     });
   }
 
   #fetchIndex(frameId, data) {
     this.indexFrameTargets.forEach((indexFrame) => {
       if (indexFrame.dataset.frameId === frameId) {
-        indexFrame.src = this.path + this.#indexId(data) + "?frame_id=" + frameId;
+        indexFrame.src =
+          this.path + this.#indexId(data) + "?frame_id=" + frameId;
       }
     });
   }

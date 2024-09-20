@@ -40,10 +40,6 @@
     @apply inline-flex items-center justify-between mr-2 px-5 py-2.5 text-gray-500 bg-white border border-gray-200 rounded-full cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700;
   }
 
-  .underline-gradient {
-    @apply bg-gradient-to-r from-blue-200 via-blue-400 to-blue-800 bg-[length:100%_4px] bg-no-repeat bg-bottom
-  }
-
   .table-w-full {
     @apply w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400;
 
