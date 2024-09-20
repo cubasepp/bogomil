@@ -5,11 +5,15 @@
 
 @layer components {
   .background-primary {
-    @apply text-black dark:text-white bg-gray-50 dark:bg-gray-900 dark:text-white;
+    @apply text-black dark:text-white bg-white dark:bg-gray-800;
   }
 
   .border-color-primary {
-    @apply border-gray-200 dark:border-gray-700;
+    @apply border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .background-secondary {
+    @apply bg-gray-50 dark:bg-gray-900 dark:text-white;
   }
 
   .btn-default {
@@ -29,11 +33,7 @@
   }
 
   .box-default {
-    @apply p-4 sm:p-6 lg:p-8 my-8 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700;
-  }
-
-  .box-no-marging {
-    @apply p-2 sm:p-4 lg:p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700;
+    @apply p-4 sm:p-6 lg:p-8 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700;
   }
 
   .consumer-index-selection-badge {

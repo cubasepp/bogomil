@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-controller="darkmode" data-darkmode-target="root" class="">
+<html data-controller="ui" data-ui-target="root" class="">
   <head>
     <title>Bogomil</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,15 +11,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="background-primary">
-    <%= render "layouts/header" %>
 
-    <div class="flex pt-16 overflow-hidden background-primary">
+  <body class="background-secondary">
+    <%= render "layouts/header" %>
+    <div class="flex p-4 overflow-hidden">
       <%= render "layouts/navigation" %>
-      <div class="relative w-full h-full overflow-y-auto lg:ml-64 background-primary">
-        <div class="px-4 pt-6">
-          <%= yield %>
-        </div>
+      <div class="relative duration-500 overflow-y-auto transition-[margin] transform lg:ml-64"
+           data-ui-target="content">
+        <%= yield %>
       </div>
     </div>
   </body>
