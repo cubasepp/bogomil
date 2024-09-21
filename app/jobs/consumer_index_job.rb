@@ -13,7 +13,7 @@ class ConsumerIndexJob < ApplicationJob
   def consumer_index_data
     parsed_content.filter_map do |line|
       next if line.compact.size != 5
-      next if line[2..4].all? { _1 == "..." }
+      next if line[2..4].all?("...")
 
       {
         year: line[0],

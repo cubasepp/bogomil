@@ -1,17 +1,17 @@
 <div class="background-primary fixed top-16 left-0 z-20 w-64 h-full transition-transform duration-500 transform lg:translate-x-0 -translate-x-full" data-ui-target="navigation">
   <div class="relative flex flex-col h-full p-5 border-r border-color-primary">
-    <ul class="space-y-2 font-medium">
-        <li>
-          <%= link_to index_rent_calculators_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" do %>
-            <%= icon("document", css: "w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white") %>
-            <span class="ms-3">
-              <%= I18n.t(:'navigation.link.index_rent_calculator') %>
-            </span>
-          <% end %>
-        </li>
+    <ul class="space-y-2 font-medium divide-y divide-gray-200 dark:divide-gray-700">
+      <li>
+        <%= link_to index_rent_calculators_path, class: "flex items-center justify-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" do %>
+          <%= icon("document", css: "w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white") %>
+          <span class="ms-3 text-center">
+            <%= I18n.t(:'navigation.link.index_rent_calculator') %>
+          </span>
+        <% end %>
+      </li>
       <% if signed_in? %>
-        <li>
-          <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete, class: "btn-red" %>
+        <li class="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+          <%= button_to I18n.t("buttons.session.destroy"), session_path, method: :delete, class: "btn-red w-full text-center" %>
         </li>
       <% end %>
     </ul>
