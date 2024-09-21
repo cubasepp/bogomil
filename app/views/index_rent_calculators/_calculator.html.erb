@@ -1,10 +1,10 @@
-<%= simple_form_for :calculator, url: :calculates_consumer_indicies, wrapper: :plain, data: { consumer_indicies_target: "calculatorForm" } do |f| %>
+<%= simple_form_for :calculator, wrapper: :plain, data: { index_rent_calculator_target: "calculatorForm" } do |f| %>
   <div class="flex justify-center items-center font-mono">
     <div class="flex before:content-['('] before:text-8xl after:content-[')'] after:text-8xl before:text-blue-400 after:text-blue-400">
       <div class="flex flex-col justify-center items-center">
         <div class="pt-2">
-          <%= turbo_frame_tag :new_index, data: { consumer_indicies_target: "indexFrame", frame_id: "newIndex" } do %>
-            <%= f.input :new_index, input_html: { class: "hidden", data: { consumer_indicies_target: "calculatorNewIndex" } } %>
+          <%= turbo_frame_tag :new_index, data: { index_rent_calculator_target: "indexFrame", frame_id: "newIndex" } do %>
+            <%= f.input :new_index, input_html: { class: "hidden", data: { index_rent_calculator_target: "calculatorNewIndex" } } %>
             000.00
           <% end %>
         </div>
@@ -12,8 +12,8 @@
           <hr class="h-1 mx-auto m-3 bg-blue-200 border-0 rounded">
         </div>
         <div class="pb-2">
-          <%= turbo_frame_tag :old_index, data: { consumer_indicies_target: "indexFrame", frame_id: "oldIndex" } do %>
-            <%= f.input :old_index, input_html: { class: "hidden", data: { consumer_indicies_target: "calculatorOldIndex" } } %>
+          <%= turbo_frame_tag :old_index, data: { index_rent_calculator_target: "indexFrame", frame_id: "oldIndex" } do %>
+            <%= f.input :old_index, input_html: { class: "hidden", data: { index_rent_calculator_target: "calculatorOldIndex" } } %>
             000.00
           <% end %>
         </div>

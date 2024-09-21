@@ -6,11 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :spread_sheets
-  resources :consumer_indicies, only: [:index, :show] do
-    collection do
-      post :calculates, to: "consumer_indicies#calculate"
-    end
-  end
+  resources :index_rent_calculators, only: [:index, :show, :create]
 
   resource :session, only: [:new, :create, :destroy]
 

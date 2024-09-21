@@ -1,10 +1,10 @@
 <div class="flex flex-col">
-  <div class="flex snap-x snap-mandatory overflow-hidden" data-consumer-indicies-target="snapContainer">
+  <div class="flex snap-x snap-mandatory overflow-hidden" data-index-rent-calculator-target="snapContainer">
     <% grouped_consumer_indicies.each do |frame_id, consumer_indicies| %>
       <div class="box-default snap-center ml-4 w-full flex-wrap shrink-0">
         <div>
           <div class="text-3xl mb-6 border-l-4 pl-2 border-blue-400 font-mono">
-            <%= t("consumer_index.selection.#{frame_id}.description_html") %>
+            <%= t("index_rent_calculator.selection.#{frame_id}.description_html") %>
           </div>
         </div>
         <div class="flex flex-wrap m-2 gap-1">
@@ -29,9 +29,9 @@
         disabled: true,
         data: {
           frame_id: lower_camelize(frame_id),
-          action: "click->consumer-indicies#toggleSnap",
-          consumer_indicies_target: "btn" }) do %>
-          <%= t("consumer_index.btn.snap.#{frame_id}") %>
+          action: "click->index-rent-calculator#toggleSnap",
+          index_rent_calculator_target: "btn" }) do %>
+          <%= t("index_rent_calculator.btn.snap.#{frame_id}") %>
         <% end %>
       <% end %>
   </div>

@@ -1,0 +1,7 @@
+<%= frame_id =  turbo_frame_request_id %>
+<%= turbo_frame_tag frame_id do %>
+  <%= text_field :calculator, frame_id, class: "hidden", value: @consumer_index.index, data: {
+    index_rent_calculator_target: lower_camelize("calculator_#{frame_id}")
+  } %>
+  <%= @consumer_index.index %>
+<% end %>

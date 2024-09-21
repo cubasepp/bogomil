@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ConsumerIndiciesHelper
+module IndexRentCalculatorsHelper
   def lower_camelize(value)
     value&.to_s&.camelize(:lower)
   end
@@ -11,7 +11,7 @@ module ConsumerIndiciesHelper
       disabled:,
       class: "hidden peer",
       data: {
-        "action": "click->consumer-indicies#selectBadge",
+        "action": "click->index-rent-calculator#selectBadge",
         "type": type,
         "frame-id": lower_camelize(frame_id),
       },
@@ -22,7 +22,7 @@ module ConsumerIndiciesHelper
         content_tag(:div, label, class: "w-full text-lg font-semibold")
       end,
       for: "#{element_id}_#{value}",
-      class: "consumer-index-selection-badge dark:peer-checked:text-blue-500 \
+      class: "index-rent-calculator-selection-badge dark:peer-checked:text-blue-500 \
       peer-checked:border-blue-600 peer-checked:text-blue-600".squish,
     )
     content_tag(:div) do

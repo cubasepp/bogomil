@@ -1,8 +1,0 @@
-<% if frame_id = @frame_ids.find { _1  == @frame_id } %>
-  <%= turbo_frame_tag frame_id do %>
-    <%= text_field :calculator, frame_id, class: "hidden", value: @consumer_index.index, data: {
-      consumer_indicies_target: lower_camelize("calculator_#{frame_id}")
-    } %>
-    <%= @consumer_index.index %>
-  <% end %>
-<% end %>

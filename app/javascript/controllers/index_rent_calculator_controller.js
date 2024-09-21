@@ -10,7 +10,7 @@ export default class extends Controller {
   ];
 
   initialize() {
-    this.path = "/consumer_indicies/";
+    this.path = "/index_rent_calculators/";
     this.indexData = {
       oldIndex: {
         year: null,
@@ -86,8 +86,7 @@ export default class extends Controller {
   #fetchIndex(frameId, data) {
     this.indexFrameTargets.forEach((indexFrame) => {
       if (indexFrame.dataset.frameId === frameId) {
-        indexFrame.src =
-          this.path + this.#indexId(data) + "?frame_id=" + frameId;
+        indexFrame.src = this.path + this.#indexId(data);
       }
     });
   }

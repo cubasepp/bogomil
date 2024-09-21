@@ -12,8 +12,8 @@ en:
       destroyed: "Sucesfully signed out."
   navigation:
     link:
-      consumer_index: "Rent Calculator"
-  consumer_index:
+      index_rent_calculator: "Rent Calculator"
+  index_rent_calculator:
     selection:
       new_index:
         description_html: "Calculate rent adjustment to."
@@ -23,6 +23,7 @@ en:
       snap:
         new_index: "Prev"
         old_index: "Next"
+  consumer_index:
     chart:
       title: "Consumer Index Chart"
       xtitle: "Date"
