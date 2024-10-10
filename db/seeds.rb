@@ -7,17 +7,6 @@ user = User.create(
   password_confirmation: "sesam1234!",
 )
 
-FinanceSheet.create(
-  name: "My first FinanceSheet",
-  description: "TBD:",
-  user:,
-)
-ConsumerIndexSheet.create(
-  name: "My ConsumerIndexSheet",
-  description: "TBD:",
-  public: true,
-)
-
 current_date = Date.current
 consumer_indicies_data = [
   [current_date.years_ago(2).year, (1..12)],

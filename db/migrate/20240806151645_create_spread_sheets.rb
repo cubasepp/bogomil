@@ -7,7 +7,7 @@ class CreateSpreadSheets < ActiveRecord::Migration[7.1]
       t.text(:description)
       t.belongs_to(:user)
       t.boolean(:public, default: false)
-      t.string(:type)
+      t.references(:spread_sheetable, polymorphic: true, null: false)
 
       t.timestamps
     end

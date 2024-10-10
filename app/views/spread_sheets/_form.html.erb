@@ -1,7 +1,0 @@
-<%= simple_form_for(@spread_sheet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :type, collection: SpreadSheet.types %>
-
-  <%= f.button :submit %>
-<% end %>
