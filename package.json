@@ -1,6 +1,15 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.10",
+    "chart.js": "^4.4.4",
+    "chartkick": "^5.0.1"
+  },
   "devDependencies": {
+    "daisyui": "^4.12.13",
     "prettier": "3.3.3"
+  },
+  "scripts": {
+    "build": "bun bun.config.js"
   }
 }

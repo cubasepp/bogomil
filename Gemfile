@@ -6,7 +6,6 @@ ruby "3.3.0"
 
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
-gem "importmap-rails"
 gem "jbuilder"
 gem "puma", ">= 5.0"
 gem "rails", "~> 7.1.3", ">= 7.1.3.3"
@@ -39,3 +38,5 @@ end
 group :development do
   gem "web-console"
 end
+
+gem "jsbundling-rails", "~> 1.3"

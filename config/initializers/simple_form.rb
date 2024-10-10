@@ -4,7 +4,7 @@ SimpleForm.setup do |config|
   config.wrappers(
     :default,
     tag: "div",
-    class: :"form mb-5",
+    class: :"form-control",
     error_class: :"form-field-errors",
   ) do |b|
     b.use(:html5)
@@ -18,8 +18,8 @@ SimpleForm.setup do |config|
 
     b.optional(:readonly)
 
-    b.use(:label, class: "form-label", error_class: :error)
-    b.use(:input, class: "form-input", error_class: :error)
+    b.use(:label, class: "label", error_class: :error)
+    b.use(:input, class: "input input-bordered", error_class: :error)
     b.use(:error, wrap_with: { tag: :p, class: :error })
   end
 

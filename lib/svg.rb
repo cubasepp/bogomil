@@ -47,6 +47,18 @@ class Svg
       end
     end
 
+    def x_circle(options = {})
+      svg(options) do
+        "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+      end
+    end
+
+    def check_circle(options = {})
+      svg(options) do
+        "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+      end
+    end
+
     private
 
     def svg(options = {}, &block)

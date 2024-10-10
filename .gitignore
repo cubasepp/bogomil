@@ -41,3 +41,5 @@
 /vendor/bundle
 bun.lockb
 node_modules
+
+/node_modules

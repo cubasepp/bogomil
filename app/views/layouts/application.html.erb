@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html data-controller="ui" data-ui-target="root" class="">
+<html data-controller="ui" data-ui-target="root" data-theme="retro">
   <head>
     <title>Bogomil</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
   </head>
 
 
-  <body class="background-secondary">
-    <%= render "layouts/header" %>
-    <div class="flex p-4 overflow-hidden">
-      <%= render "layouts/navigation" %>
-      <div class="relative duration-500 overflow-y-auto transition-[margin] transform lg:ml-64"
-           data-ui-target="content">
-        <%= yield %>
+  <body class="">
+    <div class="drawer lg:drawer-open">
+      <input id="main-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content">
+        <%= render "layouts/header" %>
+        <!-- Page content here -->
+        <div class="max-w-[100vw] px-6 pb-16 xl:pr-2">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="drawer-side">
+        <%= render "layouts/navigation" %>
       </div>
     </div>
+
   </body>
 </html>

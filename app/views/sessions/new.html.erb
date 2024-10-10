@@ -1,12 +1,9 @@
-<div class="max-w-screen-xl items-center mx-auto box-default">
-  <div class="p-6 space-y-4 ">
-    <h1 class="text-xl font-bold leading-tight tracking-tight">
-      Sign in to your account
-    </h1>
-    <%= simple_form_for :session, url: session_url do |f| %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
+<div class="card-body">
+  <%= simple_form_for :session, url: session_url do |f| %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <div class="form-control mt-6">
+      <%= f.button :submit, I18n.t('buttons.session.new'), class: "mt-4 btn btn-primary" %>
+    </div>
+  <% end %>
 </div>

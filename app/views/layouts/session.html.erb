@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html data-controller="ui" data-ui-target="root" class="">
+<html data-controller="ui" data-ui-target="root" data-theme="retro">
   <head>
     <title>Bogomil</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
   </head>
 
-  <body class="background-secondary">
+  <body class="">
     <%= render "layouts/header" %>
 
-    <div class="relative w-full h-full overflow-y-auto p-4 bg-secondary">
+    <div class="hero bg-base-200 min-h-screen">
+      <div class="hero-content flex-col">
         <%= render "shared/flash_message" %>
-        <%= yield %>
-    </div>
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-bold">Login now!</h1>
+        </div>
+        <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <%= yield %>
+        </div>
+      </div>
   </body>
 </html>
