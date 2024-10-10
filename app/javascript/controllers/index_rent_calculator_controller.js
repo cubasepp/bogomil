@@ -10,7 +10,7 @@ export default class extends Controller {
   ];
 
   initialize() {
-    this.path = "/index_rent_calculators/";
+    this.path = "/calculator/";
     this.indexData = {
       oldIndex: {
         year: null,

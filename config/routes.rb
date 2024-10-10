@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get :consumer_indicies, to: "charts#consumer_indicies", as: :consumer_index_chart
   end
 
-  resources :index_rent_calculators, only: [:index, :show, :create]
+  resources :index_rent_calculators, path: "calculator", only: [:index, :show, :create]
 
   resource :session, only: [:new, :create, :destroy]
 

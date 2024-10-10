@@ -8,7 +8,7 @@ RSpec.describe("IndexRentCalculators", type: :request) do
     sign_in(user)
   end
 
-  describe "GET /index_rent_calcuators" do
+  describe "GET /calculator" do
     it "renders index" do
       get(index_rent_calculators_url)
 
@@ -16,7 +16,7 @@ RSpec.describe("IndexRentCalculators", type: :request) do
     end
   end
 
-  describe "GET /index_rent_calcuators/:id" do
+  describe "GET /calculator/:id" do
     let(:consumer_index) { FactoryBot.create(:consumer_index) }
     let(:consumer_index_id) { consumer_index.id.join("-") }
 
@@ -45,7 +45,7 @@ RSpec.describe("IndexRentCalculators", type: :request) do
     end
   end
 
-  describe "POST /index_rent_calcuators/calculate" do
+  describe "POST /calculator/calculate" do
     context "valid input" do
       it "renders calculate as turbo_stream" do
         post(
