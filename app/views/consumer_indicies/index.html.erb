@@ -1,0 +1,27 @@
+<div class="overflow-x-auto bg-base-300 rounded-lg">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Year</th>
+        <th>Month</th>
+        <th>Index</th>
+        <th>Prev Month</th>
+        <th>Prev Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @consumer_indicies.each do |consumer_index| %>
+        <tr>
+          <td></td>
+          <td><%= consumer_index.year %></td>
+          <td><%= consumer_index.month %></td>
+          <td><%= consumer_index.index %></td>
+          <td><%= consumer_index.previous_month %></td>
+          <td><%= consumer_index.previous_year %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,53 @@
+<% [{
+    key: :old_index,
+    start_year: @prev_year,
+    end_year: @min_year,
+    max_month: 12,
+  }, {
+    key: :new_index,
+    start_year: @current.year,
+    end_year: @current.year,
+    max_month: @current.month,
+  }].each do |type| %>
+  <% target = type[:key].to_s.camelcase(:lower) %>
+
+  <div class="flex items-center justify-center">
+    <div class="card bg-base-100 w-auto lg:w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">
+          <%= I18n.t("calculator.label.#{type[:key]}.description") %>
+        </h2>
+        <%= select_year(
+          99,
+          {
+            prompt: I18n.t("calculator.label.select.year"),
+              field_name: type[:key],
+              prefix: :year,
+              start_year: type[:start_year],
+              end_year: type[:end_year]
+            },
+            {
+              class: "select select-bordered w-full max-w-xs",
+              data: {
+                next: true,
+                action: "calculator#select",
+                calculator_target: target
+              }
+            }
+          ) %>
+          <%= select_tag(
+            "month[#{type[:key]}]",
+            options_for_select((1..type[:max_month]).map { |month| [I18n.t("date.month_names")[month], month] }),
+            class: "select select-bordered w-full max-w-xs",
+            disabled: true,
+            prompt: I18n.t("calculator.label.select.month"),
+            id: "month_#{type[:key]}",
+            data: {
+              action: "calculator#select",
+              calculator_target: target
+            }
+          ) %>
+      </div>
+    </div>
+  </div>
+<% end %>

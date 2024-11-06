@@ -2,10 +2,10 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import IndexRentCalculatorController from "./index_rent_calculator_controller"
-application.register("index-rent-calculator", IndexRentCalculatorController)
+import CalculatorController from "./calculator_controller";
+application.register("calculator", CalculatorController);
 
-import UiController from "./ui_controller"
-application.register("ui", UiController)
+import UiController from "./ui_controller";
+application.register("ui", UiController);

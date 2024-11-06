@@ -12,7 +12,7 @@
 
 
   <body class="">
-    <div class="drawer lg:drawer-open">
+    <div class="drawer md:drawer-open">
       <input id="main-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content">
         <%= render "layouts/header" %>
@@ -21,7 +21,7 @@
           <%= yield %>
         </div>
       </div>
-      <div class="drawer-side">
+      <div class="drawer-side z-40">
         <%= render "layouts/navigation" %>
       </div>
     </div>

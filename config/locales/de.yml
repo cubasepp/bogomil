@@ -1,4 +1,21 @@
-en:
+de:
+  date:
+    month_names:
+      [
+        ~,
+        Januar,
+        Februar,
+        März,
+        April,
+        Mai,
+        Juni,
+        Juli,
+        August,
+        September,
+        Oktober,
+        November,
+        Dezember,
+      ]
   app:
     title: "mv-web.net"
   errors:
@@ -16,17 +33,13 @@ en:
       consumer_index: "Consumer Index"
   calculator:
     label:
-      percent: "Percent"
-      percentage_points: "Percentage points"
       select:
         month: "Select month"
         year: "Select year"
       new_index:
         description: "Calculate rent adjustment to."
-        title: "New index"
       old_index:
         description: "Last rent adjustment."
-        title: "Old index"
     btn:
       snap:
         new_index: "Prev"
