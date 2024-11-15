@@ -1,53 +1,56 @@
-<% [{
-    key: :old_index,
-    start_year: @prev_year,
-    end_year: @min_year,
-    max_month: 12,
-  }, {
-    key: :new_index,
-    start_year: @current.year,
-    end_year: @current.year,
-    max_month: @current.month,
-  }].each do |type| %>
-  <% target = type[:key].to_s.camelcase(:lower) %>
-
+<% if calculator_data.nil? %>
   <div class="flex items-center justify-center">
     <div class="card bg-base-100 w-auto lg:w-96 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title">
-          <%= I18n.t("calculator.label.#{type[:key]}.description") %>
-        </h2>
-        <%= select_year(
-          99,
-          {
-            prompt: I18n.t("calculator.label.select.year"),
-              field_name: type[:key],
+        <%= I18n.t("calculator.label.no_data") %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <% calculator_data.each do |key, values| %>
+    <% target = key.to_s.camelcase(:lower) %>
+    <div class="flex items-center justify-center">
+      <div class="card bg-base-100 w-auto lg:w-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">
+            <%= I18n.t("calculator.label.#{key}.description") %>
+          </h2>
+          <%= select_year(
+            99,
+            {
+              prompt: I18n.t("calculator.label.select.year"),
+              field_name: key,
               prefix: :year,
-              start_year: type[:start_year],
-              end_year: type[:end_year]
+              start_year: values[:from],
+              end_year: values[:to],
             },
             {
               class: "select select-bordered w-full max-w-xs",
               data: {
                 next: true,
                 action: "calculator#select",
-                calculator_target: target
-              }
-            }
+                calculator_target: target,
+              },
+            },
           ) %>
+          <% month_selector =
+            (1..values[:months]).map do |month|
+              [I18n.t("date.month_names")[month], month]
+            end %>
           <%= select_tag(
-            "month[#{type[:key]}]",
-            options_for_select((1..type[:max_month]).map { |month| [I18n.t("date.month_names")[month], month] }),
+            "month[#{key}]",
+            options_for_select(month_selector),
             class: "select select-bordered w-full max-w-xs",
             disabled: true,
             prompt: I18n.t("calculator.label.select.month"),
-            id: "month_#{type[:key]}",
+            id: "month_#{key}",
             data: {
               action: "calculator#select",
-              calculator_target: target
-            }
+              calculator_target: target,
+            },
           ) %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

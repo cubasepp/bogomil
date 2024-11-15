@@ -16,6 +16,7 @@ en:
       consumer_index: "Consumer Index"
   calculator:
     label:
+      no_data: "No data"
       percent: "Percent"
       percentage_points: "Percentage points"
       select:

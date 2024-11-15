@@ -1,6 +1,6 @@
 <div class="flex w-full flex-col" data-controller="calculator">
   <div class="card bg-base-300 rounded-box min-h-20 p-2 grid md:grid-rows-3 md:grid-flow-col gap-4">
-    <%= render "selection" %>
+    <%= render "selection", calculator_data: @calculator_data %>
     <div class="row-span-1 md:row-span-2 flex items-center justify-center">
       <%= simple_form_for :calculator, url: calculator_url, data: { calculator_target: "calculate" } do |f| %>
         <%= f.input :old_index, as: :hidden, input_html: { data: { calculator_target: "oldIndex" } } %>

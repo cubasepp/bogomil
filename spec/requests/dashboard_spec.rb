@@ -8,7 +8,7 @@ RSpec.describe("Dashboards", type: :request) do
       get "/"
       expect(response).to(redirect_to(new_session_path))
       follow_redirect!
-      assert_select "h1", text: "Sign in to your account"
+      assert_select "h1", text: "Login now!"
     end
 
     it "returns http success" do

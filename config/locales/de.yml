@@ -33,6 +33,7 @@ de:
       consumer_index: "Consumer Index"
   calculator:
     label:
+      no_data: "No data"
       select:
         month: "Select month"
         year: "Select year"
