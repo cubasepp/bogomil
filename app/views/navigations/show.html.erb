@@ -1,0 +1,21 @@
+<div class="drawer-side z-40">
+  <div class="bg-base-200 min-h-full w-64">
+    <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+
+    <div class="p-4">
+      <%= render "navigations/static_links" %>
+
+      <hr class="my-4 border-base-content/20">
+
+      <%= turbo_frame_tag :quick_menu do %>
+        <%= render "navigations/quick_menu" %>
+      <% end %>
+
+      <hr class="my-4 border-base-content/20">
+
+      <%= turbo_frame_tag :sidebar do %>
+        <%= render "navigations/sidebar" %>
+      <% end %>
+    </div>
+  </div>
+</div>

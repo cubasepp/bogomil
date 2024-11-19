@@ -7,24 +7,26 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
+    <%= javascript_include_tag "application",
+    "data-turbo-track": "reload",
+    type: "module",
+    defer: true %>
   </head>
-
 
   <body class="">
     <div class="drawer md:drawer-open">
-      <input id="main-drawer" type="checkbox" class="drawer-toggle" />
+      <input id="main-drawer" type="checkbox" class="drawer-toggle"/>
+      <!-- Drawer -->
+      <%= render template: "navigations/show" %>
+
       <div class="drawer-content">
+        <!-- Header content TODO: Content For -->
         <%= render "layouts/header" %>
         <!-- Page content here -->
         <div class="max-w-[100vw] px-6 pb-16 xl:pr-2">
           <%= yield %>
         </div>
       </div>
-      <div class="drawer-side z-40">
-        <%= render "layouts/navigation" %>
-      </div>
     </div>
-
   </body>
 </html>
