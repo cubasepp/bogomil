@@ -1,0 +1,8 @@
+<%= turbo_stream.update "quick_menu" do %>
+  <% link_to I18n.t("button.new"),
+  new_collection_path(format: :turbo_stream),
+  class: "btn btn-primary w-full",
+  data: {
+    turbo: true,
+  } %>
+<% end %>

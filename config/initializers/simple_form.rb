@@ -19,15 +19,16 @@ SimpleForm.setup do |config|
     b.optional(:readonly)
 
     b.use(:label, class: "label", error_class: :error)
-    b.use(:input, class: "input input-bordered", error_class: :error)
-    b.use(:error, wrap_with: { tag: :p, class: :error })
+    b.use(:input, class: "input input-bordered", error_class: "input-error")
+    b.use(:error, wrap_with: { tag: :p, class: "text-error" })
   end
 
   config.wrappers(
-    :plain,
+    :inline,
   ) do |b|
     b.use(:placeholder)
-    b.use(:input)
+    b.use(:input, class: "input input-bordered", error_class: "input-error")
+    b.use(:error, wrap_with: { tag: :p, class: "text-error" })
   end
 
   config.default_wrapper = :default

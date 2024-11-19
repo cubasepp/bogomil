@@ -2,12 +2,11 @@
 
 FactoryBot.define do
   factory :membership do
-    user { associaction :user, :admin }
-    role { "owner" }
-    accessable { nil }
+    user { association :user, :admin }
+    role { "viewer" }
 
-    trait :viewer do
-      role { "viewer" }
+    trait :owner do
+      role { "owner" }
     end
   end
 end

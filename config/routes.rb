@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resource :calculator, only: [:show, :create]
   resources :consumer_indicies, only: [:index, :show]
 
+  resources :collections
+
   get "up" => "rails/health#show", as: :rails_health_check
   root "dashboard#index"
 end

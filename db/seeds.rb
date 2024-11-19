@@ -25,3 +25,5 @@ consumer_indicies_data = [
   end
 end
 ConsumerIndex.create(consumer_indicies_data)
+
+Collection.create(name: "Mustermann", membership: Membership.new(user:))

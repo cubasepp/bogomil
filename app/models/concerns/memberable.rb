@@ -13,15 +13,11 @@ module Memberable
 
   class_methods do
     def accessable(user: Current.user)
-      # TODO:
+      user.public_send(model_name.collection)
     end
   end
 
-  def viewer?(user: Current.user)
-    memberships_for&.viewer?
-  end
-
-  def owner?(user: Current.user)
+  def can_manage?(user: Current.user)
     memberships_for&.owner?
   end
 

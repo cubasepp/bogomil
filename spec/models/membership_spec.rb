@@ -7,4 +7,12 @@ RSpec.describe(Membership, type: :model) do
     it { should belong_to(:user) }
     it { should belong_to(:memberable) }
   end
+
+  describe "enum" do
+    it {
+      should define_enum_for(:role).with_values(
+        ["owner", "viewer"].index_by(&:itself),
+      ).with_default("owner").backed_by_column_of_type(:string)
+    }
+  end
 end

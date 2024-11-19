@@ -3,6 +3,7 @@
   <head>
     <title>Bogomil</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-prefetch" content="false">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -16,9 +17,6 @@
   <body class="">
     <div class="drawer md:drawer-open">
       <input id="main-drawer" type="checkbox" class="drawer-toggle"/>
-      <!-- Drawer -->
-      <%= render template: "navigations/show" %>
-
       <div class="drawer-content">
         <!-- Header content TODO: Content For -->
         <%= render "layouts/header" %>
@@ -27,6 +25,8 @@
           <%= yield %>
         </div>
       </div>
+      <!-- Drawer -->
+      <%= render template: "navigations/show" %>
     </div>
   </body>
 </html>

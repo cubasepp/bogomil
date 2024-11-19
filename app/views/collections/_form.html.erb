@@ -1,0 +1,7 @@
+<%= simple_form_for(@collection, wrapper: :inline, data: { turbo: format == :turbo_stream }) do |f| %>
+  <%= f.input :name, input_html: { class: "w-full" } %>
+  <%= link_to I18n.t("button.back"),
+  collections_path(format: format),
+  class: "btn btn-secondary w-full mt-2" %>
+  <%= f.button :submit, class: "btn btn-primary w-full mt-2" %>
+<% end %>

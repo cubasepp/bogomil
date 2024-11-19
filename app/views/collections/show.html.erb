@@ -1,0 +1,18 @@
+<%= render "shared/default_box", title: I18n.t("collection.headline.show") do %>
+
+  <%= @collection.name %>
+
+  <div class="card-actions justify-end">
+    <%= link_to I18n.t("button.destroy"),
+    collection_path(@collection),
+    class: "btn btn-secondary",
+    data: {
+      turbo_confirm: I18n.t("turbo.confirm.destroy"),
+      turbo_method: :delete,
+    } %>
+
+    <%= link_to I18n.t("button.edit"),
+    edit_collection_path(@collection),
+    class: "btn btn-primary" %>
+  </div>
+<% end %>

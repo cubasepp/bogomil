@@ -1,0 +1,16 @@
+en:
+  button:
+    new: "New"
+    update: "Update"
+    edit: "Edit"
+    create: "Create"
+    destroy: "Destroy"
+    back: Back
+    session:
+      new: Sign in
+      destroy: Sign out
+  helpers:
+    submit:
+      collection:
+        update: "Update"
+        create: "Create"
