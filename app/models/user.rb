@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :spread_sheets, dependent: :destroy
+  has_many :memberships, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
 
