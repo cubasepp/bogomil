@@ -8,7 +8,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "jbuilder"
 gem "puma", ">= 5.0"
-gem "rails", "~> 7.1.3", ">= 7.1.3.3"
+gem "rails", "~> 7.2"
 gem "sprockets-rails"
 gem "sqlite3", "~> 1.4"
 gem "stimulus-rails"
@@ -29,10 +29,10 @@ group :development, :test do
   gem "dotenv"
   gem "factory_bot_rails"
   gem "faker"
-  gem "rspec-rails", "~> 6.0.0"
+  gem "rspec-rails", "~> 6"
   gem "rubocop-rails", require: false
   gem "rubocop-shopify", require: false
-  gem "shoulda-matchers", "~> 6.0"
+  gem "shoulda-matchers", "~> 6"
 end
 
 group :development do
