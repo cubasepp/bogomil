@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ConsumerIndexJob < ApplicationJob
-  self.queue_adapter = :solid_queue
   queue_as :default
 
   def perform(time: Time.zone.now)

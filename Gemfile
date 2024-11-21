@@ -29,7 +29,7 @@ group :development, :test do
   gem "dotenv"
   gem "factory_bot_rails"
   gem "faker"
-  gem "rspec-rails", "~> 6"
+  gem "rspec-rails", "~> 7"
   gem "rubocop-rails", require: false
   gem "rubocop-shopify", require: false
   gem "shoulda-matchers", "~> 6"
