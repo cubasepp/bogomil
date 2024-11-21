@@ -1,3 +1,7 @@
-<%= render "shared/default_box", title: I18n.t("collection.headline.new") do %>
-  <%= render "form", format: :html %>
+<%= turbo_frame_tag "wrapper_collection" do %>
+  <%= turbo_frame_tag dom_id(Collection.new) do %>
+    <%= render "shared/default_box", title: I18n.t("collection.headline.new") do %>
+      <%= render "form" %>
+    <% end %>
+  <% end %>
 <% end %>

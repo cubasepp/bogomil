@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
   # Internal
   resource :session, only: [:new, :create, :destroy]
-  resource :navigation, only: [:show]
 
   # App
   scope :charts do
@@ -12,8 +11,12 @@ Rails.application.routes.draw do
   resource :calculator, only: [:show, :create]
   resources :consumer_indicies, only: [:index, :show]
 
-  resources :collections
+  resources :collections do
+    collection do
+      get :sidebar
+    end
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
-  root "dashboard#index"
+  root "collections#index"
 end

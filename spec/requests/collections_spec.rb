@@ -25,12 +25,6 @@ RSpec.describe("/collections", type: :request) do
       get collections_url
       expect(response).to(be_successful)
     end
-
-    it "renders a successful turbo_stream response" do
-      get collections_url, as: :turbo_stream
-      expect(response).to(be_successful)
-      expect(response.body).to(match(/action="update" target="quick_menu"/))
-    end
   end
 
   describe "GET /show" do
@@ -44,12 +38,6 @@ RSpec.describe("/collections", type: :request) do
     it "renders a successful response" do
       get new_collection_url
       expect(response).to(be_successful)
-    end
-
-    it "renders a successful turbo_stream response" do
-      get new_collection_url, as: :turbo_stream
-      expect(response).to(be_successful)
-      expect(response.body).to(match(/action="update" target="quick_menu"/))
     end
   end
 
@@ -84,7 +72,7 @@ RSpec.describe("/collections", type: :request) do
       it "redirects to create_collection as turbo_stream" do
         post collections_url, params: { collection: valid_attributes }, as: :turbo_stream
         expect(response).to(have_http_status(:ok))
-        expect(response.body).to(match(/action="redirect"/))
+        expect(response.body).to(match(/action="replace" target="wrapper_collection"/))
       end
 
       it "creates a owner membership" do
@@ -128,9 +116,9 @@ RSpec.describe("/collections", type: :request) do
           expect(response).to(redirect_to(collection_url(collection)))
         end
 
-        it "test turbo is not supported for this action" do
+        it "redirects to the collection at trubo_stream" do
           patch collection_url(collection), params: { collection: new_attributes }, as: :turbo_stream
-          expect(response.body).not_to(match("turbo_stream"))
+          expect(response).to(redirect_to(collection_url(collection)))
         end
       end
 
@@ -171,12 +159,6 @@ RSpec.describe("/collections", type: :request) do
       it "redirects to the collections list" do
         delete collection_url(collection)
         expect(response).to(redirect_to(collections_url))
-      end
-
-      it "redirects to the collections list as turbo_stream" do
-        delete collection_url(collection), as: :turbo_stream
-        expect(response).to(have_http_status(:ok))
-        expect(response.body).to(match(/action="redirect"/))
       end
     end
 

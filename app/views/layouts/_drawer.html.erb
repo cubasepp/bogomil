@@ -1,0 +1,20 @@
+<div class="drawer-side z-40">
+  <div class="bg-base-200 h-screen w-64">
+    <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+
+    <div class="p-4 space-y-4 flex flex-col h-screen">
+      <div id="wrapper_static_links">
+        <%= render "layouts/drawer/static_links" %>
+      </div>
+      <div id="wrapper_quick_menu">
+        <%= render "layouts/drawer/quick_menu" %>
+      </div>
+      <div class="flex-1 overflow-y-scroll" id="wrapper_sidebar">
+        <%= render "layouts/drawer/sidebar" %>
+      </div>
+      <div class="flex items-center justify-center" id="app_info">
+        <p class="text-sm">&copy; 2024</p>
+      </div>
+    </div>
+  </div>
+</div>

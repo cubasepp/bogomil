@@ -1,5 +1,5 @@
 <% if content_for?(:quick_menu) %>
   <%= yield :quick_menu %>
 <% else %>
-  <%= turbo_frame_tag :quick_menu, src: collections_path(format: :turbo_stream) %>
+  <%= render "layouts/sidebar/quick_menu" %>
 <% end %>

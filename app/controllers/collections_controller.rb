@@ -5,11 +5,11 @@ class CollectionsController < ApplicationController
   before_action :can_manage?, only: [:edit, :update, :destroy]
 
   def index
+  end
+
+  def sidebar
     @collections = Collection.accessable
-    respond_to do |format|
-      format.turbo_stream
-      format.html
-    end
+    render(layout: false)
   end
 
   def show
@@ -17,19 +17,6 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
-
-    respond_to do |format|
-      format.turbo_stream do
-        render(
-          turbo_stream: turbo_stream.update(
-            "quick_menu",
-            partial: "form",
-            locals: { format: :turbo_stream },
-          ),
-        )
-      end
-      format.html
-    end
   end
 
   def edit
@@ -40,20 +27,9 @@ class CollectionsController < ApplicationController
 
     respond_to do |format|
       if @collection.save
-        format.turbo_stream do
-          render(turbo_stream: turbo_stream.action(:redirect, collection_path(@collection)))
-        end
+        format.turbo_stream
         format.html { redirect_to(@collection, notice: "Collection was successfully created.") }
       else
-        format.turbo_stream do
-          render(
-            turbo_stream: turbo_stream.update(
-              "quick_menu",
-              partial: "form",
-              locals: { format: :turbo_stream },
-            ),
-          )
-        end
         format.html { render(:new, status: :unprocessable_entity) }
       end
     end
@@ -73,9 +49,6 @@ class CollectionsController < ApplicationController
     @collection.destroy!
 
     respond_to do |format|
-      format.turbo_stream do
-        render(turbo_stream: turbo_stream.action(:redirect, collections_path))
-      end
       format.html do
         redirect_to(collections_path, status: :see_other, notice: "Collection was successfully destroyed.")
       end

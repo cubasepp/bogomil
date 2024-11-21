@@ -1,5 +1,0 @@
-<% if content_for?(:sidebar) %>
-  <%= yield :sidebar %>
-<% else %>
-  <%= render "collections/collections", collections: Current.user.collections %>
-<% end %>

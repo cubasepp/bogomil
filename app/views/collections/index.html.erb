@@ -1,20 +1,2 @@
-<% content_for(:sidebar) do %>
-  <!-- Hide -->
-<% end %>
-
-<%= I18n.t("collection.headline.index") %>
-
-<div class="overflow-x-auto bg-base-300 rounded-lg">
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= I18n.t("collection.table.name") %></th>
-        <th><%= I18n.t("collection.table.action") %></th>
-      </tr>
-    </thead>
-    <tbody id="collection_table_body">
-      <%= render partial: "table_item", collection: @collections, as: :item %>
-    </tbody>
-  </table>
-</div>
+Welcome
+<%= turbo_frame_tag "wrapper_collection" %>
