@@ -42,16 +42,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_19_154220) do
     t.index(["user_id"], name: "index_memberships_on_user_id")
   end
 
-  create_table "properties", force: :cascade do |t|
-    t.string("rent_type")
-    t.string("property_type")
-    t.decimal("size")
-    t.string("size_unit")
-    t.decimal("room_count")
-    t.datetime("created_at", null: false)
-    t.datetime("updated_at", null: false)
-  end
-
   create_table "request_logs", force: :cascade do |t|
     t.text("body")
     t.text("data")
@@ -59,19 +49,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_19_154220) do
     t.integer("status_code")
     t.datetime("created_at", null: false)
     t.datetime("updated_at", null: false)
-  end
-
-  create_table "spread_sheets", force: :cascade do |t|
-    t.string("name")
-    t.text("description")
-    t.integer("user_id")
-    t.boolean("public", default: false)
-    t.string("spread_sheetable_type", null: false)
-    t.integer("spread_sheetable_id", null: false)
-    t.datetime("created_at", null: false)
-    t.datetime("updated_at", null: false)
-    t.index(["spread_sheetable_type", "spread_sheetable_id"], name: "index_spread_sheets_on_spread_sheetable")
-    t.index(["user_id"], name: "index_spread_sheets_on_user_id")
   end
 
   create_table "users", force: :cascade do |t|
