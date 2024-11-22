@@ -1,0 +1,12 @@
+<%= simple_form_for(@collection, wrapper: :inline) do |f| %>
+  <%= f.input :name, input_html: { class: "w-full" } %>
+
+  <%= link_to I18n.t("button.back"),
+  (@collection.new_record? ? collections_path : collection_path(@collection)),
+  class: "btn btn-secondary w-full mt-2",
+  data: {
+    turbo_frame: "wrapper_collection",
+  } %>
+
+  <%= f.button :submit, class: "btn btn-primary w-full mt-2" %>
+<% end %>

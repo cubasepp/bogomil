@@ -20,10 +20,9 @@ de:
     title: "mv-web.net"
   errors:
     unauthorized: "Invalid username or password."
-  buttons:
-    session:
-      new: Sign in
-      destroy: Sign out
+  turbo:
+    confirm:
+      destroy: "Are you sure?"
   messages:
     session:
       destroyed: "Sucesfully signed out."
@@ -41,10 +40,15 @@ de:
         description: "Calculate rent adjustment to."
       old_index:
         description: "Last rent adjustment."
-    btn:
-      snap:
-        new_index: "Prev"
-        old_index: "Next"
+  collection:
+    headline:
+      new: "New"
+      show: "Show"
+      edit: "Edit"
+      index: "Index"
+    table:
+      name: Name
+      action: Action
   consumer_index:
     chart:
       title: "Consumer Index Chart"

@@ -1,0 +1,33 @@
+de:
+  date:
+    month_names:
+      [
+        ~,
+        Januar,
+        Februar,
+        März,
+        April,
+        Mai,
+        Juni,
+        Juli,
+        August,
+        September,
+        Oktober,
+        November,
+        Dezember,
+      ]
+  button:
+    new: "Anlegen"
+    update: "Speichern"
+    edit: "Bearbeiten"
+    create: "Erstellen"
+    destroy: "Löschen"
+    back: Back
+    session:
+      new: Einloggen
+      destroy: Ausloggen
+  helpers:
+    submit:
+      collection:
+        update: "Speichern"
+        create: "Anlegen"

@@ -1,0 +1,25 @@
+<%# locals: (collection:) -%>
+
+<li id="<%= dom_id(collection, :sidebar) %>">
+  <details <%= collection.open %>>
+    <summary class="group">
+      <span>
+        <%= icon(:folder, css: "size-6 stroke-accent") %>
+      </span>
+      <div id="<%= dom_id(collection, :name) %>">
+        <%= collection.name %>
+      </div>
+    </summary>
+    <ul>
+      <li>
+        <%= link_to collection_path(collection),
+          css: "group",
+          data: { turbo_action: "advance", turbo_frame: "wrapper_collection" } do %>
+          <span>
+            <%= icon(:document_text, css: "size-6") %>
+          </span>
+          Settings
+        <% end %>
+      </li>
+    </ul>
+</li>
