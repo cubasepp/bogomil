@@ -1,13 +1,13 @@
 <% flash.each do |type, msg| %>
   <% if type == "alert" %>
     <div role="alert" class="alert alert-error">
-      <%= icon(:x_circle, css: "h-6 w-6 shrink-0 stroke-current") %> 
+      <%= icon(:x_circle, css: "size-6 shrink-0 stroke-current") %>
       <span><%= msg %></span>
     </div>
   <% end %>
   <% if type == "notice" %>
     <div role="alert" class="alert alert-success">
-      <%= icon(:check_circle, css: "h-6 w-6 shrink-0 stroke-current") %> 
+      <%= icon(:check_circle, css: "size-6 shrink-0 stroke-current") %>
       <span><%= msg %></span>
     </div>
   <% end %>

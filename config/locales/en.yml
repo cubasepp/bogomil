@@ -9,10 +9,6 @@ en:
   messages:
     session:
       destroyed: "Sucesfully signed out."
-  navigation:
-    link:
-      calculator: "Calculator"
-      consumer_index: "Consumer Index"
   calculator:
     label:
       no_data: "No data"

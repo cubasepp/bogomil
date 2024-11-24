@@ -1,21 +1,4 @@
 de:
-  date:
-    month_names:
-      [
-        ~,
-        Januar,
-        Februar,
-        März,
-        April,
-        Mai,
-        Juni,
-        Juli,
-        August,
-        September,
-        Oktober,
-        November,
-        Dezember,
-      ]
   app:
     title: "mv-web.net"
   errors:
@@ -26,10 +9,6 @@ de:
   messages:
     session:
       destroyed: "Sucesfully signed out."
-  navigation:
-    link:
-      calculator: "Calculator"
-      consumer_index: "Consumer Index"
   calculator:
     label:
       no_data: "No data"

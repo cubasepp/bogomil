@@ -6,7 +6,7 @@
         for="main-drawer"
         class="btn btn-square btn-ghost drawer-button md:hidden"
       >
-        <%= icon(:bars_3, css: "w-6 h-6") %>
+        <%= icon(:bars_3, css: "size-6") %>
       </label>
       <span class="btn btn-ghost text-xl"><%= t(:"app.title") %></span>
     </div>
@@ -19,8 +19,8 @@
             class="hidden"
             value="on"
           />
-          <%= icon(:sun, css: "swap-on w-6 h-6") %>
-          <%= icon(:moon, css: "swap-off w-6 h-6") %>
+          <%= icon(:sun, css: "swap-on size-6") %>
+          <%= icon(:moon, css: "swap-off size-6") %>
         </label>
       </div>
       <% if signed_in? %>

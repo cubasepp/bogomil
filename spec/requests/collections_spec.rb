@@ -69,10 +69,11 @@ RSpec.describe("/collections", type: :request) do
         post collections_url, params: { collection: valid_attributes }
         expect(response).to(redirect_to(collection_url(Collection.last)))
       end
+
       it "redirects to create_collection as turbo_stream" do
         post collections_url, params: { collection: valid_attributes }, as: :turbo_stream
         expect(response).to(have_http_status(:ok))
-        expect(response.body).to(match(/action="replace" target="wrapper_collection"/))
+        expect(response.body).to(match(/action="replace" target="main_content"/))
       end
 
       it "creates a owner membership" do

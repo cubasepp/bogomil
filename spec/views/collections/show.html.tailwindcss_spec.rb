@@ -12,8 +12,7 @@ RSpec.describe("collections/show", type: :view) do
   end
 
   it_behaves_like "a default card", 1
-  include_examples "a turbo_frame", "wrapper_collection"
-  include_examples "a turbo_frame", "collection_1"
+  include_examples "a main turbo_frame", "collection_1"
 
   it "renders the show page" do
     render

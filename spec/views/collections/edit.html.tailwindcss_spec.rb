@@ -12,15 +12,14 @@ RSpec.describe("collections/edit", type: :view) do
   end
 
   it_behaves_like "a default card"
-  include_examples "a turbo_frame", "wrapper_collection"
-  include_examples "a turbo_frame", "collection_1"
+  include_examples "a main turbo_frame", "collection_1"
 
   it "renders edit collection form" do
     render
 
     assert_select "form[action=?][method=?][id=?]", collection_path(1), "post", "edit_collection_1" do
       assert_select "input[name=?]", "collection[name]"
-      assert_select "a[href=?][data-turbo-frame=?]", collection_path(1), "wrapper_collection"
+      assert_select "a[href=?][data-turbo-frame=?]", collection_path(1), "main_content"
     end
   end
 end

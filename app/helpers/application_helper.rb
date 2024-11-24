@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def link_to_active(name = nil, options = nil, html_options = nil, &block)
-    html_options ||= {}
-    html_options[:class] = class_names(html_options&.dig(:class), { active: current_page?(options) })
-    link_to(name, options, html_options, &block)
+  def main_turbo_frame_tag(tag_id = nil, &block)
+    turbo_frame_tag :main_content do
+      turbo_frame_tag tag_id do
+        yield if block_given?
+      end
+    end
   end
 end
