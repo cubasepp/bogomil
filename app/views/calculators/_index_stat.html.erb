@@ -1,0 +1,18 @@
+<%# locals: (title: "", frame_id: "") -%>
+
+<div class="stat">
+  <div class="stat-figure text-secondary">
+    <%= icon(:hashtag, css: "inline-block size-8 stroke-current") %>
+  </div>
+  <div class="stat-title">
+    <%= title %>
+  </div>
+  <div class="stat-value text-primary">
+    <%= turbo_frame_tag frame_id, data: { calculator_target: frame_id.camelcase(:lower) } do %>
+      __
+    <% end %>
+  </div>
+  <div class="stat-desc text-secondary pt-2">
+    &nbsp;
+  </div>
+</div>

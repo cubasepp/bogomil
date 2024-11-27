@@ -1,64 +1,16 @@
-<div class="flex w-full flex-col" data-controller="calculator">
-  <div
-    class="
-      card bg-base-300 rounded-box min-h-20 p-2 grid md:grid-rows-3 md:grid-flow-col
-      gap-4
-    "
-  >
-    <%= render "selection", calculator_data: @calculator_data %>
-    <div class="row-span-1 md:row-span-2 flex items-center justify-center">
-      <%= simple_form_for :calculator, url: calculator_url, data: { calculator_target: "calculate" } do |f| %>
-        <%= f.input :old_index,
-                as: :hidden,
-                input_html: {
-                  data: {
-                    calculator_target: "oldIndex",
-                  },
-                } %>
-        <%= f.input :new_index,
-                as: :hidden,
-                input_html: {
-                  data: {
-                    calculator_target: "newIndex",
-                  },
-                } %>
+<%= main_turbo_frame_tag :calculator do %>
+  <div class="flex flex-col lg:flex-row gap-2">
+    <div class="flex flex-col space-y-2">
+      <% @frames.each do |frame| %>
+        <%= render "form",
+        turbo_frame: frame.to_s,
+        incomplete_years: @incomplete_years,
+        start_year: @start_year,
+        end_year: @end_year %>
       <% end %>
-      <div class="stats stats-vertical shadow">
-        <div class="stat w-60">
-          <div class="stat-figure text-secondary">
-            <%= icon(:hashtag, css: "inline-block size-8 stroke-current") %>
-          </div>
-          <div class="stat-title">
-            <%= I18n.t("calculator.label.new_index.title") %>
-          </div>
-          <div class="stat-value">
-            <%= turbo_frame_tag :new_index, data: { target: "newIndex", calculator_target: "frame" } do %>
-              __
-            <% end %>
-          </div>
-          <div class="stat-desc text-secondary">
-            &nbsp;
-          </div>
-        </div>
-
-        <div class="stat w-60">
-          <div class="stat-figure text-secondary">
-            <%= icon(:hashtag, css: "inline-block size-8 stroke-current") %>
-          </div>
-          <div class="stat-title">
-            <%= I18n.t("calculator.label.old_index.title") %>
-          </div>
-          <div class="stat-value">
-            <%= turbo_frame_tag :old_index, data: { target: "oldIndex", calculator_target: "frame" } do %>
-              __
-            <% end %>
-          </div>
-          <div class="stat-desc text-secondary">
-            &nbsp;
-          </div>
-        </div>
-        <%= render "result" %>
-      </div>
+    </div>
+    <div class="">
+      <%= render "result", frames: @frames %>
     </div>
   </div>
-</div>
+<% end %>

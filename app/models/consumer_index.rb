@@ -9,4 +9,8 @@ class ConsumerIndex < ApplicationRecord
   def date
     Date.new(year, month, 1)
   end
+
+  def id_as_param
+    id.join("-")
+  end
 end

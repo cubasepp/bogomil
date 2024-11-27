@@ -1,3 +1,10 @@
 <%= turbo_frame_tag "main_content" do %>
-  Welcome to the jungle
+  <div class="grid lg:grid-rows-4 lg:grid-cols-3 gap-4">
+    <div class="lg:col-span-1 lg:row-span-4">
+      Welcome!
+    </div>
+    <div class="lg:col-span-2 lg:row-span-4 flex lg:justify-center pr-4">
+      <%= turbo_frame_tag :calculator, src: calculator_path %>
+    </div>
+  </div>
 <% end %>

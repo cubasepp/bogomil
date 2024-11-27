@@ -1,0 +1,26 @@
+<%# locals: (percent: "__", percentage_points: nil) -%>
+
+<div class="stat" id="result_stat">
+  <div class="stat-figure text-secondary">
+    <%= icon(:percent_badge, css: "inline-block size-8 stroke-current") %>
+  </div>
+  <div class="stat-title">
+    <%= I18n.t("calculator.label.percent") %>
+  </div>
+  <div class="stat-value text-primary">
+    <%= percent %>
+  </div>
+  <div class="stat-desc text-secondary pt-2">
+    <span class="inline-block w-10 mr-2">
+      <% if percentage_points&.positive? %>
+        ↗︎
+        <%= percentage_points %>
+      <% elsif percentage_points&.negative? %>
+        ↘︎
+        <%= percentage_points %><% else %>
+        ____
+      <% end %>
+    </span>
+    <%= I18n.t("calculator.label.percentage_points") %>
+  </div>
+</div>

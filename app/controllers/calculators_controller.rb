@@ -2,29 +2,9 @@
 
 class CalculatorsController < ApplicationController
   def show
-    @calculator_data = ConsumerIndex.order(month: :desc)
-      .select(:year, :month)
-      .find_by(year: Date.current.year)
-      .then do |current_index|
-        next if current_index.nil?
-
-        old_index = ConsumerIndex
-          .where
-          .not(year: current_index.year)
-          .select("max(year) as from_year, min(year) as to_year").first
-        {
-          new_index: {
-            from: current_index.year,
-            to: current_index.year,
-            months: current_index.month,
-          },
-          old_index: {
-            from: old_index.from_year,
-            to: old_index.to_year,
-            months: 12,
-          },
-        }
-      end
+    @frames = [:old_index, :new_index]
+    @end_year, @start_year = ConsumerIndex.select("MIN(year), MAX(year)").pick("MIN(year)", "MAX(year)")
+    @incomplete_years = ConsumerIndex.select("year, MAX(month) as month").group(:year).having("month < 12").to_json
   end
 
   def create

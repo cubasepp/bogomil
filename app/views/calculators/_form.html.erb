@@ -1,0 +1,50 @@
+<div
+  class="
+    flex flex-col space-y-2 grow bg-base-100 min-w-60 w-full p-5 rounded-lg
+  "
+  data-controller="calculator-selection"
+  data-calculator-selection-setting-value="<%= incomplete_years %>"
+  data-calculator-selection-frame-id-value="<%= turbo_frame.camelcase(:lower) %>"
+>
+  <div>
+    <h2
+      class="
+        text-xl pl-2 my-2 border-l-4 font-bold border-primary text-base-content
+        text-opacity-60
+      "
+    >
+      <%= I18n.t("calculator.label.#{turbo_frame}.description") %>
+    </h2>
+  </div>
+  <div>
+    <%= select_year(
+      14,
+      {
+        prompt: I18n.t("calculator.label.select.year"),
+        start_year: start_year || 1970,
+        end_year: end_year || 1970,
+      },
+      {
+        class: "select select-bordered w-full max-w-xs",
+        data: {
+          calculator_selection_target: "year",
+          action: "calculator-selection#selectYear",
+        },
+      },
+    ) %>
+  </div>
+  <div>
+    <%= select_month(
+      14,
+      { prompt: I18n.t("calculator.label.select.month") },
+      {
+        class: "select select-bordered w-full max-w-xs",
+        disabled: true,
+        data: {
+          calculator_selection_target: "month",
+          action: "calculator-selection#selectMonth",
+        },
+      },
+    ) %>
+  </div>
+</div>

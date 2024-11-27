@@ -18,10 +18,10 @@ en:
         month: "Select month"
         year: "Select year"
       new_index:
-        description: "Calculate rent adjustment to."
+        description: "Calculate to"
         title: "New index"
       old_index:
-        description: "Last rent adjustment."
+        description: "Start rental"
         title: "Old index"
   collection:
     headline:
