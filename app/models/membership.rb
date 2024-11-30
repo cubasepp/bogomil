@@ -5,4 +5,6 @@ class Membership < ApplicationRecord
   belongs_to :memberable, polymorphic: true
 
   enum :role, ["owner", "viewer"].index_by(&:itself), default: "owner"
+
+  validates :user, presence: true
 end

@@ -21,15 +21,12 @@ de:
       old_index:
         description: "Start rental"
         title: "Old index"
-  collection:
+  real_estate:
     headline:
       new: "New"
       show: "Show"
       edit: "Edit"
       index: "Index"
-    table:
-      name: Name
-      action: Action
   consumer_index:
     chart:
       title: "Consumer Index Chart"

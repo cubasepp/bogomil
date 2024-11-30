@@ -12,12 +12,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_19_154220) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_30_161619) do
   create_table "collections", force: :cascade do |t|
-    t.string("name")
-    t.string("type")
+    t.string("collectable_type", null: false)
+    t.integer("collectable_id", null: false)
     t.datetime("created_at", null: false)
     t.datetime("updated_at", null: false)
+    t.index(["collectable_type", "collectable_id"], name: "index_collections_on_collectable")
   end
 
   create_table "consumer_indices", primary_key: ["year", "month"], force: :cascade do |t|
@@ -40,6 +41,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_19_154220) do
     t.datetime("updated_at", null: false)
     t.index(["memberable_type", "memberable_id"], name: "index_memberships_on_memberable")
     t.index(["user_id"], name: "index_memberships_on_user_id")
+  end
+
+  create_table "real_estates", force: :cascade do |t|
+    t.string("name")
+    t.string("address")
+    t.string("building_properties")
+    t.datetime("created_at", null: false)
+    t.datetime("updated_at", null: false)
   end
 
   create_table "request_logs", force: :cascade do |t|

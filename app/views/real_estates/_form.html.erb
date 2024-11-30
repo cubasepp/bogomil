@@ -1,8 +1,8 @@
-<%= simple_form_for(@collection, wrapper: :inline) do |f| %>
+<%= simple_form_for(@real_estate, wrapper: :inline) do |f| %>
   <%= f.input :name, input_html: { class: "w-full" } %>
 
   <%= link_to I18n.t("button.back"),
-  (@collection.new_record? ? collections_path : collection_path(@collection)),
+  back_url,
   class: "btn btn-secondary w-full mt-2",
   data: {
     turbo_frame: "main_content",

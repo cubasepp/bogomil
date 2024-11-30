@@ -3,17 +3,23 @@
 require "rails_helper"
 
 RSpec.describe("collections/index", type: :view) do
-  include_examples "a turbo_frame", "main_content"
+  before(:each) do
+    assign(
+      :collections,
+      FactoryBot.build_stubbed_list(:collection, 2) do |collection, id|
+        collection.id = id + 1
+      end,
+    )
+  end
 
-  describe "grid layout" do
-    it "renders the grid layout" do
-      render
+  include_examples "a turbo_frame", "sidebar"
 
-      assert_select "div[class=?]", "grid lg:grid-rows-4 lg:grid-cols-3 gap-4", count: 1 do
-        assert_select "div[class=?]", "lg:col-span-1 lg:row-span-4", count: 1
-        assert_select "div[class=?]", "lg:col-span-2 lg:row-span-4 flex lg:justify-center pr-4", count: 1 do
-          assert_select "turbo-frame[id=?][src=?]", "calculator", calculator_path, count: 1
-        end
+  it "renders the drawer" do
+    render
+
+    assert_select "ul[id=?]", "sidebar_list", count: 1 do
+      assert_select "li[id=?]", "sidebar_collection_1", count: 1 do
+        assert_select "div[id=?]", "name_collection_1", count: 1
       end
     end
   end

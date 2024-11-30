@@ -26,4 +26,12 @@ consumer_indicies_data = [
 end
 ConsumerIndex.create(consumer_indicies_data)
 
-Collection.create(name: "Mustermann", membership: Membership.new(user:))
+Collection.create!(collectable: RealEstate.new(
+  name: "Muster Object",
+  street: "Musterstraße 46",
+  zip_code: "81667",
+  city: "München",
+  rooms: 3,
+  size: 75,
+  membership: Membership.new(user:),
+))

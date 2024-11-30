@@ -1,0 +1,5 @@
+<%= main_turbo_frame_tag dom_id(@real_estate) do %>
+  <%= render "shared/default_box", title: I18n.t("real_estate.headline.new") do %>
+    <%= render "form", back_url: root_path %>
+  <% end %>
+<% end %>

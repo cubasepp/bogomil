@@ -1,9 +1,9 @@
-<%= main_turbo_frame_tag dom_id(@collection) do %>
-  <%= render "shared/default_box", title: I18n.t("collection.headline.show") do %>
-    <%= @collection.name %>
+<%= main_turbo_frame_tag dom_id(@real_estate) do %>
+  <%= render "shared/default_box", title: I18n.t("real_estate.headline.show") do %>
+    <%= @real_estate.name %>
     <div class="card-actions justify-end">
       <%= link_to I18n.t("button.destroy"),
-      collection_path(@collection),
+      real_estate_path(@real_estate),
       class: "btn btn-secondary",
       data: {
         turbo_confirm: I18n.t("turbo.confirm.destroy"),
@@ -12,9 +12,8 @@
       } %>
 
       <%= link_to I18n.t("button.edit"),
-      edit_collection_path(@collection),
+      edit_real_estate_path(@real_estate),
       class: "btn btn-primary" %>
-
     </div>
   <% end %>
 <% end %>

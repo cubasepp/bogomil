@@ -2,9 +2,6 @@
 
 FactoryBot.define do
   factory :collection do
-    name { Faker::Book.title }
-    type { "real_estate" }
-
-    membership { build(:membership) }
+    collectable { build(:real_estate) }
   end
 end

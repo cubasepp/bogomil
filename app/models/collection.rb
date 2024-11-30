@@ -1,13 +1,22 @@
 # frozen_string_literal: true
 
 class Collection < ApplicationRecord
-  self.inheritance_column = :_type_disabled
-  include Memberable
   include Broadcast::Collection
 
-  validates :name, presence: true
+  delegated_type :collectable, types: ["RealEstate"]
+  delegate :name, to: :collectable
 
-  enum :type, ["real_estate"].index_by(&:itself), default: "real_estate"
+  has_many :memberships,
+    foreign_key: [:memberable_type, :memberable_id],
+    primary_key: [:collectable_type, :collectable_id],
+    inverse_of: "user",
+    dependent: nil
+
+  class << self
+    def accessable(user: Current.user)
+      joins(:memberships).where(memberships: { user: })
+    end
+  end
 
   def open
     false

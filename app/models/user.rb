@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :memberships, dependent: :destroy
-  has_many :collections, through: :memberships, source: :memberable, source_type: "Collection"
+  has_many :real_estates, through: :memberships, source: :memberable, source_type: "RealEstate"
 
   validates :email, presence: true, uniqueness: true
 

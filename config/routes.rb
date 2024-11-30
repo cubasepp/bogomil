@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   resource :calculator, only: [:show, :create]
   resources :consumer_indicies, only: [:show]
 
-  resources :collections do
-    get :sidebar, on: :collection
-  end
+  resources :collections, only: [:index, :new]
+  resources :real_estates
 
   get "up" => "rails/health#show", as: :rails_health_check
-  root "collections#index"
+  root "real_estates#index"
 end
