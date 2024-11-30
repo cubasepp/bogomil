@@ -16,9 +16,14 @@
 
   <body class="">
     <!-- Drawer -->
-    <div class="drawer md:drawer-open">
+    <div class="drawer md:drawer-open" data-controller="drawer">
       <!-- Drawer Toggle -->
-      <input id="main-drawer" type="checkbox" class="drawer-toggle"/>
+      <input
+        id="main-drawer"
+        type="checkbox"
+        class="drawer-toggle"
+        data-drawer-target="toggle"
+      />
       <!-- Drawer Content -->
       <%= render "layouts/drawer_content" %>
       <!-- Drawer Side -->

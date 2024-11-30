@@ -9,7 +9,7 @@ RSpec.describe("layouts/_drawer_content", type: :view) do
     end
   end
 
-  it "renders the drawer" do
+  it "renders the drawer content" do
     render
 
     assert_select "div[id=?]", "header", count: 1

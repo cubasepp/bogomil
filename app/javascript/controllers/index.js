@@ -7,8 +7,11 @@ import { application } from "./application";
 import CalculatorController from "./calculator_controller";
 application.register("calculator", CalculatorController);
 
-import UiController from "./ui_controller";
-application.register("ui", UiController);
-
 import CalculatorSelectionController from "./calculator_selection_controller";
 application.register("calculator-selection", CalculatorSelectionController);
+
+import DrawerController from "./drawer_controller";
+application.register("drawer", DrawerController);
+
+import UiController from "./ui_controller";
+application.register("ui", UiController);

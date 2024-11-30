@@ -14,7 +14,11 @@
       <li>
         <%= link_to collection_path(collection),
           css: "group",
-          data: { turbo_action: "advance", turbo_frame: "main_content" } do %>
+          data: {
+            turbo_action: "advance",
+            turbo_frame: "main_content",
+            drawer_target: "link"
+          } do %>
           <span>
             <%= icon(:document_text, css: "size-6") %>
           </span>
