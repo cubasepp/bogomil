@@ -61,6 +61,27 @@ class RealEstatesController < ApplicationController
   end
 
   def real_estate_params
-    params.require(:real_estate).permit(:name, :street, :zip_code, :city, :rooms, :size)
+    params.require(:real_estate).permit(
+      :name,
+      :street,
+      :zip_code,
+      :city,
+      :units,
+      :space,
+      :built_at,
+      :renovated_at,
+      :energy_certificate,
+      :heating_type,
+      :heating_manufacturer,
+      :heating_designation,
+      :heating_installed_at,
+      :solar_plant_present,
+      :solar_plant_manufacturer,
+      :solar_plant_capacity,
+      :solar_plant_designation,
+      :solar_plant_battery_capacity,
+      :solar_plant_installed_at,
+      :size,
+    )
   end
 end

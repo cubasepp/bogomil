@@ -5,10 +5,10 @@ en:
     edit: "Edit"
     create: "Create"
     destroy: "Destroy"
-    back: Back
+    cancel: "Cancel"
     session:
-      new: Sign in
-      destroy: Sign out
+      new: "Sign in"
+      destroy: "Sign out"
   helpers:
     submit:
       collection:

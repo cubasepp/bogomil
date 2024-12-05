@@ -11,12 +11,14 @@ RSpec.describe("real_estates/show", type: :view) do
     assign(:real_estate, real_estate)
   end
 
-  it_behaves_like "a default card", 1
   include_examples "a main turbo_frame", "real_estate_1"
 
   it "renders the show page" do
     render
+    assert_select "div[role=?]", "tablist", count: 1 do
+      assert_select "input[name=?]", "real_estate_show", count: 3
+      assert_select "div[role=?]", "tabpanel", count: 3
+    end
     assert_select "a[href=?]", edit_real_estate_path(1), count: 1
-    assert_select "a[href=?][data-turbo-method=?][data-turbo-frame=?]", real_estate_path(1), "delete", "_top", count: 1
   end
 end

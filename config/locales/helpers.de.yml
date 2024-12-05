@@ -22,10 +22,10 @@ de:
     edit: "Bearbeiten"
     create: "Erstellen"
     destroy: "Löschen"
-    back: Back
+    cancel: "Zurück"
     session:
-      new: Einloggen
-      destroy: Ausloggen
+      new: "Einloggen"
+      destroy: "Ausloggen"
   helpers:
     submit:
       collection:

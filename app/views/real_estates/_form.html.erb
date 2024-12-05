@@ -1,12 +1,117 @@
-<%= simple_form_for(@real_estate, wrapper: :inline) do |f| %>
-  <%= f.input :name, input_html: { class: "w-full" } %>
+<%# locals: (disabled: false, cancel_url: real_estate_path(@real_estate), turbo_frame: dom_id(@real_estate)) -%>
+<%= simple_form_for(@real_estate, data: { controller: "real-estate" })  do |f| %>
+  <div class="flex flex-col gap-2">
+    <div class="flex">
+      <div class="basis-full rounded p-4 bg-base-300">
+        <%= f.input :name, required: false, disabled: %>
+      </div>
+    </div>
 
-  <%= link_to I18n.t("button.back"),
-  back_url,
-  class: "btn btn-secondary w-full mt-2",
-  data: {
-    turbo_frame: "main_content",
-  } %>
+    <div class="flex gap-2">
+      <div class="basis-1/2 rounded p-4 bg-base-300">
+        <h3 class="font-bold mb-4">
+          <%= t("real_estate.form.section.address") %>
+        </h3>
+        <%= f.input :street, required: false, disabled: %>
+        <%= f.input :zip_code, as: :integer, disabled: %>
+        <%= f.input :city, required: false, disabled: %>
+      </div>
 
-  <%= f.button :submit, class: "btn btn-primary w-full mt-2" %>
+      <div class="basis-1/2 rounded p-4 bg-base-300">
+        <h3 class="font-bold mb-4">
+          <%= t("real_estate.form.section.properties") %>
+        </h3>
+        <%= f.input :renovated_at, as: :string, disabled: %>
+        <%= f.input :built_at, as: :string, disabled: %>
+        <%= f.input :energy_certificate, as: :boolean, disabled: %>
+        <%= f.input :units, as: :integer, disabled: %>
+        <%= f.input :space, as: :integer, disabled: %>
+      </div>
+    </div>
+
+    <div class="flex gap-2">
+      <div class="basis-1/2 rounded p-4 bg-base-300">
+        <h3 class="font-bold mb-4">
+          <%= t("real_estate.form.section.heating") %>
+        </h3>
+        <%= f.input :heating_type,
+                collection:
+                  RealEstate::HEATING_TYPES.map { |type|
+                    [t("simple_form.labels.real_estate.heating_types.#{type}"), type]
+                  },
+                disabled: %>
+        <%= f.input :heating_manufacturer, as: :string, disabled: %>
+        <%= f.input :heating_designation, as: :string, disabled: %>
+        <%= f.input :heating_installed_at, as: :string, disabled: %>
+      </div>
+      <% if @real_estate.solar_plant_present? || !disabled %>
+        <div class="basis-1/2 rounded p-4 bg-base-300">
+          <h3 class="font-bold mb-4">
+            <%= t("real_estate.form.section.solar_plant") %>
+          </h3>
+          <%= unless disabled
+            f.input :solar_plant_present,
+                    as: :boolean,
+                    disabled:,
+                    input_html: {
+                      data: {
+                        action: "click->real-estate#toggleEnableDisable",
+                      },
+                    }
+          end %>
+          <%= f.input :solar_plant_manufacturer,
+                  as: :string,
+                  disabled:,
+                  input_html: {
+                    data: {
+                      "real-estate-target": "field",
+                    },
+                  } %>
+          <%= f.input :solar_plant_designation,
+                  as: :string,
+                  disabled:,
+                  input_html: {
+                    data: {
+                      "real-estate-target": "field",
+                    },
+                  } %>
+          <%= f.input :solar_plant_capacity,
+                  as: :string,
+                  disabled:,
+                  input_html: {
+                    data: {
+                      "real-estate-target": "field",
+                    },
+                  } %>
+          <%= f.input :solar_plant_battery_capacity,
+                  as: :string,
+                  disabled:,
+                  input_html: {
+                    data: {
+                      "real-estate-target": "field",
+                    },
+                  } %>
+          <%= f.input :solar_plant_installed_at,
+                  as: :string,
+                  disabled:,
+                  input_html: {
+                    data: {
+                      "real-estate-target": "field",
+                    },
+                  } %>
+        </div>
+      <% end %>
+    </div>
+
+    <% unless disabled %>
+      <%= link_to I18n.t("button.cancel"),
+      cancel_url,
+      class: "btn btn-secondary mt-2",
+      data: {
+        turbo_frame: turbo_frame,
+      } %>
+
+      <%= f.button :submit, class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
 <% end %>

@@ -10,7 +10,7 @@ RSpec.describe("layouts/_drawer_side", type: :view) do
       "main-drawer",
       "drawer-overlay",
       count: 1
-    assert_select "div[class=?]", "drawer-side z-40 h-full", count: 1
+    assert_select "div[class=?]", "drawer-side z-40", count: 1
     assert_select "div[id=?]", "wrapper_static_links", count: 1
     assert_select "div[id=?]", "wrapper_quick_menu", count: 1
     assert_select "div[id=?]", "wrapper_sidebar", count: 1
