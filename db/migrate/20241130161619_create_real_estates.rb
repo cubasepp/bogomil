@@ -5,7 +5,9 @@ class CreateRealEstates < ActiveRecord::Migration[7.2]
     create_table(:real_estates) do |t|
       t.string(:name)
       t.string(:address)
-      t.string(:building_properties)
+      t.string(:properties)
+      t.string(:heating)
+      t.string(:solar_plant)
 
       t.timestamps
     end

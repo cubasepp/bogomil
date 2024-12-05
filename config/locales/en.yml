@@ -23,12 +23,8 @@ en:
       old_index:
         description: "Start rental"
         title: "Old index"
-  real_estate:
-    headline:
-      new: "New"
-      show: "Show"
-      edit: "Edit"
-      index: "Index"
+  collection:
+    overview: "Overview"
   consumer_index:
     chart:
       title: "Consumer Index Chart"
