@@ -11,7 +11,7 @@
       </div>
     </summary>
     <ul>
-      <li>
+      <li class="mt-2">
         <%= link_to real_estate_path(collection),
           css: "group",
           data: {
@@ -22,7 +22,7 @@
           <span>
             <%= icon(:document_text, css: "size-6") %>
           </span>
-          Settings
+          <%= I18n.t("collection.overview") %>
         <% end %>
       </li>
     </ul>

@@ -1,12 +1,39 @@
-<%= simple_form_for(@real_estate, wrapper: :inline) do |f| %>
-  <%= f.input :name, input_html: { class: "w-full" } %>
+<%# locals: (disabled: false, cancel_url: real_estate_path(@real_estate)) -%>
+<%= simple_form_for(@real_estate)  do |f| %>
+  <div class="flex flex-col">
+    <div class="flex space-x-2 mb-4">
+      <div class="basis-full rounded p-4 bg-base-300">
+        <%= f.input :name, required: false, disabled: %>
+      </div>
+    </div>
 
-  <%= link_to I18n.t("button.back"),
-  back_url,
-  class: "btn btn-secondary w-full mt-2",
-  data: {
-    turbo_frame: "main_content",
-  } %>
+    <div class="flex space-x-2 ">
+      <div class="basis-1/2 rounded p-4 bg-base-300">
+        <h3 class="font-bold mb-4"># Address</h3>
+        <%= f.input :street, disabled: %>
+        <%= f.input :zip_code, as: :integer, disabled: %>
+        <%= f.input :city, disabled: %>
+      </div>
 
-  <%= f.button :submit, class: "btn btn-primary w-full mt-2" %>
+      <div class="basis-1/2 rounded p-4 bg-base-300">
+        <h3 class="font-bold mb-4"># Properties</h3>
+        <%= f.input :rooms, as: :integer, disabled: %>
+        <%= f.input :size, as: :integer, disabled: %>
+        <%= f.input :size, as: :integer, disabled: %>
+        <%= f.input :size, as: :integer, disabled: %>
+        <%= f.input :size, as: :integer, disabled: %>
+      </div>
+    </div>
+
+    <% unless disabled %>
+      <%= link_to I18n.t("button.cancel"),
+      cancel_url,
+      class: "btn btn-secondary mt-2",
+      data: {
+        turbo_frame: dom_id(@real_estate),
+      } %>
+
+      <%= f.button :submit, class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
 <% end %>

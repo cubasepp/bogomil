@@ -6,6 +6,8 @@ class Collection < ApplicationRecord
   delegated_type :collectable, types: ["RealEstate"]
   delegate :name, to: :collectable
 
+  store :user_settings, accessors: [:toggle], coder: JSON
+
   has_many :memberships,
     foreign_key: [:memberable_type, :memberable_id],
     primary_key: [:collectable_type, :collectable_id],
