@@ -1,0 +1,34 @@
+en:
+  simple_form:
+    labels:
+      real_estate:
+        heating_types:
+          heat_pump_air: "Luft Wärmepumpe"
+          heat_pump_water: "Wasser Wärmepumpe"
+          oil: "Öl"
+          gas: "Gas"
+        name: "Name"
+        heating_type: "Heating Type"
+        street: "Street"
+        zip_code: "Zip Code"
+        city: "City"
+        built_at: "Built at"
+        renovated_at: "Renovated at"
+        units: "Living units"
+        space: "Living space"
+        heating_type: "Heating Type"
+        heating_manufacturer: "Manufacturer"
+        heating_designation: "Designation"
+        heating_installed_at: "Installed at"
+        solar_plant_manufacturer: "Manufacturer"
+        solar_plant_designiation: "Designation"
+        solar_plant_capacity: "Capacity"
+        solar_plant_battery_capacity: "Battery capacity"
+        solar_plant_installed_at: "Installed at"
+  real_estate:
+    form:
+      section:
+        address: "# Address"
+        properties: "# Properties"
+        heating: "# Heating"
+        solar_plant: "# Solar plant"
