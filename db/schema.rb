@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_30_161619) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_05_155647) do
   create_table "collections", force: :cascade do |t|
     t.string("collectable_type", null: false)
     t.integer("collectable_id", null: false)
