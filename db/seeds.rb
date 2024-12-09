@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-user = User.create(
+user = User.create!(
   name: "Admin User",
   email: "admin@bogomil.io",
   password: "sesam1234!",
   password_confirmation: "sesam1234!",
 )
+Current.user = user
 
 current_date = Date.current
 consumer_indicies_data = [
@@ -33,5 +34,4 @@ Collection.create!(collectable: RealEstate.new(
   city: "München",
   rooms: 3,
   size: 75,
-  membership: Membership.new(user:),
 ))
