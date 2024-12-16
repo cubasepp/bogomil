@@ -3,9 +3,9 @@ en:
     labels:
       real_estate:
         heating_types:
-          heat_pump_air: "Luft Wärmepumpe"
-          heat_pump_water: "Wasser Wärmepumpe"
-          oil: "Öl"
+          heat_pump_air: "Air heat pump"
+          heat_pump_water: "Water heat pump"
+          oil: "Oil"
           gas: "Gas"
         name: "Name"
         heating_type: "Heating Type"
@@ -25,6 +25,11 @@ en:
         solar_plant_capacity: "Capacity"
         solar_plant_battery_capacity: "Battery capacity"
         solar_plant_installed_at: "Installed at"
+  activerecord:
+    errors:
+      models:
+        real_estate:
+          date_format: "required format: mm/yyyy"
   real_estate:
     form:
       section:
@@ -32,3 +37,7 @@ en:
         properties: "# Properties"
         heating: "# Heating"
         solar_plant: "# Solar plant"
+    tab:
+      tab_1: "Master data"
+      tab_2: "Owner"
+      tab_3: "Documents"

@@ -10,7 +10,17 @@ RSpec.describe("RealEstates", type: :request) do
   let(:real_estate) { FactoryBot.create(:real_estate, membership: membership) }
 
   let(:valid_attributes) do
-    { name: "demo" }
+    {
+      name: "demo",
+      street: "Demo Str. 4",
+      zip_code: 81667,
+      city: "München",
+      units: 3,
+      space: 80,
+      built_at: "11/1987",
+      heating_type: "oil",
+      solar_plant_present: false,
+    }
   end
 
   let(:invalid_attributes) do

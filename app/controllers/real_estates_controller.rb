@@ -78,7 +78,7 @@ class RealEstatesController < ApplicationController
       :solar_plant_present,
       :solar_plant_manufacturer,
       :solar_plant_capacity,
-      :solar_plant_designiation,
+      :solar_plant_designation,
       :solar_plant_battery_capacity,
       :solar_plant_installed_at,
       :size,

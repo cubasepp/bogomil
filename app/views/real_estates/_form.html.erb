@@ -1,4 +1,4 @@
-<%# locals: (disabled: false, cancel_url: real_estate_path(@real_estate)) -%>
+<%# locals: (disabled: false, cancel_url: real_estate_path(@real_estate), turbo_frame: dom_id(@real_estate)) -%>
 <%= simple_form_for(@real_estate)  do |f| %>
   <div class="flex flex-col gap-2">
     <div class="flex">
@@ -12,9 +12,9 @@
         <h3 class="font-bold mb-4">
           <%= t("real_estate.form.section.address") %>
         </h3>
-        <%= f.input :street, disabled: %>
+        <%= f.input :street, required: false, disabled: %>
         <%= f.input :zip_code, as: :integer, disabled: %>
-        <%= f.input :city, disabled: %>
+        <%= f.input :city, required: false, disabled: %>
       </div>
 
       <div class="basis-1/2 rounded p-4 bg-base-300">
@@ -44,18 +44,19 @@
         <%= f.input :heating_designation, as: :string, disabled: %>
         <%= f.input :heating_installed_at, as: :string, disabled: %>
       </div>
-
-      <div class="basis-1/2 rounded p-4 bg-base-300">
-        <h3 class="font-bold mb-4">
-          <%= t("real_estate.form.section.solar_plant") %>
-        </h3>
-        <%#= f.input :solar_plant_present, as: :boolean, disabled: %>
-        <%= f.input :solar_plant_manufacturer, as: :string, disabled: %>
-        <%= f.input :solar_plant_designation, as: :string, disabled: %>
-        <%= f.input :solar_plant_capacity, as: :string, disabled: %>
-        <%= f.input :solar_plant_battery_capacity, as: :string, disabled: %>
-        <%= f.input :solar_plant_installed_at, as: :string, disabled: %>
-      </div>
+      <% if @real_estate.solar_plant_present || !disabled %>
+        <div class="basis-1/2 rounded p-4 bg-base-300">
+          <h3 class="font-bold mb-4">
+            <%= t("real_estate.form.section.solar_plant") %>
+          </h3>
+          <%= f.input :solar_plant_present, as: :boolean, disabled: %>
+          <%= f.input :solar_plant_manufacturer, as: :string, disabled: %>
+          <%= f.input :solar_plant_designation, as: :string, disabled: %>
+          <%= f.input :solar_plant_capacity, as: :string, disabled: %>
+          <%= f.input :solar_plant_battery_capacity, as: :string, disabled: %>
+          <%= f.input :solar_plant_installed_at, as: :string, disabled: %>
+        </div>
+      <% end %>
     </div>
 
     <% unless disabled %>
@@ -63,16 +64,10 @@
       cancel_url,
       class: "btn btn-secondary mt-2",
       data: {
-        turbo_frame: dom_id(@real_estate),
+        turbo_frame: turbo_frame,
       } %>
 
       <%= f.button :submit, class: "btn btn-primary mt-2" %>
     <% end %>
   </div>
 <% end %>
-<div class="form-control">
-  <label class="label cursor-pointer">
-    <span class="label-text">Remember me</span>
-    <input type="checkbox" class="toggle" checked="checked"/>
-  </label>
-</div>
