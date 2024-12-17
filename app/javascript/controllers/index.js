@@ -13,5 +13,8 @@ application.register("calculator-selection", CalculatorSelectionController);
 import DrawerController from "./drawer_controller";
 application.register("drawer", DrawerController);
 
+import RealEstateController from "./real_estate_controller";
+application.register("real-estate", RealEstateController);
+
 import UiController from "./ui_controller";
 application.register("ui", UiController);
