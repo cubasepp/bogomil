@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resource :calculator, only: [:show, :create]
   resources :consumer_indicies, only: [:show]
 
-  resources :collections, only: [:index, :new]
+  resources :collections, only: [:index, :new, :update]
   resources :real_estates
 
   get "up" => "rails/health#show", as: :rails_health_check

@@ -1,9 +1,11 @@
 import { Controller } from "@hotwired/stimulus";
+import { patch } from "@rails/request.js";
 
 export default class extends Controller {
   static targets = ["root", "toggle", "link"];
   static values = {
     activeClass: { type: String, default: "active" },
+    collectionPath: { type: String, default: "/collections/" },
   };
 
   connect() {
@@ -21,6 +23,12 @@ export default class extends Controller {
     this.clearActiveClass();
     this.addActiveClass();
     this.hideToggleDrawer();
+  }
+
+  collapseToggle(event) {
+    patch(`${this.collectionPathValue}${event.params.id}`, {
+      responseKind: "turbo-stream",
+    });
   }
 
   hideToggleDrawer() {

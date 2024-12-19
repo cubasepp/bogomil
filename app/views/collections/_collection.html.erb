@@ -1,7 +1,11 @@
 <%# locals: (collection:) -%>
 
 <li id="<%= dom_id(collection, :sidebar) %>">
-  <details <%= collection.open %>>
+  <details
+    <%= collapsed?(collection) %>
+    data-action="click->drawer#collapseToggle"
+    data-drawer-id-param="<%= collection.id %>"
+  >
     <summary class="group">
       <span>
         <%= icon(:folder, css: "size-6 stroke-accent") %>
@@ -26,4 +30,5 @@
         <% end %>
       </li>
     </ul>
+  </details>
 </li>

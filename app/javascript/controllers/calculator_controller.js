@@ -48,7 +48,7 @@ export default class extends Controller {
       responseKind: "turbo-stream",
     });
   }
-  // Getter for index validation
+
   get hasValidIndices() {
     return Boolean(this.oldIndexValue) && Boolean(this.newIndexValue);
   }
