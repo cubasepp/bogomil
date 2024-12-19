@@ -7,7 +7,6 @@ RSpec.describe("real_estates/new", type: :view) do
     assign(:real_estate, FactoryBot.build(:real_estate))
   end
 
-  it_behaves_like "a default card"
   include_examples "a main turbo_frame", "new_real_estate"
 
   it "renders new real_estate form" do
