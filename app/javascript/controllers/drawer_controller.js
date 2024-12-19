@@ -26,9 +26,11 @@ export default class extends Controller {
   }
 
   collapseToggle(event) {
-    patch(`${this.collectionPathValue}${event.params.id}`, {
-      responseKind: "turbo-stream",
-    });
+    if (event.target.tagName === "SUMMARY") {
+      patch(`${this.collectionPathValue}${event.params.id}`, {
+        responseKind: "turbo-stream",
+      });
+    }
   }
 
   hideToggleDrawer() {
