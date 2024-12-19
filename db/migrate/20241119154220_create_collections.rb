@@ -3,6 +3,7 @@
 class CreateCollections < ActiveRecord::Migration[7.2]
   def change
     create_table(:collections) do |t|
+      t.string(:user_settings)
       t.references(:collectable, polymorphic: true, null: false)
 
       t.timestamps

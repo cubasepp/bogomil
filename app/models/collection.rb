@@ -5,6 +5,7 @@ class Collection < ApplicationRecord
 
   delegated_type :collectable, types: ["RealEstate"]
   delegate :name, to: :collectable
+  store :user_settings, accessors: [:collapse], coder: JSON
 
   has_many :memberships,
     foreign_key: [:memberable_type, :memberable_id],
@@ -18,7 +19,22 @@ class Collection < ApplicationRecord
     end
   end
 
-  def open
-    false
+  def collapsed_for?(user: Current.user)
+    collapse&.include?(user&.id)
+  end
+
+  def collapse
+    super || []
+  end
+
+  def toggle_collapse!(user: Current.user)
+    return if user.nil?
+
+    self.collapse = if collapse.include?(user.id)
+      collapse.reject! { |user_id| user_id == user.id }
+    else
+      collapse << user.id
+    end
+    save!
   end
 end

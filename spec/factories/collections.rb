@@ -3,5 +3,6 @@
 FactoryBot.define do
   factory :collection do
     collectable { build(:real_estate) }
+    collapse { [] }
   end
 end

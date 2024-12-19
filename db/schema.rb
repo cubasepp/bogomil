@@ -14,6 +14,7 @@
 
 ActiveRecord::Schema[7.2].define(version: 2024_12_05_155647) do
   create_table "collections", force: :cascade do |t|
+    t.string("user_settings")
     t.string("collectable_type", null: false)
     t.integer("collectable_id", null: false)
     t.datetime("created_at", null: false)
