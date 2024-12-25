@@ -24,8 +24,5 @@ module.exports = {
     darkTheme: "coffee",
     prefix: "",
   },
-  safelist: [
-    'text-error',
-    { pattern: /input-+/ },
-  ],
+  safelist: ["text-error", { pattern: /input-+/ }, { pattern: /my-+/ }],
 };
