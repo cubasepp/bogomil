@@ -27,11 +27,25 @@ consumer_indicies_data = [
 end
 ConsumerIndex.create(consumer_indicies_data)
 
-Collection.create!(collectable: RealEstate.new(
+RealEstate.create!(
   name: "Muster Object",
   street: "Musterstraße 46",
   zip_code: "81667",
   city: "München",
-  rooms: 3,
-  size: 75,
-))
+  units: 3,
+  space: 300,
+  built_at: "01/1978",
+  renovated_at: "10/2024",
+  energy_certificate: true,
+  heating_type: "heat_pump_air",
+  heating_designation: "xxx",
+  heating_manufacturer: "Stiebel Eltron",
+  heating_installed_at: "03/2024",
+  solar_plant_present: true,
+  solar_plant_manufacturer: "solis",
+  solar_plant_designation: "XXXX",
+  solar_plant_capacity: "12.8",
+  solar_plant_battery_capacity: "15",
+  solar_plant_installed_at: "03/2024",
+  membership: Membership.new(user:),
+)

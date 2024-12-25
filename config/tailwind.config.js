@@ -15,7 +15,6 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/container-queries"),
     require("daisyui"),
@@ -25,8 +24,5 @@ module.exports = {
     darkTheme: "coffee",
     prefix: "",
   },
-  safelist: [
-    'text-error',
-    { pattern: /input-+/ },
-  ],
+  safelist: ["text-error", { pattern: /input-+/ }, { pattern: /my-+/ }],
 };

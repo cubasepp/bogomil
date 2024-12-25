@@ -1,19 +1,18 @@
 <%= main_turbo_frame_tag dom_id(@real_estate) do %>
-  <%= render "shared/default_box", title: I18n.t("real_estate.headline.show") do %>
-    <%= @real_estate.name %>
-    <div class="card-actions justify-end">
-      <%= link_to I18n.t("button.destroy"),
-      real_estate_path(@real_estate),
-      class: "btn btn-secondary",
-      data: {
-        turbo_confirm: I18n.t("turbo.confirm.destroy"),
-        turbo_method: :delete,
-        turbo_frame: "_top",
-      } %>
-
+  <div role="tablist" class="tabs tabs-lifted tabs-lg">
+    <%= render "shared/tab", name: "real_estate_show", checked: true, label: t("real_estate.tab.tab_1") do %>
+      <%= render "form", disabled: true %>
       <%= link_to I18n.t("button.edit"),
       edit_real_estate_path(@real_estate),
-      class: "btn btn-primary" %>
-    </div>
-  <% end %>
+      class: "btn btn-primary w-full mt-2" %>
+    <% end %>
+
+    <%= render "shared/tab", name: "real_estate_show", label: t("real_estate.tab.tab_2") do %>
+      tab_2
+    <% end %>
+
+    <%= render "shared/tab", name: "real_estate_show", label: t("real_estate.tab.tab_3") do %>
+      tab_3
+    <% end %>
+  </div>
 <% end %>

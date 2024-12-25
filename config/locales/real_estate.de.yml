@@ -1,0 +1,43 @@
+en:
+  simple_form:
+    lablels:
+      real_estate:
+        heating_types:
+          heat_pump_air: "Luft Wärmepumpe"
+          heat_pump_water: "Wasser Wärmepumpe"
+          oil: "Öl"
+          gas: "Gas"
+        name: "Name"
+        heating_type: "Heizungs Typ"
+        street: "Staße"
+        zip_code: "Postleitzahl"
+        city: "Stadt"
+        built_at: "Baujahr"
+        renovated_at: "Zuletzt renoviert"
+        units: "Wohneinheiten"
+        space: "Wohnfläche"
+        heating_type: "Heizungsart"
+        heating_manufacturer: "Hersteller"
+        heating_designation: "Bezeichnung"
+        heating_installed_at: "Eingebaut"
+        solar_plant_manufacturer: "Hersteller"
+        solar_plant_designiation: "Bezeichnung"
+        solar_plant_capacity: "Kapazität"
+        solar_plant_battery_capacity: "Batterie Kapazität"
+        solar_plant_installed_at: "Eingebaut"
+  activerecord:
+    errors:
+      models:
+        real_estate:
+          date_format: "erforderliches Format: mm/yyyy"
+  real_estate:
+    form:
+      section:
+        address: "# Adresse"
+        properties: "# Eigenschaften"
+        heating: "# Heizung"
+        solar_plant: "# Solar Anlage"
+    tab:
+      tab_1: "Stammdaten"
+      tab_2: "Eigentümer"
+      tab_3: "Dokumente"
