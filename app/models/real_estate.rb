@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RealEstate < ApplicationRecord
-  include Memberable, Collectable
+  include Memberable, Collectable, Broadcast::RealEstate
 
   HEATING_TYPES = ["heat_pump_air", "heat_pump_water", "oil", "gas"].freeze
   DATE_FORMAT = %r{\A(0?[1-9]|1[0-2])\/\d{4}\z}

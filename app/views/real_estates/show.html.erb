@@ -1,7 +1,7 @@
 <%= main_turbo_frame_tag dom_id(@real_estate) do %>
   <div role="tablist" class="tabs tabs-lifted tabs-lg">
     <%= render "shared/tab", name: "real_estate_show", checked: true, label: t("real_estate.tab.tab_1") do %>
-      <%= render "form", disabled: true %>
+      <%= render "form", disabled: true, real_estate: @real_estate %>
       <%= link_to I18n.t("button.edit"),
       edit_real_estate_path(@real_estate),
       class: "btn btn-primary w-full mt-2" %>

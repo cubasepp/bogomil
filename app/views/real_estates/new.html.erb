@@ -1,3 +1,6 @@
 <%= main_turbo_frame_tag dom_id(@real_estate) do %>
-  <%= render "form", cancel_url: root_path, turbo_frame: "main_content" %>
+  <%= render "form",
+  cancel_url: root_path,
+  turbo_frame: "main_content",
+  real_estate: @real_estate %>
 <% end %>
