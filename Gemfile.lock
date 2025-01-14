@@ -261,6 +261,11 @@ GEM
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    solid_cable (3.0.5)
+      actioncable (>= 7.2)
+      activejob (>= 7.2)
+      activerecord (>= 7.2)
+      railties (>= 7.2)
     solid_queue (1.1.0)
       activejob (>= 7.1)
       activerecord (>= 7.1)
@@ -347,6 +352,7 @@ DEPENDENCIES
   rubocop-shopify
   shoulda-matchers (~> 6)
   simple_form
+  solid_cable (~> 3.0)
   solid_queue
   sprockets-rails
   sqlite3 (~> 1.4)
