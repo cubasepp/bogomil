@@ -24,7 +24,7 @@
         <% end %>
       </li>
       <% collection.childrens.each do |living_unit| %>
-        <%= render "childrens", living_unit:, collection: %>
+        <%= render "collections/childrens", living_unit:, collection: %>
       <% end %>
     </ul>
   </details>
