@@ -1,10 +1,13 @@
-<%# locals: (label: "missing", checked: false, name: "tab") -%>
+<%# locals: (label: "missing", checked: false, name: "tab", disabled: false) -%>
 <input
   type="radio"
   name="<%= name %>"
   role="tab"
   class="tab [--tab-bg:var(--fallback-b2,oklch(var(--b2)))]"
   aria-label="<%= label %>"
+  <% if disabled %>
+  disabled="disabled"
+  <% end %>
   <% if checked %>
   checked="cheked"
   <% end %>

@@ -6,6 +6,8 @@ RSpec.describe(RealEstate, type: :model) do
   describe "associations" do
     it_should_behave_like "memberable"
     it_should_behave_like "collectable"
+
+    it { should have_many(:living_units).dependent(:destroy) }
   end
 
   describe "validations" do

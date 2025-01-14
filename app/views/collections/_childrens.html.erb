@@ -1,0 +1,11 @@
+<%# locals: (living_unit:, collection:) -%>
+<li id="<%= dom_id(living_unit, :sidebar) %>">
+  <%= drawer_link(real_estate_living_unit_path(collection, living_unit)) do %>
+    <span>
+      <%= icon(:document, css: "size-6") %>
+    </span>
+    <div id="<%= dom_id(living_unit, :name) %>">
+      <%= living_unit.name %>
+    </div>
+  <% end %>
+</li>

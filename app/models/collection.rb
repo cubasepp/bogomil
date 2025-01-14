@@ -4,7 +4,7 @@ class Collection < ApplicationRecord
   include Broadcast::Collection
 
   delegated_type :collectable, types: ["RealEstate"]
-  delegate :name, to: :collectable
+  delegate :name, :childrens, to: :collectable
   store :user_settings, accessors: [:collapse], coder: JSON
 
   has_many :memberships,
@@ -15,7 +15,9 @@ class Collection < ApplicationRecord
 
   class << self
     def accessable(user: Current.user)
-      joins(:memberships).where(memberships: { user: })
+      joins(:memberships)
+        .where(memberships: { user: })
+        .includes(collectable: [:living_units])
     end
   end
 

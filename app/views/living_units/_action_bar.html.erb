@@ -1,0 +1,23 @@
+<%# locals: (real_estate: nil, living_unit: nil, disabled: true) -%>
+
+<div class="flex justify-end mb-2">
+  <% if disabled %>
+    <%= link_to edit_real_estate_living_unit_path(real_estate, living_unit),
+    class: "btn btn-circle btn-outline mr-2 tooltip inline-flex",
+    data: {
+      tip: t("living_unit.tooltip.edit")
+    } do %>
+      <%= icon(:pencil, css: "size-6") %>
+    <% end %>
+  <% end %>
+  <%= link_to real_estate_living_unit_path(real_estate, living_unit),
+    class: "btn btn-circle btn-outline tooltip inline-flex",
+    data: {
+      tip: t("living_unit.tooltip.destroy"),
+      turbo_method: :delete,
+      turbo_confirm: t("turbo.confirm.destroy"),
+      turbo_frame: "_top",
+    } do %>
+    <%= icon(:trash, css: "size-6") %>
+  <% end %>
+</div>

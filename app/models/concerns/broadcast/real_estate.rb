@@ -6,7 +6,7 @@ module Broadcast
 
     included do
       after_update_commit do
-        broadcast_update_to(
+        broadcast_update_later_to(
           :events,
           target: "edit_real_estate_#{id}",
           partial: "real_estates/form",
