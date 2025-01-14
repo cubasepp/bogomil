@@ -8,7 +8,7 @@
     <% frames.each do |frame| %>
       <%= render "index_stat",
       frame_id: frame.to_s,
-      title: I18n.t("calculator.label.#{frame}.title") %>
+      title: t("calculator.label.#{frame}.title") %>
     <% end %>
 
     <%= render "result_stat" %>
