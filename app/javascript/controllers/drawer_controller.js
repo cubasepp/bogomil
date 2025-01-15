@@ -26,7 +26,7 @@ export default class extends Controller {
   }
 
   collapseToggle(event) {
-    if (event.target.tagName === "SUMMARY") {
+    if (['DETAILS', 'SUMMARY'].includes(event.target.parentElement.tagName)) {
       patch(`${this.collectionPathValue}${event.params.id}`, {
         responseKind: "turbo-stream",
       });

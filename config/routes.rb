@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :collections, only: [:index, :new, :update]
   resources :real_estates do
-    resources :living_units, path: :units, excpet: [:index, :new]
+    resources :living_units, path: :units, except: [:index, :new]
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

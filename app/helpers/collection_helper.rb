@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module CollectionHelper
-  def collapsed?(collection)
-    if collection.collapsed_for?
+  def collapsed?(collection, user:)
+    if collection.collapsed_for?(user:)
       "open"
     end
   end

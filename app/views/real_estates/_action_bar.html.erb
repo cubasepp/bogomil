@@ -1,22 +1,25 @@
 <%# locals: (real_estate: nil, disabled: true) -%>
-<div class="flex justify-end mb-2">
-  <%= button_to real_estate_living_units_path(real_estate),
+<div class="flex">
+  <div class="basis-1/2">
+    <%= button_to real_estate_living_units_path(real_estate),
     class: "btn btn-circle btn-outline mr-2 tooltip inline-flex",
     data: {
       tip: t("living_unit.tooltip.create"),
       turbo: false,
       turbo_frame: "_top",
     } do %>
-    <%= icon(:plus, css: "size-6") %>
-  <% end %>
-  <% if disabled %>
-    <%= link_to edit_real_estate_path(real_estate),
+      <%= icon(:plus, css: "size-6") %>
+    <% end %>
+  </div>
+  <div class="basis-1/2 flex justify-end">
+    <% if disabled %>
+      <%= link_to edit_real_estate_path(real_estate),
     class: "btn btn-circle btn-outline mr-2 tooltip inline-flex",
     data: { tip: t("real_estate.tooltip.edit") } do %>
-      <%= icon(:pencil, css: "size-6") %>
+        <%= icon(:pencil, css: "size-6") %>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= link_to real_estate_path(real_estate),
+    <%= link_to real_estate_path(real_estate),
     class: "btn btn-circle btn-outline tooltip inline-flex",
     data: {
       tip: t("real_estate.tooltip.destroy"),
@@ -24,6 +27,7 @@
       turbo_confirm: t("turbo.confirm.destroy"),
       turbo_frame: "_top",
     } do %>
-    <%= icon(:trash, css: "size-6") %>
-  <% end %>
+      <%= icon(:trash, css: "size-6") %>
+    <% end %>
+  </div>
 </div>

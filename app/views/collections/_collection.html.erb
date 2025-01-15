@@ -1,8 +1,8 @@
-<%# locals: (collection:) -%>
+<%# locals: (collection:, user: Current.user) -%>
 
 <li id="<%= dom_id(collection, :sidebar) %>">
   <details
-    <%= collapsed?(collection) %>
+    <%= collapsed?(collection, user:) %>
     data-action="click->drawer#collapseToggle"
     data-drawer-id-param="<%= collection.id %>"
   >
