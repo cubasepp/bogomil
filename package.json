@@ -7,7 +7,7 @@
     "chartkick": "^5.0.1"
   },
   "devDependencies": {
-    "daisyui": "^4.12.20",
+    "daisyui": "^4.12.23",
     "prettier": "3.3.3"
   },
   "scripts": {
