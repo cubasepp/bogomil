@@ -1,0 +1,19 @@
+en:
+  simple_form:
+    labels:
+      living_unit:
+        name: "Name"
+        description: "Description"
+        rooms: "Rooms"
+        living_space: "Living space"
+        own_use: "Own use"
+  living_unit:
+    default:
+      name: "Untitled"
+    tooltip:
+      create: "Creating a new living unit"
+      edit: "Editing the living unit"
+      destroy: "Deleting the living unit"
+    form:
+      section:
+        details: "# Details"

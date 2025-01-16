@@ -1,0 +1,6 @@
+<%= main_turbo_frame_tag dom_id(@living_unit) do %>
+  <%= render "form",
+  disabled: true,
+  real_estate: @real_estate,
+  living_unit: @living_unit %>
+<% end %>

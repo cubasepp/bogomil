@@ -79,7 +79,7 @@ RSpec.describe("RealEstates", type: :request) do
         ).by(1).and(change(Membership, :count).by(1).and(change(Collection, :count).by(1))))
       end
 
-      it "redirects to the created real_estate" do
+      it "redirects to the created RealEstate" do
         post real_estates_url, params: { real_estate: valid_attributes }
         expect(response).to(redirect_to(real_estate_url(RealEstate.last)))
       end
@@ -122,19 +122,19 @@ RSpec.describe("RealEstates", type: :request) do
       context "owner" do
         let(:role) { "owner" }
 
-        it "updates the requested real_estate" do
+        it "updates the requested RealEstate" do
           patch real_estate_url(real_estate), params: { real_estate: new_attributes }
           expect do
             real_estate.reload
           end.to(change(real_estate, :name).from("Muster Objekt").to("Updated Name"))
         end
 
-        it "redirects to the real_estate" do
+        it "redirects to the RealEstate" do
           patch real_estate_url(real_estate), params: { real_estate: new_attributes }
           expect(response).to(redirect_to(real_estate_url(real_estate)))
         end
 
-        it "redirects to the real_estate at trubo_stream" do
+        it "redirects to the RealEstate at trubo_stream" do
           patch real_estate_url(real_estate), params: { real_estate: new_attributes }, as: :turbo_stream
           expect(response).to(redirect_to(real_estate_url(real_estate)))
         end
@@ -169,7 +169,7 @@ RSpec.describe("RealEstates", type: :request) do
     context "owner" do
       let(:role) { "owner" }
 
-      it "destroys the requested real_estate" do
+      it "destroys the requested RealEstate" do
         expect do
           delete(real_estate_url(real_estate))
         end.to(change(
@@ -178,7 +178,7 @@ RSpec.describe("RealEstates", type: :request) do
         ).by(-1).and(change(Membership, :count).by(-1).and(change(Collection, :count).by(-1))))
       end
 
-      it "redirects to the real_estates list" do
+      it "redirects to the RealEstates list" do
         delete real_estate_url(real_estate)
         expect(response).to(redirect_to(real_estates_url))
       end

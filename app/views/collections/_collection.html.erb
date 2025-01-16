@@ -1,8 +1,8 @@
-<%# locals: (collection:) -%>
+<%# locals: (collection:, user: Current.user) -%>
 
 <li id="<%= dom_id(collection, :sidebar) %>">
   <details
-    <%= collapsed?(collection) %>
+    <%= collapsed?(collection, user:) %>
     data-action="click->drawer#collapseToggle"
     data-drawer-id-param="<%= collection.id %>"
   >
@@ -14,21 +14,18 @@
         <%= collection.name %>
       </div>
     </summary>
-    <ul>
+    <ul id="<%= dom_id(collection, :sidebar_childrens) %>">
       <li class="mt-2">
-        <%= link_to real_estate_path(collection),
-          css: "group",
-          data: {
-            turbo_action: "advance",
-            turbo_frame: "main_content",
-            drawer_target: "link"
-          } do %>
+        <%= drawer_link(real_estate_path(collection)) do %>
           <span>
             <%= icon(:document_text, css: "size-6") %>
           </span>
-          <%= I18n.t("collection.overview") %>
+          <%= t("collection.overview") %>
         <% end %>
       </li>
+      <% collection.childrens.each do |living_unit| %>
+        <%= render "collections/childrens", living_unit:, collection: %>
+      <% end %>
     </ul>
   </details>
 </li>

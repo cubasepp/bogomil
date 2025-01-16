@@ -13,14 +13,14 @@
         text-opacity-60
       "
     >
-      <%= I18n.t("calculator.label.#{turbo_frame}.description") %>
+      <%= t("calculator.label.#{turbo_frame}.description") %>
     </h2>
   </div>
   <div>
     <%= select_year(
       14,
       {
-        prompt: I18n.t("calculator.label.select.year"),
+        prompt: t("calculator.label.select.year"),
         start_year: start_year || 1970,
         end_year: end_year || 1970,
       },
@@ -36,7 +36,7 @@
   <div>
     <%= select_month(
       14,
-      { prompt: I18n.t("calculator.label.select.month") },
+      { prompt: t("calculator.label.select.month") },
       {
         class: "select select-bordered w-full max-w-xs",
         disabled: true,

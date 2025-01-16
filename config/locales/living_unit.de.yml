@@ -1,0 +1,19 @@
+de:
+  simple_form:
+    labels:
+      living_unit:
+        name: "Name"
+        description: "Beschreibung"
+        rooms: "Zimmer"
+        living_space: "Wohnfläche"
+        own_use: "Eigennutzung"
+  living_unit:
+    default:
+      name: "Unbenannt"
+    tooltip:
+      create: "Erstellen einer neuen Wohneinheit"
+      edit: "Bearbeiten der Wohneinheit"
+      destroy: "Löschen der Wohneinheit"
+    form:
+      section:
+        details: "# Details"

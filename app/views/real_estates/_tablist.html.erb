@@ -1,0 +1,19 @@
+<%# locals: (real_estate: nil, disabled: false) -%>
+<div class="flex flex-col gap-2">
+  <%= render "real_estates/action_bar", real_estate:, disabled: %>
+  <div class="flex">
+    <div role="tablist" class="tabs tabs-lifted tabs-lg">
+      <%= render "shared/tab", name: "real_estate_show", checked: true, label: t("real_estate.tab.tab_1") do %>
+        <%= render "form", disabled:, real_estate: %>
+      <% end %>
+
+      <%= render "shared/tab", name: "real_estate_show", disabled: !disabled, label: t("real_estate.tab.tab_2") do %>
+        tab_2
+      <% end %>
+
+      <%= render "shared/tab", name: "real_estate_show", disabled: !disabled, label: t("real_estate.tab.tab_3") do %>
+        tab_3
+      <% end %>
+    </div>
+  </div>
+</div>

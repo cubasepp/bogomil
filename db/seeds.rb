@@ -27,7 +27,7 @@ consumer_indicies_data = [
 end
 ConsumerIndex.create(consumer_indicies_data)
 
-RealEstate.create!(
+real_estate = RealEstate.create!(
   name: "Muster Object",
   street: "Musterstraße 46",
   zip_code: "81667",
@@ -49,3 +49,10 @@ RealEstate.create!(
   solar_plant_installed_at: "03/2024",
   membership: Membership.new(user:),
 )
+3.times do |i|
+  LivingUnit.create!(
+    name: "Wohneinheit #{i}",
+    description: Faker::Lorem.sentence,
+    real_estate: real_estate,
+  )
+end

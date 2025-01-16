@@ -1,0 +1,32 @@
+<%# locals: (real_estate: nil, living_unit: nil, disabled: false, cancel_url: real_estate_living_unit_path(real_estate, living_unit), turbo_frame: dom_id(living_unit)) -%>
+
+<%= simple_form_for([real_estate, living_unit])  do |f| %>
+  <div class="flex flex-col gap-2">
+    <%= render "living_units/action_bar", real_estate:, living_unit:, disabled: %>
+    <div class="flex">
+      <div class="basis-full rounded p-4 bg-base-300">
+        <%= f.input :name, required: false, disabled: %>
+        <%= f.input :description, as: :text, input_html: { cols: 40 }, disabled: %>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="basis-1/2 rounded p-4 bg-base-300">
+        <%= f.input :rooms, as: :float, disabled: %>
+        <%= f.input :living_space, as: :float, disabled: %>
+      </div>
+      <div class="basis-1/2 rounded p-4 bg-base-300">
+        <%= f.input :own_use, as: :boolean, disabled: %>
+      </div>
+    </div>
+    <% unless disabled %>
+      <%= link_to t("button.cancel"),
+      cancel_url,
+      class: "btn btn-secondary mt-2",
+      data: {
+        turbo_frame: turbo_frame,
+      } %>
+
+      <%= f.button :submit, class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
+<% end %>

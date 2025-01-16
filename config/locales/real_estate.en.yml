@@ -31,6 +31,9 @@ en:
         real_estate:
           date_format: "required format: mm/yyyy"
   real_estate:
+    tooltip:
+      edit: "Editing the property"
+      destroy: "Deleting the property"
     form:
       section:
         address: "# Address"
