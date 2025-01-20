@@ -20,8 +20,8 @@ module.exports = {
     require("daisyui"),
   ],
   daisyui: {
-    themes: ["retro", "coffee"],
-    darkTheme: "coffee",
+    themes: ["retro", "dracula"],
+    darkTheme: "dracula",
     prefix: "",
   },
   safelist: ["text-error", { pattern: /input-+/ }, { pattern: /my-+/ }],
