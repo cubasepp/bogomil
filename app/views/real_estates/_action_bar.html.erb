@@ -1,15 +1,14 @@
 <%# locals: (real_estate: nil, disabled: true) -%>
 <div class="flex">
   <div class="basis-1/2">
-    <%= button_to real_estate_living_units_path(real_estate),
-    class: "btn btn-circle btn-outline mr-2 tooltip inline-flex",
+    <%= button_to t("living_unit.button.create"),
+    real_estate_living_units_path(real_estate),
+    class: "btn btn-primary mr-2 tooltip inline-flex",
     data: {
       tip: t("living_unit.tooltip.create"),
       turbo: false,
       turbo_frame: "_top",
-    } do %>
-      <%= icon(:plus, css: "size-6") %>
-    <% end %>
+    } %>
   </div>
   <div class="basis-1/2 flex justify-end">
     <% if disabled %>

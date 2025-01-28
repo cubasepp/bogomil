@@ -65,8 +65,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
   end
 
   create_table "rents", force: :cascade do |t|
-    t.string("amounts")
-    t.datetime("valid_from")
+    t.decimal("cold_rent", precision: 10, scale: 2, default: "0.0")
+    t.decimal("heating_costs", precision: 10, scale: 2, default: "0.0")
+    t.decimal("incidental_costs", precision: 10, scale: 2, default: "0.0")
+    t.string("rent_type", null: false)
+    t.date("valid_from")
     t.integer("living_unit_id", null: false)
     t.datetime("created_at", null: false)
     t.datetime("updated_at", null: false)

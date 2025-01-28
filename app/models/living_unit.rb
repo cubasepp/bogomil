@@ -20,6 +20,12 @@ class LivingUnit < ApplicationRecord
   validates :name, presence: true
   validates :living_space, :rooms, numericality: true
 
+  class << self
+    def accessable(user: Current.user)
+      where(real_estate_id: user.real_estate_ids)
+    end
+  end
+
   private
 
   def set_default

@@ -10,6 +10,8 @@ de:
   living_unit:
     default:
       name: "Unbenannt"
+    button:
+      create: "Neue Wohneinheit"
     tooltip:
       create: "Erstellen einer neuen Wohneinheit"
       edit: "Bearbeiten der Wohneinheit"
@@ -17,3 +19,7 @@ de:
     form:
       section:
         details: "# Details"
+    tab:
+      tab_1: "Master data"
+      tab_2: "Rents"
+      tab_3: "Tenants"

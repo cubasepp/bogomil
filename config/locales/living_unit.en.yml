@@ -10,6 +10,8 @@ en:
   living_unit:
     default:
       name: "Untitled"
+    button:
+      create: "New living unit"
     tooltip:
       create: "Creating a new living unit"
       edit: "Editing the living unit"
@@ -17,3 +19,7 @@ en:
     form:
       section:
         details: "# Details"
+    tab:
+      tab_1: "Master data"
+      tab_2: "Rents"
+      tab_3: "Tenants"

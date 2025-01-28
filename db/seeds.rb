@@ -54,5 +54,14 @@ real_estate = RealEstate.create!(
     name: "Wohneinheit #{i}",
     description: Faker::Lorem.sentence,
     real_estate: real_estate,
+    rents: [
+      Rent.new(
+        cold_rent: 1000,
+        heating_costs: 250,
+        incidental_costs: 100,
+        rent_type: "normal",
+        valid_from: Time.zone.now,
+      ),
+    ],
   )
 end

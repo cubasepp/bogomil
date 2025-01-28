@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "main_content" do %>
+  <%= render "tablist",
+    real_estate: @real_estate,
+    living_unit: @living_unit do %>
+    <%= render "rents/table", rents: @living_unit.rents, living_unit: @living_unit %>
+  <% end %>
+<% end %>

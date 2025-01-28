@@ -20,16 +20,19 @@ RSpec.describe("living_units/edit", type: :view) do
   it "renders edit real_estate form" do
     render
 
-    assert_select "form[action=?][method=?][id=?]",
-      real_estate_living_unit_path(1, 1),
-      "post",
-      "edit_living_unit_1" do
-      assert_select "input[name=?]", "living_unit[name]"
-      assert_select "textarea[name=?]", "living_unit[description]"
-      assert_select "input[name=?]", "living_unit[rooms]"
-      assert_select "input[name=?]", "living_unit[living_space]"
-      assert_select "input[name=?]", "living_unit[own_use]"
-      assert_select "a[href=?][data-turbo-frame=?]", real_estate_living_unit_path(1, 1), "living_unit_1"
+    assert_select "div[role=?]", "tablist", count: 1 do
+      assert_select "a[role=?]", "tab", count: 3
+      assert_select "form[action=?][method=?][id=?]",
+        real_estate_living_unit_path(1, 1),
+        "post",
+        "edit_living_unit_1" do
+          assert_select "input[name=?]", "living_unit[name]"
+          assert_select "textarea[name=?]", "living_unit[description]"
+          assert_select "input[name=?]", "living_unit[rooms]"
+          assert_select "input[name=?]", "living_unit[living_space]"
+          assert_select "input[name=?]", "living_unit[own_use]"
+          assert_select "a[href=?][data-turbo-frame=?]", real_estate_living_unit_path(1, 1), "living_unit_1"
+        end
     end
   end
 end

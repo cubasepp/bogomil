@@ -3,9 +3,6 @@
 require "rails_helper"
 
 RSpec.describe("layouts/drawer/_sidebar", type: :view) do
-  before(:each) do
-  end
-
   it "renders the sidebar" do
     render
 

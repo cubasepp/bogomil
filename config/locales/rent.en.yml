@@ -1,0 +1,25 @@
+en:
+  simple_form:
+    labels:
+      rent:
+        cold_rent: "Cold rent"
+        heating_costs: "heating costs"
+        incidental_costs: "Incidential costs"
+        rent_type: "Type"
+        valid_from: "Valid from"
+  rent:
+    rent_types:
+      normal: Fix rent
+      index: Index rent
+      graduated: graduated rent
+    table:
+      th_1: "Cold rent"
+      th_2: "Heating costs"
+      th_3: "Incidential costs"
+      th_4: "Type"
+      th_5: "Valid from"
+      th_6: "Total"
+    tab:
+      tab_1: "Master data"
+      tab_2: "Rents"
+      tab_3: "Tenants"

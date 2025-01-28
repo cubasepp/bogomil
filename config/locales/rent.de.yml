@@ -1,0 +1,25 @@
+de:
+  simple_form:
+    labels:
+      rent:
+        cold_rent: "Kaltmiete"
+        heating_costs: "Heizkosten"
+        incidental_costs: "Nerbenkosten"
+        rent_type: "Art"
+        valid_from: "Gültig ab"
+  rent:
+    rent_types:
+      normal: Feste Miete
+      index: Index Miete
+      graduated: Staffel Miete
+    table:
+      th_1: "Kaltmiete"
+      th_2: "Heizkosten"
+      th_3: "Nebenkosten"
+      th_4: "Art"
+      th_5: "Gültig seit"
+      th_6: "Gesamt"
+  tab:
+    tab_1: "Stammdaten"
+    tab_2: "Mieten"
+    tab_3: "Mieter"

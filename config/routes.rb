@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :living_units, path: :units, except: [:index, :new]
   end
 
+  resources :living_units, path: :units, only: [] do
+    resources :rents, except: [:show, :edit, :update]
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
   root "real_estates#index"
 end

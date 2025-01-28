@@ -1,19 +1,24 @@
 <%# locals: (real_estate: nil, disabled: false) -%>
 <div class="flex flex-col gap-2">
-  <%= render "real_estates/action_bar", real_estate:, disabled: %>
   <div class="flex">
-    <div role="tablist" class="tabs tabs-lifted tabs-lg">
-      <%= render "shared/tab", name: "real_estate_show", checked: true, label: t("real_estate.tab.tab_1") do %>
-        <%= render "form", disabled:, real_estate: %>
+    <div role="tablist" class="basis-full tabs tabs-lifted tabs-lg">
+      <%= render "shared/tab", url: real_estate_path(real_estate), active: true, label: t("real_estate.tab.tab_1") do %>
+        <div class="flex flex-col gap-2">
+          <div class="flex">
+            <div class="basis-full">
+              <%= render "real_estates/action_bar", real_estate:, disabled: %>
+            </div>
+          </div>
+          <div class="flex">
+            <div class="basis-full">
+              <%= render "form", disabled:, real_estate: %>
+            </div>
+          </div>
+        </div>
       <% end %>
 
-      <%= render "shared/tab", name: "real_estate_show", disabled: !disabled, label: t("real_estate.tab.tab_2") do %>
-        tab_2
-      <% end %>
-
-      <%= render "shared/tab", name: "real_estate_show", disabled: !disabled, label: t("real_estate.tab.tab_3") do %>
-        tab_3
-      <% end %>
+      <%= tab_link t("real_estate.tab.tab_2"), disabled: !disabled %>
+      <%= tab_link t("real_estate.tab.tab_3"), disabled: !disabled %>
     </div>
   </div>
 </div>

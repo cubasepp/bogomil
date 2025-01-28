@@ -1,0 +1,26 @@
+<%# locals: (living_unit: nil, rent: nil, turbo_frame: "main_content", cancel_url: living_unit_rents_path(living_unit)) -%>
+
+<%= simple_form_for([living_unit, rent])  do |f| %>
+  <div class="flex flex-col gap-2">
+    <div class="flex">
+      <div class="basis-full rounded p-4 bg-base-300">
+        <%= f.input :cold_rent %>
+        <%= f.input :heating_costs %>
+        <%= f.input :incidental_costs %>
+        <%= f.input :rent_type,
+                collection:
+                  Rent::RENT_TYPES.map { |type|
+                    [t("simple_form.labels.rent.rent_types.#{type}"), type]
+                  } %>
+        <%= f.input :valid_from, as: :date, required: false %>
+      </div>
+    </div>
+    <%= link_to t("button.cancel"),
+    cancel_url,
+    class: "btn btn-secondary mt-2",
+    data: {
+      turbo_frame: turbo_frame,
+    } %>
+    <%= f.button :submit, class: "btn btn-primary mt-2" %>
+  </div>
+<% end %>

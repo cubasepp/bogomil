@@ -1,0 +1,23 @@
+<%# locals: (living_unit: nil, rents: []) -%>
+<div class="divider"></div>
+<div class="overflow-x-auto">
+  <table class="table table-zebra">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t("rent.table.th_1") %></th>
+        <th><%= t("rent.table.th_2") %></th>
+        <th><%= t("rent.table.th_3") %></th>
+        <th><%= t("rent.table.th_4") %></th>
+        <th><%= t("rent.table.th_5") %></th>
+        <th><%= t("rent.table.th_6") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="rent_list">
+      <% rents.each do |rent| %>
+        <%= render "table_row", living_unit:, rent: %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

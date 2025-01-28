@@ -19,15 +19,18 @@ RSpec.describe("living_units/show", type: :view) do
 
   it "renders the show page" do
     render
-    assert_select "form[action=?][method=?][id=?]",
-      real_estate_living_unit_path(1, 1),
-      "post",
-      "edit_living_unit_1" do
-      assert_select "input[name=?][disabled=?]", "living_unit[name]", "disabled"
-      assert_select "textarea[name=?][disabled=?]", "living_unit[description]", "disabled"
-      assert_select "input[name=?][disabled=?]", "living_unit[rooms]", "disabled"
-      assert_select "input[name=?][disabled=?]", "living_unit[living_space]", "disabled"
-      assert_select "input[name=?][disabled=?]", "living_unit[own_use]", "disabled"
+    assert_select "div[role=?]", "tablist", count: 1 do
+      assert_select "a[role=?]", "tab", count: 3
+      assert_select "form[action=?][method=?][id=?]",
+        real_estate_living_unit_path(1, 1),
+        "post",
+        "edit_living_unit_1" do
+          assert_select "input[name=?][disabled=?]", "living_unit[name]", "disabled"
+          assert_select "textarea[name=?][disabled=?]", "living_unit[description]", "disabled"
+          assert_select "input[name=?][disabled=?]", "living_unit[rooms]", "disabled"
+          assert_select "input[name=?][disabled=?]", "living_unit[living_space]", "disabled"
+          assert_select "input[name=?][disabled=?]", "living_unit[own_use]", "disabled"
+        end
     end
   end
 end

@@ -1,20 +1,11 @@
-<%# locals: (label: "missing", checked: false, name: "tab", disabled: false) -%>
-<input
-  type="radio"
-  name="<%= name %>"
-  role="tab"
-  class="tab [--tab-bg:var(--fallback-b2,oklch(var(--b2)))]"
-  aria-label="<%= label %>"
-  <% if disabled %>
-  disabled="disabled"
-  <% end %>
-  <% if checked %>
-  checked="cheked"
-  <% end %>
-/>
-<div
-  role="tabpanel"
-  class="tab-content bg-base-200 border-base-300 rounded-box p-6"
->
-  <%= yield %>
-</div>
+<%# locals: (url: root_path, label: "missing", active: false, disabled: false) -%>
+
+<%= tab_link label, url:, disabled:, active: %>
+<% if block_given? %>
+  <div
+    role="tabpanel"
+    class="tab-content bg-base-200 border-base-300 rounded-box p-6"
+  >
+    <%= yield %>
+  </div>
+<% end %>

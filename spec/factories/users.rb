@@ -8,7 +8,9 @@ FactoryBot.define do
 
     trait :admin do
       name { "Admin" }
-      email { "admin@bogomil.io" }
+      sequence :email do |n|
+        "admin-#{n}@bogomil.io"
+      end
       password { "start1234" }
     end
   end
