@@ -1,0 +1,12 @@
+<%# locals: (living_unit: nil, action_bar: true) -%>
+<div class="flex">
+  <div class="basis-1/2">
+  </div>
+  <div class="basis-1/2 flex justify-end">
+    <% if action_bar %>
+      <%= link_to t("button.new"),
+      new_living_unit_tenant_path(living_unit),
+      class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
+</div>

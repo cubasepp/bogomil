@@ -1,0 +1,8 @@
+<%= main_turbo_frame_tag :tenants do %>
+  <%= render "tablist",
+  real_estate: @real_estate,
+  living_unit: @living_unit,
+  action_bar: false do %>
+    <%= render "form", living_unit: @living_unit, tenant: @tenant %>
+  <% end %>
+<% end %>

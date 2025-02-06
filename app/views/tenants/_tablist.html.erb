@@ -1,18 +1,20 @@
-<%# locals: (living_unit: nil, real_estate: nil, rents: [], action_bar: true) -%>
+<%# locals: (living_unit: nil, real_estate: nil, tenants: [], action_bar: true) -%>
 <div class="flex flex-col gap-2">
   <div class="flex">
     <div role="tablist" class="basis-full tabs tabs-lifted tabs-lg">
-      <%= tab_link t("rent.tab.tab_1"),
+      <%= tab_link t("tenant.tab.tab_1"),
       url: real_estate_living_unit_path(real_estate, living_unit) %>
 
+      <%= tab_link t("tenant.tab.tab_2"), url: living_unit_rents_path(living_unit) %>
+
       <%= render "shared/tab",
-      url: living_unit_rents_path(living_unit),
+      url: living_unit_tenants_path(living_unit),
       active: true,
-      label: t("rent.tab.tab_2") do %>
+      label: t("tenant.tab.tab_3") do %>
         <div class="flex flex-col gap-2">
           <div class="flex">
             <div class="basis-full">
-              <%= render "rents/action_bar", living_unit:, action_bar: %>
+              <%= render "tenants/action_bar", living_unit:, action_bar: %>
             </div>
           </div>
           <div class="flex">
@@ -22,8 +24,6 @@
           </div>
         </div>
       <% end %>
-
-      <%= tab_link t("rent.tab.tab_3"), url: living_unit_tenants_path(living_unit) %>
     </div>
   </div>
 </div>
