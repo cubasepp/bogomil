@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "daisyui": "^4.12.23",
-    "prettier": "3.3.3"
+    "prettier": "3.5.0"
   },
   "scripts": {
     "build": "bun bun.config.js"
