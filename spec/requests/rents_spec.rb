@@ -9,7 +9,6 @@ RSpec.describe("Rents", type: :request) do
   let(:membership) { FactoryBot.build(:membership, user: user, role: role) }
   let(:real_estate) { FactoryBot.build(:real_estate, membership: membership) }
   let(:living_unit) { FactoryBot.create(:living_unit, real_estate:, rents: []) }
-  # let(:rent) { FactoryBot.create(:rent, living_unit:) }
 
   let(:valid_attributes) do
     {
@@ -73,7 +72,7 @@ RSpec.describe("Rents", type: :request) do
         it "renders as turbo_stream response" do
           post living_unit_rents_url(living_unit), params: { rent: valid_attributes }, as: :turbo_stream
           expect(response).to(have_http_status(:ok))
-          expect(response.body).to(match(/action="replace" target="main_content"/))
+          expect(response.body).to(match(/action="update" target="rents"/))
         end
       end
 

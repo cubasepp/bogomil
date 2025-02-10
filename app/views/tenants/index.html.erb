@@ -1,0 +1,7 @@
+<%= main_turbo_frame_tag :tenants do %>
+  <%= render "tablist",
+    real_estate: @real_estate,
+    living_unit: @living_unit do %>
+    <%= render "tenants/table", tenants: @tenants, living_unit: @living_unit %>
+  <% end %>
+<% end %>

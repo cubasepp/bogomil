@@ -1,0 +1,18 @@
+de:
+  simple_form:
+    labels:
+      tenant:
+        first_name: "Vorname"
+        last_name: "Nachname"
+        email: "E-Mail"
+        phone_number: "Telefonnummer"
+  tenant:
+    table:
+      th_1: "Vorname"
+      th_2: "Nachname"
+      th_3: "Email"
+      th_4: "Telefonnummer"
+    tab:
+      tab_1: "Stammdaten"
+      tab_2: "Mieten"
+      tab_3: "Mieter"

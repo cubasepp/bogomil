@@ -1,0 +1,21 @@
+<%# locals: (living_unit: nil, tenant: nil, turbo_frame: "main_content", cancel_url: living_unit_tenants_path(living_unit)) -%>
+
+<%= simple_form_for([living_unit, tenant])  do |f| %>
+  <div class="flex flex-col gap-2">
+    <div class="flex">
+      <div class="basis-full rounded p-4 bg-base-300">
+        <%= f.input :first_name, required: false %>
+        <%= f.input :last_name, required: false %>
+        <%= f.input :email, required: false %>
+        <%= f.input :phone_number, required: false %>
+      </div>
+    </div>
+    <%= link_to t("button.cancel"),
+    cancel_url,
+    class: "btn btn-secondary mt-2",
+    data: {
+      turbo_frame: turbo_frame,
+    } %>
+    <%= f.button :submit, class: "btn btn-primary mt-2" %>
+  </div>
+<% end %>

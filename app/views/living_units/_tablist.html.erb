@@ -21,7 +21,9 @@
       url: living_unit_rents_path(living_unit),
       disabled: !disabled %>
 
-      <%= tab_link t("living_unit.tab.tab_3"), disabled: !disabled %>
+      <%= tab_link t("living_unit.tab.tab_3"),
+      url: living_unit_tenants_path(living_unit),
+      disabled: !disabled %>
     </div>
   </div>
 </div>
