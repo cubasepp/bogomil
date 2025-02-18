@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :living_units, path: :units, only: [] do
+    resources :rentals
     resources :rents, except: [:show, :edit, :update]
     resources :tenants, except: [:show, :edit, :update]
   end

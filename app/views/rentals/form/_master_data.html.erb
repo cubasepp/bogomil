@@ -1,0 +1,34 @@
+<%# locals: (f: nil, living_unit: nil, rental: nil, disabled: false) -%>
+<div class="flex mt-2">
+  <div class="basis-1/2">
+    <p class="font-semibold pl-2">
+      <%= t("rental.section_1") %>
+    </p>
+  </div>
+  <div class="basis-1/2 flex justify-end min-h-12">
+    <% unless rental.new_record? %>
+      <%= link_to edit_living_unit_rental_path(living_unit, rental),
+            class: "btn btn-circle btn-outline mr-2 tooltip inline-flex #{class_names(hidden: !disabled)}",
+            data: {
+              tip: t("rental.tooltip.edit"),
+              turbo_frame: dom_id(rental, :form_edit),
+            } do %>
+        <%= icon(:pencil, css: "size-6") %>
+      <% end %>
+      <%= link_to living_unit_rental_path(living_unit, rental),
+            class: "btn btn-circle btn-outline mr-2 tooltip inline-flex #{class_names(hidden: disabled)}",
+            data: {
+              tip: t("tooltip.cancel"),
+              turbo_frame: dom_id(rental, :form_edit),
+            } do %>
+        <%= icon(:x_mark, css: "size-6") %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="flex">
+  <div class="basis-full rounded p-4 bg-base-300">
+    <%= f.input :description, disabled: %>
+    <%= f.input :valid_from, as: :string, disabled:, input_html: { type: "date" } %>
+  </div>
+</div>

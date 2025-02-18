@@ -2,19 +2,25 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application";
+import { application } from "./application"
 
-import CalculatorController from "./calculator_controller";
-application.register("calculator", CalculatorController);
+import CalculatorController from "./calculator_controller"
+application.register("calculator", CalculatorController)
 
-import CalculatorSelectionController from "./calculator_selection_controller";
-application.register("calculator-selection", CalculatorSelectionController);
+import CalculatorSelectionController from "./calculator_selection_controller"
+application.register("calculator-selection", CalculatorSelectionController)
 
-import DrawerController from "./drawer_controller";
-application.register("drawer", DrawerController);
+import DrawerController from "./drawer_controller"
+application.register("drawer", DrawerController)
 
-import RealEstateController from "./real_estate_controller";
-application.register("real-estate", RealEstateController);
+import NotificationController from "./notification_controller"
+application.register("notification", NotificationController)
 
-import UiController from "./ui_controller";
-application.register("ui", UiController);
+import RealEstateController from "./real_estate_controller"
+application.register("real-estate", RealEstateController)
+
+import RentalController from "./rental_controller"
+application.register("rental", RentalController)
+
+import UiController from "./ui_controller"
+application.register("ui", UiController)

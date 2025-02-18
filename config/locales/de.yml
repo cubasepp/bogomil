@@ -28,3 +28,5 @@ de:
       title: "Consumer Index Chart"
       xtitle: "Date"
       ytitle: "Index"
+  tooltip:
+    cancel: "Abbruch"

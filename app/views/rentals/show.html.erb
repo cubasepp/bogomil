@@ -1,0 +1,10 @@
+<%= main_turbo_frame_tag dom_id(@living_unit, :rentals) do %>
+  <%= render "tablist",
+  real_estate: @real_estate,
+  living_unit: @living_unit do %>
+    <%= render "rentals/form",
+    living_unit: @living_unit,
+    rental: @rental,
+    disabled: true %>
+  <% end %>
+<% end %>

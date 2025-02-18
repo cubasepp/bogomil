@@ -1,0 +1,10 @@
+<%= turbo_stream.update dom_id(@rental, :form_edit),
+                    partial: "rentals/form/master_data",
+                    locals: {
+                      f:
+                        SimpleForm::FormBuilder.new(:rental, @rental, self, {}),
+                      rental: @rental,
+                      living_unit: @living_unit,
+                      disabled: true,
+                    } %>
+<%= render_turbo_stream_flash_messages %>

@@ -3,10 +3,8 @@
   <div class="basis-1/2">
   </div>
   <div class="basis-1/2 flex justify-end">
-    <% if action_bar %>
-      <%= link_to t("button.new"),
-      new_living_unit_rent_path(living_unit),
-      class: "btn btn-primary mt-2" %>
-    <% end %>
+    <%= link_to t("button.new"),
+    new_living_unit_rent_path(living_unit),
+    class: "btn btn-primary mt-2 #{class_name(hidden: action_bar)}" %>
   </div>
 </div>

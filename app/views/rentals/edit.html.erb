@@ -1,0 +1,12 @@
+<%= main_turbo_frame_tag dom_id(@rental) do %>
+  <%= render "tablist",
+  real_estate: @real_estate,
+  living_unit: @living_unit,
+  disabled: true do %>
+    <%= render "form",
+    living_unit: @living_unit,
+    rental: @rental,
+    cancel_url: living_unit_rental_path(@living_unit, @rental),
+    turbo_frame: dom_id(@living_unit) %>
+  <% end %>
+<% end %>
