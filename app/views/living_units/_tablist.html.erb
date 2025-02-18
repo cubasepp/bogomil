@@ -1,4 +1,4 @@
-<%# locals: (living_unit: nil, real_estate: nil, disabled: false) -%>
+<%# locals: (living_unit: nil, real_estate: nil, disabled: true, hide_action_bar: true) -%>
 <div class="flex flex-col gap-2">
   <div class="flex">
     <div role="tablist" class="basis-full tabs tabs-lifted tabs-lg">
@@ -6,7 +6,7 @@
         <div class="flex flex-col gap-2">
           <div class="flex">
             <div class="basis-full">
-              <%= render "living_units/action_bar", real_estate:, living_unit:, disabled: %>
+              <%= render "living_units/action_bar", real_estate:, living_unit:, hide_action_bar: %>
             </div>
           </div>
           <div class="flex">
@@ -18,11 +18,7 @@
       <% end %>
 
       <%= tab_link t("living_unit.tab.tab_2"),
-      url: living_unit_rents_path(living_unit),
-      disabled: !disabled %>
-
-      <%= tab_link t("living_unit.tab.tab_3"),
-      url: living_unit_tenants_path(living_unit),
+      url: living_unit_rentals_path(living_unit),
       disabled: !disabled %>
     </div>
   </div>

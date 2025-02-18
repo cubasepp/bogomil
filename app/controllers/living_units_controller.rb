@@ -3,7 +3,7 @@
 class LivingUnitsController < ApplicationController
   before_action :set_real_estate
   before_action :set_living_unit, only: [:show, :edit, :update, :destroy]
-  before_action :can_manage?, only: [:edit, :update, :destroy]
+  before_action :can_manage?, only: [:create, :update, :destroy]
 
   def show
   end

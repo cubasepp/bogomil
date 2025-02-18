@@ -6,8 +6,7 @@ RSpec.describe(LivingUnit, type: :model) do
   describe "associations" do
     it { should belong_to(:real_estate) }
 
-    it { should have_many(:tenants).dependent(:destroy) }
-    it { should have_many(:rents).dependent(:destroy) }
+    it { should have_many(:rentals).dependent(:destroy) }
   end
 
   describe "validations" do

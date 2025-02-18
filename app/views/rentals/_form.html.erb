@@ -1,0 +1,23 @@
+<%# locals: (living_unit: nil, rental: nil, cancel_url: nil, turbo_frame: dom_id(rental), disabled: false) -%>
+
+<%= simple_form_for([living_unit, rental]) do |f| %>
+  <div class="flex flex-col gap-2" data-controller="rental">
+    <%= render "rentals/form/master_data", f:, disabled:, living_unit:, rental: %>
+
+    <% if rental.new_record? %>
+      <%= render "rentals/form/tenants", f:, remove_tenant: @rental.tenants.size == 1 %>
+      <%= render "rentals/form/rent", f: %>
+    <% end %>
+
+    <% unless disabled %>
+      <%= link_to t("button.cancel"),
+      cancel_url,
+      class: "btn btn-secondary mt-2",
+      data: {
+        turbo_frame: turbo_frame,
+      } %>
+
+      <%= f.button :submit, class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
+<% end %>

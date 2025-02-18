@@ -1,0 +1,55 @@
+<%# locals: (f: nil, remove_tenant: false) -%>
+<!-- Tenants -->
+<div class="flex mt-2">
+  <div class="basis-1/2">
+    <p class="font-semibold pl-2">
+      <%= t("rental.section_2") %>
+    </p>
+  </div>
+  <div class="basis-1/2 flex justify-end">
+    <%= button_tag(
+      type: "button",
+      class: "flex btn btn-sm btn-circle btn-outline tooltip",
+      data: {
+        tip: t("rental.tooltip.tenant.add"),
+        action: "rental#addTenant"
+      }
+    ) do %>
+      <%= icon(:plus, css: "size-6") %>
+    <% end %>
+  </div>
+</div>
+<div data-rental-target="tenantList">
+  <%= f.simple_fields_for :tenants do |tenant_f| %>
+    <div
+      class="flex flex-col"
+      id="tenants_<%= tenant_f.index %>"
+      data-rental-target="tenants"
+    >
+      <div class="flex gap-2">
+        <div class="flex-1 bg-base-300 p-4 rouned">
+          <%= tenant_f.input :first_name %>
+          <%= tenant_f.input :last_name %>
+        </div>
+        <div class="flex-1 bg-base-300 p-4 rounded">
+          <%= tenant_f.input :email %>
+          <%= tenant_f.input :phone_number %>
+        </div>
+      </div>
+      <div class="basis-full flex justify-end my-2">
+        <%= button_tag(
+            type: 'button',
+            class: 'flex btn btn-sm btn-circle btn-outline tooltip',
+            data: {
+              tip: t('rental.tooltip.tenant.remove'),
+              action: 'rental#removeTenant',
+              tenant_id: tenant_f.index
+            },
+            disabled: remove_tenant,
+          ) do %>
+          <%= icon(:trash, css: "size-6") %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

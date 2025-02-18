@@ -1,0 +1,39 @@
+<%# locals: (living_unit: nil, rental:, index: false, hide_action_bar: true) -%>
+<div class="flex">
+  <div class="basis-1/2">
+    <% if index %>
+      <%= link_to t("rental.button.new"),
+      new_living_unit_rental_path(living_unit),
+      class: "btn btn-primary" %>
+    <% elsif !hide_action_bar %>
+      <%= link_to t("button.cancel"),
+      living_unit_rentals_path(living_unit),
+      class: "btn btn-primary",
+      data: {
+        turbo_frame: "main_content",
+      } %>
+    <% end %>
+  </div>
+  <div class="basis-1/2 flex justify-end">
+    <% unless hide_action_bar %>
+      <%= link_to edit_living_unit_rental_path(living_unit, rental),
+        class: "btn btn-circle btn-outline mr-2 tooltip inline-flex",
+        data: {
+          tip: t("rental.tooltip.edit")
+        } do %>
+        <%= icon(:pencil, css: "size-6") %>
+      <% end %>
+
+      <%= button_to living_unit_rental_path(living_unit, rental),
+        class: "btn btn-circle btn-outline tooltip inline-flex",
+        method: :delete,
+        data: {
+          tip: t("rental.tooltip.archive"),
+          turbo_confirm: t("turbo.confirm.destroy"),
+          turbo: false,
+        } do %>
+        <%= icon(:archive, css: "size-6") %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

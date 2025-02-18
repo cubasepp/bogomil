@@ -7,6 +7,7 @@ en:
     confirm:
       destroy: "Are you sure?"
   messages:
+    no_result: "No entries found."
     session:
       destroyed: "Sucesfully signed out."
   calculator:
@@ -30,3 +31,5 @@ en:
       title: "Consumer Index Chart"
       xtitle: "Date"
       ytitle: "Index"
+  tooltip:
+    cancel: "Cancel"

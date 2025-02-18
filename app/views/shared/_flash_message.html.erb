@@ -1,14 +1,24 @@
-<% flash.each do |type, msg| %>
-  <% if type == "alert" %>
-    <div role="alert" class="alert alert-error">
-      <%= icon(:x_circle, css: "size-6 shrink-0 stroke-current") %>
+<%# locals: (animate: true) -%>
+<%= turbo_frame_tag "flash_messages" do %>
+  <% flash.each do |type, msg| %>
+    <%= content_tag :div,
+      role: "alert",
+      data: {
+        controller: "notification",
+        action: "animationend->notification#remove"
+      },
+      class: class_names(
+        "fixed z-50 top-4 right-0 w-max max-w-md mr-4",
+        "alert",
+        type == "notice" ? "alert-success" : "alert-error",
+        "animate-slide-down-up": animate
+      ) do %>
+      <%= icon(
+        type == "notice" ? :check_circle : :x_circle,
+        css: "size-6 shrink-0 stroke-current",
+      ) %>
       <span><%= msg %></span>
-    </div>
-  <% end %>
-  <% if type == "notice" %>
-    <div role="alert" class="alert alert-success">
-      <%= icon(:check_circle, css: "size-6 shrink-0 stroke-current") %>
-      <span><%= msg %></span>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
+

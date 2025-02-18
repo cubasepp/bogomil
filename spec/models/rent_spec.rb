@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe(Rent, type: :model) do
   describe "associations" do
-    it { should belong_to(:living_unit) }
+    it { should belong_to(:rental) }
   end
 
   describe "validations" do

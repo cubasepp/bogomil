@@ -4,14 +4,21 @@ require "rails_helper"
 
 RSpec.describe("LivingUnits", type: :request) do
   let(:user) { FactoryBot.create(:user) }
-
   let(:role) { "viewer" }
   let(:membership) { FactoryBot.build(:membership, user: user, role: role) }
   let(:real_estate) { FactoryBot.create(:real_estate, membership: membership) }
   let(:living_unit) { FactoryBot.create(:living_unit, real_estate:) }
 
+  let(:valid_attributes) do
+    { name: "Test Living Unit" }
+  end
+
   let(:invalid_attributes) do
     { name: "" }
+  end
+
+  let(:new_attributes) do
+    { name: "Updated Name" }
   end
 
   before do
@@ -19,86 +26,77 @@ RSpec.describe("LivingUnits", type: :request) do
   end
 
   describe "GET /show" do
-    it "renders a successful response" do
+    it "succeeds" do
       get real_estate_living_unit_url(real_estate, living_unit)
       expect(response).to(be_successful)
     end
   end
 
   describe "GET /edit" do
-    context "owner" do
+    context "as owner" do
       let(:role) { "owner" }
 
-      it "renders a successful response" do
+      it "succeeds" do
         get edit_real_estate_living_unit_url(real_estate, living_unit)
         expect(response).to(be_successful)
       end
     end
-
-    it "returns forbidden" do
-      get edit_real_estate_living_unit_url(real_estate, living_unit)
-      expect(response).to(have_http_status(:forbidden))
-    end
   end
 
   describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new LivingUnit" do
-        expect do
-          post(real_estate_living_units_url(real_estate), params: {})
-        end.to(change(
-          LivingUnit,
-          :count,
-        ).by(1))
-      end
+    context "as owner" do
+      let(:role) { "owner" }
 
-      it "redirects to the created real_estate" do
-        post real_estate_living_units_url(real_estate), params: {}
-        expect(response).to(redirect_to(real_estate_living_unit_url(real_estate, LivingUnit.last)))
+      context "with valid params" do
+        it "creates a new living unit" do
+          expect do
+            post(real_estate_living_units_url(real_estate), params: { living_unit: valid_attributes })
+          end.to(change(LivingUnit, :count).by(1))
+        end
+
+        it "redirects to the living unit" do
+          post real_estate_living_units_url(real_estate), params: { living_unit: valid_attributes }
+          expect(response).to(redirect_to(real_estate_living_unit_url(real_estate, LivingUnit.last)))
+        end
+      end
+    end
+
+    context "as viewer" do
+      it "is forbidden" do
+        post real_estate_living_units_url(real_estate), params: { living_unit: valid_attributes }
+        expect(response).to(have_http_status(:forbidden))
       end
     end
   end
 
   describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) do
-        { name: "Updated Name" }
-      end
+    context "as owner" do
+      let(:role) { "owner" }
 
-      context "owner" do
-        let(:role) { "owner" }
-
-        it "updates the requested LivingUnit" do
+      context "with valid params" do
+        it "updates the living unit" do
           patch real_estate_living_unit_url(real_estate, living_unit), params: { living_unit: new_attributes }
-          expect do
-            living_unit.reload
-          end.to(change(living_unit, :name).from("Untitled").to("Updated Name"))
+          living_unit.reload
+          expect(living_unit.name).to(eq("Updated Name"))
         end
 
-        it "redirects to the LivingUnit" do
+        it "redirects to the living unit" do
           patch real_estate_living_unit_url(real_estate, living_unit), params: { living_unit: new_attributes }
           expect(response).to(redirect_to(real_estate_living_unit_url(real_estate, living_unit)))
         end
       end
 
-      it "returns forbidden" do
-        patch real_estate_living_unit_url(real_estate, living_unit), params: { living_unit: new_attributes }
-        expect(response).to(have_http_status(:forbidden))
-      end
-    end
-
-    context "with invalid parameters" do
-      context "owner" do
-        let(:role) { "owner" }
-
-        it "renders a response with 422 status (i.e. to display the 'edit' template)" do
+      context "with invalid params" do
+        it "returns unprocessable entity status" do
           patch real_estate_living_unit_url(real_estate, living_unit), params: { living_unit: invalid_attributes }
           expect(response).to(have_http_status(:unprocessable_entity))
         end
       end
+    end
 
-      it "returns forbidden" do
-        patch real_estate_living_unit_url(real_estate, living_unit), params: { living_unit: invalid_attributes }
+    context "as viewer" do
+      it "is forbidden" do
+        patch real_estate_living_unit_url(real_estate, living_unit), params: { living_unit: new_attributes }
         expect(response).to(have_http_status(:forbidden))
       end
     end
@@ -107,27 +105,26 @@ RSpec.describe("LivingUnits", type: :request) do
   describe "DELETE /destroy" do
     let!(:living_unit) { FactoryBot.create(:living_unit, real_estate:) }
 
-    context "owner" do
+    context "as owner" do
       let(:role) { "owner" }
 
-      it "destroys the requested LivingUnit" do
+      it "deletes the living unit" do
         expect do
           delete(real_estate_living_unit_url(real_estate, living_unit))
-        end.to(change(
-          LivingUnit,
-          :count,
-        ).by(-1))
+        end.to(change(LivingUnit, :count).by(-1))
       end
 
-      it "redirects to the real_estates list" do
+      it "redirects to the real estate" do
         delete real_estate_living_unit_url(real_estate, living_unit)
         expect(response).to(redirect_to(real_estate_url(real_estate)))
       end
     end
 
-    it "returns forbidden with viewer" do
-      delete real_estate_living_unit_url(real_estate, living_unit)
-      expect(response).to(have_http_status(:forbidden))
+    context "as viewer" do
+      it "is forbidden" do
+        delete real_estate_living_unit_url(real_estate, living_unit)
+        expect(response).to(have_http_status(:forbidden))
+      end
     end
   end
 end

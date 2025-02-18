@@ -2,29 +2,65 @@ de:
   app:
     title: "mv-web.net"
   errors:
-    unauthorized: "Invalid username or password."
+    unauthorized: "Ungültiger Benutzername oder Passwort."
+    messages:
+      record_invalid: "Die Validierung ist fehlgeschlagen: %{errors}"
+      inclusion: "ist nicht in der Liste enthalten"
+      exclusion: "ist reserviert"
+      invalid: "ist ungültig"
+      confirmation: "stimmt nicht mit %{attribute} überein"
+      accepted: "muss akzeptiert werden"
+      empty: "darf nicht leer sein"
+      blank: "darf nicht leer sein"
+      present: "muss leer sein"
+      too_long:
+        one: "ist zu lang (maximal 1 Zeichen)"
+        other: "ist zu lang (maximal %{count} Zeichen)"
+      password_too_long: "ist zu lang"
+      too_short:
+        one: "ist zu kurz (mindestens 1 Zeichen)"
+        other: "ist zu kurz (mindestens %{count} Zeichen)"
+      wrong_length:
+        one: "hat die falsche Länge (sollte 1 Zeichen sein)"
+        other: "hat die falsche Länge (sollte %{count} Zeichen sein)"
+      not_a_number: "ist keine Zahl"
+      not_an_integer: "muss eine Ganzzahl sein"
+      greater_than: "muss größer als %{count} sein"
+      greater_than_or_equal_to: "muss größer oder gleich %{count} sein"
+      equal_to: "muss gleich %{count} sein"
+      less_than: "muss kleiner als %{count} sein"
+      less_than_or_equal_to: "muss kleiner oder gleich %{count} sein"
+      other_than: "muss anders als %{count} sein"
+      in: "muss in %{count} sein"
+      odd: "muss ungerade sein"
+      even: "muss gerade sein"
+      required: "muss vorhanden sein"
+      taken: "wurde bereits verwendet"
   turbo:
     confirm:
-      destroy: "Are you sure?"
+      destroy: "Sind Sie sicher?"
   messages:
+    no_result: "Kein Enträge gefunden."
     session:
       destroyed: "Sucesfully signed out."
   calculator:
     label:
-      no_data: "No data"
+      no_data: "Keine Daten"
       select:
-        month: "Select month"
-        year: "Select year"
+        month: "Monat wählen"
+        year: "Jahr wählen"
       new_index:
-        description: "Calculate to"
-        title: "New index"
+        description: "Berechnen zu"
+        title: "Aktueller Index"
       old_index:
-        description: "Start rental"
-        title: "Old index"
+        description: "Mietbeginn"
+        title: "Alter Index"
   collection:
-    overview: "Overview"
+    overview: "Übersicht"
   consumer_index:
     chart:
-      title: "Consumer Index Chart"
-      xtitle: "Date"
+      title: "Konsumer Index Diagramm"
+      xtitle: "Datum"
       ytitle: "Index"
+  tooltip:
+    cancel: "Abbruch"

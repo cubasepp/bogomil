@@ -1,0 +1,22 @@
+<%# locals: (collection: [], label: nil, mt: false) -%>
+<%= content_tag(
+      "div",
+      class: class_names("flex flex-col gap-2", { "mt-6": mt }),
+    ) do %>
+
+  <div class="flex mt-2">
+    <div class="basis-1/2">
+      <p class="font-semibold pl-2">
+        <%= t("rental.#{label}") %>
+      </p>
+    </div>
+    <div class="basis-1/2 flex justify-end">
+    </div>
+  </div>
+  <div
+    class="flex flex-col gap-2"
+    id="<%= dom_id(@living_unit, "#{label}_rentals") %>"
+  >
+    <%= render(collection, living_unit: @living_unit) %>
+  </div>
+<% end %>

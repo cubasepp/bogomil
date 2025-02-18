@@ -53,6 +53,12 @@ class Svg
       end
     end
 
+    def x_mark(options = {})
+      svg(options) do
+        "M6 18 18 6M6 6l12 12"
+      end
+    end
+
     def check_circle(options = {})
       svg(options) do
         "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
@@ -152,6 +158,14 @@ class Svg
         2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z"
       end
       # rubocop:enable Layout/LineLength
+    end
+
+    def archive(options = {})
+      svg(options) do
+        "m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 \
+        7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 \
+        0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+      end
     end
 
     private

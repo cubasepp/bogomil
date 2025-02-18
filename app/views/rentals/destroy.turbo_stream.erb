@@ -1,0 +1,8 @@
+<%= turbo_stream.remove dom_id(@rental, :index) %>
+<%= turbo_stream.prepend dom_id(@living_unit, "archived_rentals"),
+                     partial: "rentals/rental",
+                     locals: {
+                       rental: @rental,
+                       living_unit: @living_unit,
+                     } %>
+<%= render_turbo_stream_flash_messages %>

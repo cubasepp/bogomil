@@ -6,8 +6,7 @@ class LivingUnit < ApplicationRecord
 
   after_initialize :set_default
 
-  has_many :tenants, dependent: :destroy
-  has_many :rents, dependent: :destroy
+  has_many :rentals, dependent: :destroy
 
   store :properties,
     accessors: [

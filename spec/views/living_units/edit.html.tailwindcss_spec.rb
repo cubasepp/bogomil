@@ -21,7 +21,7 @@ RSpec.describe("living_units/edit", type: :view) do
     render
 
     assert_select "div[role=?]", "tablist", count: 1 do
-      assert_select "a[role=?]", "tab", count: 3
+      assert_select "a[role=?]", "tab", count: 2
       assert_select "form[action=?][method=?][id=?]",
         real_estate_living_unit_path(1, 1),
         "post",

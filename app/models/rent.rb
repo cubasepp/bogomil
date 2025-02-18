@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class Rent < ApplicationRecord
+  RENT_TYPES = ["normal", "graduated", "index"].freeze
   default_scope { order(created_at: :desc) }
 
-  belongs_to :living_unit
-  RENT_TYPES = ["normal", "graduated", "index"].freeze
+  belongs_to :rental
 
   attribute :rent_type, :string, default: "normal"
+  attribute :valid_from, :date, default: -> { Date.current }
 
   validates :cold_rent, :heating_costs, :incidental_costs, numericality: true
   validates :rent_type, inclusion: { in: RENT_TYPES }

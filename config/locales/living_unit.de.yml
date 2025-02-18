@@ -20,6 +20,5 @@ de:
       section:
         details: "# Details"
     tab:
-      tab_1: "Master data"
-      tab_2: "Rents"
-      tab_3: "Tenants"
+      tab_1: "Stammdaten"
+      tab_2: "Vermietung"

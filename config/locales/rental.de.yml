@@ -1,0 +1,37 @@
+de:
+  simple_form:
+    labels:
+      rental:
+        description: "Bschreibung"
+        valid_from: "Gültig ab"
+        tenants:
+          first_name: "Vorname"
+          last_name: "Nachname"
+          email: "E-Mail"
+          phone_number: "Telefonnummer"
+        rents:
+          cold_rent: "Kaltmiete"
+          heating_costs: "Heizkosten"
+          incidental_costs: "Nebenkosten"
+          rent_type: "Art"
+          valid_from: "Gültig ab"
+  rental:
+    tooltip:
+      edit: "Bearbeiten der Vermietung"
+      archive: "Vermietung beenden"
+      tenant:
+        add: "Mieter hinzufügen"
+        remove: "Mieter entfernen"
+    button:
+      new: "Neu Vermietung"
+      show: "Anzeigen"
+    tab:
+      tab_1: "Stammdaten"
+      tab_2: "Vermietung"
+    label:
+      description: "Beschreibung:"
+    active: "Aktive"
+    archived: "Archiviert"
+    section_1: "Stammdaten"
+    section_2: "Mieter"
+    section_3: "Miete"

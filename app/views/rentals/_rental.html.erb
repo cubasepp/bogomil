@@ -1,0 +1,33 @@
+<div
+  class="basis-full bg-base-300 rounded-lg min-h-24 p-2 flex flex-row"
+  id="<%= dom_id(rental, :index) %>"
+>
+  <div class="flex flex-1">
+    <div class="basis-1/2">
+      <p class="font-semibold">
+        <%= t("rental.label.description") %>
+      </p>
+      <div class="mt-2">
+        <%= rental.description %>
+      </div>
+    </div>
+    <div class="basis-1/2 flex justify-end items-center">
+      <% unless rental.archived? %>
+        <%= link_to living_unit_rental_path(living_unit, rental),
+          class: "btn btn-circle btn-outline mr-2 tooltip inline-flex",
+          data: {
+            turbo_method: :delete,
+            tip: t("rental.tooltip.archive")
+          } do %>
+          <%= icon(:archive, css: "size-6") %>
+        <% end %>
+      <% end %>
+      <%= link_to t("rental.button.show"),
+      living_unit_rental_path(living_unit, rental),
+      class: "btn btn-info mr-2",
+      data: {
+        turbo_frame: "main_content",
+      } %>
+    </div>
+  </div>
+</div>

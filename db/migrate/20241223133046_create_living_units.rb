@@ -10,26 +10,5 @@ class CreateLivingUnits < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
-
-    create_table(:tenants) do |t|
-      t.string(:name)
-      t.string(:properties)
-      t.datetime(:start_of_tenancy)
-      t.boolean(:archived, default: false)
-      t.references(:living_unit, null: false, foreign_key: true)
-
-      t.timestamps
-    end
-
-    create_table(:rents) do |t|
-      t.decimal(:cold_rent, precision: 10, scale: 2, default: 0.00)
-      t.decimal(:heating_costs, precision: 10, scale: 2, default: 0.00)
-      t.decimal(:incidental_costs, precision: 10, scale: 2, default: 0.00)
-      t.string(:rent_type, null: false)
-      t.date(:valid_from)
-      t.references(:living_unit, null: false, foreign_key: true)
-
-      t.timestamps
-    end
   end
 end

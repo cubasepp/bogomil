@@ -1,0 +1,27 @@
+<%# locals: (real_estate: nil, living_unit: nil, rental:, cancel_url: living_unit_rentals_path(living_unit), disabled: true, hide_action_bar: true, index: false) -%>
+<div class="flex flex-col gap-2">
+  <div class="flex">
+    <div role="tablist" class="basis-full tabs tabs-lifted tabs-lg">
+      <%= tab_link t("rental.tab.tab_1"),
+      url: real_estate_living_unit_path(real_estate, living_unit),
+      disabled: !disabled %>
+
+      <%= render "shared/tab", url: living_unit_rentals_path(living_unit), active: true, label: t("rental.tab.tab_2") do %>
+        <div class="flex flex-col gap-2">
+
+          <%= render "rentals/action_bar", living_unit:, rental:, index:, hide_action_bar: %>
+
+          <div class="flex">
+            <div class="basis-full">
+              <% unless index %>
+                <%= render "form", living_unit:, rental:, disabled:, cancel_url: %>
+              <% end %>
+
+              <%= yield if block_given? %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

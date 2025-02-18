@@ -1,0 +1,11 @@
+<%= main_turbo_frame_tag dom_id(@living_unit, :rentals) do %>
+  <%= render "tablist",
+  real_estate: @real_estate,
+  living_unit: @living_unit,
+  rental: nil,
+  index: true do %>
+
+    <%= render "rentals", collection: @active_rentals, label: "active" %>
+    <%= render "rentals", collection: @archived_rentals, label: "archived", mt: true %>
+  <% end %>
+<% end %>

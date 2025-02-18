@@ -1,0 +1,7 @@
+<%= main_turbo_frame_tag dom_id(@rental) do %>
+  <%= render "tablist",
+  real_estate: @real_estate,
+  living_unit: @living_unit,
+  rental: @rental,
+  hide_action_bar: false %>
+<% end %>

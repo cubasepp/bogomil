@@ -1,3 +1,6 @@
 <%= main_turbo_frame_tag dom_id(@living_unit) do %>
-  <%= render "tablist", real_estate: @real_estate, living_unit: @living_unit %>
+  <%= render "tablist",
+  real_estate: @real_estate,
+  living_unit: @living_unit,
+  disabled: false %>
 <% end %>

@@ -1,0 +1,22 @@
+<!-- Rents -->
+<div class="flex mt-2">
+  <div class="basis-1/2">
+    <p class="font-semibold pl-2">
+      <%= t("rental.section_3") %>
+    </p>
+  </div>
+  <div class="basis-1/2 flex justify-end">
+  </div>
+</div>
+<%= f.simple_fields_for :rents do |rent_f| %>
+  <div class="flex gap-2" id="rents_<%= rent_f.index %>">
+    <div class="basis-1/2 rounded p-4 bg-base-300">
+      <%= rent_f.input :cold_rent %>
+      <%= rent_f.input :heating_costs %>
+      <%= rent_f.input :incidental_costs %>
+    </div>
+    <div class="basis-1/2 rounded p-4 bg-base-300">
+      <%= rent_f.input :rent_type, include_blank: false, collection: rent_type_options %>
+    </div>
+  </div>
+<% end %>

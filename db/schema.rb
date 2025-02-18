@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_11_065313) do
   create_table "collections", force: :cascade do |t|
     t.string("user_settings")
     t.string("collectable_type", null: false)
@@ -64,16 +64,26 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
     t.datetime("updated_at", null: false)
   end
 
+  create_table "rentals", force: :cascade do |t|
+    t.string("properties")
+    t.date("valid_from")
+    t.boolean("archived", default: false)
+    t.integer("living_unit_id", null: false)
+    t.datetime("created_at", null: false)
+    t.datetime("updated_at", null: false)
+    t.index(["living_unit_id"], name: "index_rentals_on_living_unit_id")
+  end
+
   create_table "rents", force: :cascade do |t|
     t.decimal("cold_rent", precision: 10, scale: 2, default: "0.0")
     t.decimal("heating_costs", precision: 10, scale: 2, default: "0.0")
     t.decimal("incidental_costs", precision: 10, scale: 2, default: "0.0")
     t.string("rent_type", null: false)
     t.date("valid_from")
-    t.integer("living_unit_id", null: false)
+    t.integer("rental_id", null: false)
     t.datetime("created_at", null: false)
     t.datetime("updated_at", null: false)
-    t.index(["living_unit_id"], name: "index_rents_on_living_unit_id")
+    t.index(["rental_id"], name: "index_rents_on_rental_id")
   end
 
   create_table "request_logs", force: :cascade do |t|
@@ -86,14 +96,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
   end
 
   create_table "tenants", force: :cascade do |t|
-    t.string("name")
     t.string("properties")
-    t.datetime("start_of_tenancy")
-    t.boolean("archived", default: false)
-    t.integer("living_unit_id", null: false)
+    t.integer("rental_id", null: false)
     t.datetime("created_at", null: false)
     t.datetime("updated_at", null: false)
-    t.index(["living_unit_id"], name: "index_tenants_on_living_unit_id")
+    t.index(["rental_id"], name: "index_tenants_on_rental_id")
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,6 +115,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
 
   add_foreign_key "living_units", "real_estates"
   add_foreign_key "memberships", "users"
-  add_foreign_key "rents", "living_units"
-  add_foreign_key "tenants", "living_units"
+  add_foreign_key "rentals", "living_units"
+  add_foreign_key "rents", "rentals"
+  add_foreign_key "tenants", "rentals"
 end

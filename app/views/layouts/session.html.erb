@@ -10,17 +10,19 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
   </head>
 
-  <body class="">
-    <%= render "layouts/header" %>
+  <body>
+    <div class="relative">
+      <%= render "layouts/header" %>
+      <%= render "shared/flash_message" %>
 
-    <div class="hero bg-base-200 min-h-screen">
-      <div class="hero-content flex-col">
-        <%= render "shared/flash_message" %>
-        <div class="text-center">
-          <h1 class="text-5xl font-bold">Login now!</h1>
-        </div>
-        <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <%= yield %>
+      <div class="hero bg-base-200 min-h-screen">
+        <div class="hero-content flex-col">
+          <div class="text-center">
+            <h1 class="text-5xl font-bold">Login now!</h1>
+          </div>
+          <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <%= yield %>
+          </div>
         </div>
       </div>
   </body>

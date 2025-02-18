@@ -1,17 +1,15 @@
-<%# locals: (real_estate: nil, living_unit: nil, disabled: true) -%>
+<%# locals: (real_estate: nil, living_unit: nil, hide_action_bar: true) -%>
 
 <div class="flex">
   <div class="basis-1/2">
   </div>
   <div class="basis-1/2 flex justify-end">
-    <% if disabled %>
-      <%= link_to edit_real_estate_living_unit_path(real_estate, living_unit),
-    class: "btn btn-circle btn-outline mr-2 tooltip inline-flex",
+    <%= link_to edit_real_estate_living_unit_path(real_estate, living_unit),
+        class: "btn btn-circle btn-outline mr-2 tooltip inline-flex #{class_names(hidden: hide_action_bar)}",
     data: {
       tip: t("living_unit.tooltip.edit")
     } do %>
-        <%= icon(:pencil, css: "size-6") %>
-      <% end %>
+      <%= icon(:pencil, css: "size-6") %>
     <% end %>
     <%= link_to real_estate_living_unit_path(real_estate, living_unit),
     class: "btn btn-circle btn-outline tooltip inline-flex",
