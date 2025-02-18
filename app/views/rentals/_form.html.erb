@@ -1,0 +1,32 @@
+<%# locals: (living_unit: nil, rental: nil, disabled: false, cancel_url: living_unit_rentals_path(living_unit), turbo_frame: dom_id(rental)) -%>
+
+<%= simple_form_for([living_unit, rental]) do |f| %>
+  <div class="flex flex-col gap-2" data-controller="rental">
+    <div class="flex">
+      <div class="basis-full">
+        <p class="font-semibold pl-2">
+          <%= t("rental.section_1") %>
+        </p>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="basis-full rounded p-4 bg-base-300">
+        <%= f.input :description, disabled: %>
+        <%= f.input :valid_from, disabled: %>
+      </div>
+    </div>
+    <%= render "rentals/tenants_form", f:, disabled: %>
+    <%= render "rentals/rents_form", f:, disabled: %>
+
+    <% unless disabled %>
+      <%= link_to t("button.cancel"),
+      cancel_url,
+      class: "btn btn-secondary mt-2",
+      data: {
+        turbo_frame: turbo_frame,
+      } %>
+
+      <%= f.button :submit, class: "btn btn-primary mt-2" %>
+    <% end %>
+  </div>
+<% end %>

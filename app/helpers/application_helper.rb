@@ -9,7 +9,7 @@ module ApplicationHelper
     end
   end
 
-  def tab_link(label, url: root_path, disabled: false, active: false, turbo_frame: "main_content")
+  def tab_link(label, url: root_path, disabled: false, active: false, turbo_frame: "_top")
     link_to(
       label,
       url,

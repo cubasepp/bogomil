@@ -1,6 +1,6 @@
-en:
+de:
   simple_form:
-    "yes": "Yes"
-    "no": "No"
+    "yes": "Ja"
+    "no": "Nein"
     required:
       html: ""

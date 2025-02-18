@@ -1,0 +1,22 @@
+en:
+  simple_form:
+    labels:
+      rental:
+        description: "Description"
+        valid_from: "Valid from"
+  rental:
+    tooltip:
+      edit: "Edit rental"
+      archive: "Cancel rental"
+      tenant:
+        add: "Add tenant"
+    button:
+      new: "New rental"
+    tab:
+      tab_1: "Master data"
+      tab_2: "Rentals"
+    label:
+      description: "Description:"
+    section_1: "Master data"
+    section_2: "Tenants"
+    section_3: "Rent"

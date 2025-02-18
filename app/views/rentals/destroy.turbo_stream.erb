@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@rental) do %>
+  <% render "rentals/rental", rental: @rental, living_unit: @living_unit %>
+<% end %>

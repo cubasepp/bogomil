@@ -21,5 +21,4 @@ en:
         details: "# Details"
     tab:
       tab_1: "Master data"
-      tab_2: "Rents"
-      tab_3: "Tenants"
+      tab_2: "Rentals"

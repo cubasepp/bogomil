@@ -1,0 +1,22 @@
+de:
+  simple_form:
+    labels:
+      rental:
+        description: "Bschreibung"
+        valid_from: "Gültig ab"
+  rental:
+    tooltip:
+      edit: "Bearbeiten der Vermietung"
+      archive: "Vermietung beenden"
+      tenant:
+        add: "Mieter hinzufügen"
+    button:
+      new: "Neu Vermietung"
+    tab:
+      tab_1: "Stammdaten"
+      tab_2: "Vermietung"
+    label:
+      description: "Beschreibung:"
+    section_1: "Stammdaten"
+    section_2: "Mieter"
+    section_3: "Miete"
