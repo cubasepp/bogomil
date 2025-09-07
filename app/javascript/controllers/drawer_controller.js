@@ -4,7 +4,7 @@ import { patch } from "@rails/request.js";
 export default class extends Controller {
   static targets = ["root", "toggle", "link"];
   static values = {
-    activeClass: { type: String, default: "active" },
+    activeClass: { type: String, default: "menu-active" },
     collectionPath: { type: String, default: "/collections/" },
   };
 
@@ -26,7 +26,7 @@ export default class extends Controller {
   }
 
   collapseToggle(event) {
-    if (['DETAILS', 'SUMMARY'].includes(event.target.parentElement.tagName)) {
+    if (["DETAILS", "SUMMARY"].includes(event.target.parentElement.tagName)) {
       patch(`${this.collectionPathValue}${event.params.id}`, {
         responseKind: "turbo-stream",
       });

@@ -4,10 +4,11 @@
     "@hotwired/turbo-rails": "^8.0.12",
     "@rails/request.js": "^0.0.11",
     "chart.js": "^4.4.7",
-    "chartkick": "^5.0.1"
+    "chartkick": "^5.0.1",
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
-    "daisyui": "^4.12.23",
+    "daisyui": "^5.1.7",
     "prettier": "3.5.0"
   },
   "scripts": {

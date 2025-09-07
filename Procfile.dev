@@ -1,3 +1,2 @@
-job: bin/jobs
 css: bin/rails tailwindcss:watch
 js: bun run build --watch

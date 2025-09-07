@@ -3,8 +3,8 @@
 SimpleForm.setup do |config|
   config.wrappers(
     :default,
-    tag: "div",
-    class: :"form-control",
+    tag: "fieldset",
+    class: :"fieldset",
     error_class: :"form-field-errors",
   ) do |b|
     b.use(:html5)
@@ -33,16 +33,15 @@ SimpleForm.setup do |config|
 
   config.wrappers(
     :daisy_checkbox,
-    tag: "div",
-    class: :"form-control",
+    tag: "fieldset",
+    class: "fieldset",
     error_class: :"form-field-errors",
   ) do |b|
     b.use(:html5)
-    b.wrapper(:label, class: "label cursor-pointer my-6") do |bb|
-      bb.wrapper(:span, class: "label-text-base") do |bbb|
-        bbb.use(:label_text)
-      end
-      bb.use(:input, class: "checkbox")
+    b.wrapper(:label, class: "label cursor-pointer") do |bb|
+      bb.use :input, class: "checkbox", wrap_with: { tag: nil }
+      bb.use :label_text, wrap_with: { tag: :span, class: "ml-2" }
+      bb.use :error, wrap_with: { tag: :p, class: "text-error" }
     end
   end
 
@@ -51,7 +50,7 @@ SimpleForm.setup do |config|
   }
 
   config.default_wrapper = :default
-  config.boolean_style = :nested
+  config.boolean_style = :inline
   config.button_class = "btn-green"
 
   config.error_notification_tag = :div

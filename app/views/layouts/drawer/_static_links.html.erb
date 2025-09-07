@@ -1,9 +1,9 @@
 <div id="static_links">
-  <ul class="menu text-base-content">
+  <ul class="menu menu-xs text-base-content w-full p-0">
     <li>
       <%= link_to(root_path, { data: { drawer_target: "root link" } }) do %>
         <span class="flex items-center gap-2 py-2">
-          <%= icon(:home, css: "size-6 flex-shrink-0") %>
+          <%= icon(:home, css: "size-4 flex-shrink-0") %>
           <span class="flex-grow"><%= t(:"navigation.link.root_path") %></span>
         </span>
       <% end %>
