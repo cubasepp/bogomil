@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "3.3.0"
+ruby file: ".ruby-version"
 
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
@@ -18,6 +18,7 @@ gem "simple_form"
 gem "solid_queue"
 gem "chartkick"
 gem "excon"
+gem "csv"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 
 group :test do
