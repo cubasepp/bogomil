@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateRequestLogs < ActiveRecord::Migration[7.2]
+class CreateRequestLogs < ActiveRecord::Migration[8.0]
   def change
     create_table(:request_logs) do |t|
       t.text(:body)

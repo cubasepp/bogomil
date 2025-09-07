@@ -6,35 +6,28 @@ class RealEstate < ApplicationRecord
   HEATING_TYPES = ["heat_pump_air", "heat_pump_water", "oil", "gas"].freeze
   DATE_FORMAT = %r{\A(0?[1-9]|1[0-2])\/\d{4}\z}
 
-  store :address, accessors: [:street, :zip_code, :city], coder: JSON
-  store :heating,
-    accessors: [
-      :type,
-      :manufacturer,
-      :designation,
-      :installed_at,
-    ],
-    coder: JSON,
+  store_accessor :address, :street, :zip_code, :city
+  store_accessor :heating,
+    :type,
+    :manufacturer,
+    :designation,
+    :installed_at,
     prefix: true
-  store :properties,
-    accessors: [
-      :units,
-      :space,
-      :built_at,
-      :renovated_at,
-      :energy_certificate,
-    ],
-    coder: JSON
-  store :solar_plant,
-    accessors: [
-      :present,
-      :manufacturer,
-      :capacity,
-      :designation,
-      :battery_capacity,
-      :installed_at,
-    ],
-    coder: JSON,
+
+  store_accessor :properties,
+    :units,
+    :space,
+    :built_at,
+    :renovated_at,
+    :energy_certificate
+
+  store_accessor :solar_plant,
+    :present,
+    :manufacturer,
+    :capacity,
+    :designation,
+    :battery_capacity,
+    :installed_at,
     prefix: true
 
   has_many :living_units, dependent: :destroy

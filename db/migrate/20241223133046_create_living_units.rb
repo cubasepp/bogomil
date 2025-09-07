@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class CreateLivingUnits < ActiveRecord::Migration[7.2]
+class CreateLivingUnits < ActiveRecord::Migration[8.0]
   def change
     create_table(:living_units) do |t|
       t.string(:name)
       t.text(:description)
-      t.string(:properties)
+      t.json(:properties)
       t.references(:real_estate, null: false, foreign_key: true)
 
       t.timestamps
@@ -13,7 +13,7 @@ class CreateLivingUnits < ActiveRecord::Migration[7.2]
 
     create_table(:tenants) do |t|
       t.string(:name)
-      t.string(:properties)
+      t.json(:properties)
       t.datetime(:start_of_tenancy)
       t.boolean(:archived, default: false)
       t.references(:living_unit, null: false, foreign_key: true)

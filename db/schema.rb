@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_23_133046) do
   create_table "collections", force: :cascade do |t|
     t.string("user_settings")
     t.string("collectable_type", null: false)
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
   create_table "living_units", force: :cascade do |t|
     t.string("name")
     t.text("description")
-    t.string("properties")
+    t.json("properties")
     t.integer("real_estate_id", null: false)
     t.datetime("created_at", null: false)
     t.datetime("updated_at", null: false)
@@ -56,10 +56,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
 
   create_table "real_estates", force: :cascade do |t|
     t.string("name")
-    t.string("address")
-    t.string("properties")
-    t.string("heating")
-    t.string("solar_plant")
+    t.json("address")
+    t.json("properties")
+    t.json("heating")
+    t.json("solar_plant")
     t.datetime("created_at", null: false)
     t.datetime("updated_at", null: false)
   end
@@ -87,7 +87,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_23_133046) do
 
   create_table "tenants", force: :cascade do |t|
     t.string("name")
-    t.string("properties")
+    t.json("properties")
     t.datetime("start_of_tenancy")
     t.boolean("archived", default: false)
     t.integer("living_unit_id", null: false)

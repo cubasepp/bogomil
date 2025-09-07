@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateConsumerIndices < ActiveRecord::Migration[7.2]
+class CreateConsumerIndices < ActiveRecord::Migration[8.0]
   def change
     create_table(:consumer_indices, primary_key: [:year, :month]) do |t|
       t.integer(:year)

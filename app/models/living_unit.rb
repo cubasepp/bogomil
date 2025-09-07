@@ -9,13 +9,10 @@ class LivingUnit < ApplicationRecord
   has_many :tenants, dependent: :destroy
   has_many :rents, dependent: :destroy
 
-  store :properties,
-    accessors: [
-      :rooms,
-      :living_space,
-      :own_use,
-    ],
-    coder: JSON
+  store_accessor :properties,
+    :rooms,
+    :living_space,
+    :own_use
 
   validates :name, presence: true
   validates :living_space, :rooms, numericality: true
