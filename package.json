@@ -1,14 +1,16 @@
 {
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.12",
+    "@hotwired/turbo-rails": "^8.0.20",
     "@rails/request.js": "^0.0.11",
-    "chart.js": "^4.4.7",
+    "chart.js": "^4.5.1",
+    "chartjs-adapter-date-fns": "^3.0.0",
     "chartkick": "^5.0.1",
-    "tailwindcss": "^4.1.13"
+    "date-fns": "^4.1.0",
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
-    "daisyui": "^5.1.7",
+    "daisyui": "^5.5.8",
     "prettier": "3.5.0"
   },
   "scripts": {
