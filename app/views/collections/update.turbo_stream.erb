@@ -1,3 +1,3 @@
 <%= turbo_stream.replace dom_id(@collection, :sidebar) do %>
-  <%= render @collection %>
+  <%= render @collection, user_id: Current.user.id %>
 <% end %>

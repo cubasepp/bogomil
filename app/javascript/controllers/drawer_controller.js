@@ -10,13 +10,13 @@ export default class extends Controller {
 
   connect() {
     this.element.addEventListener(
-      "turbo:frame-render",
+      "turbo:frame-load",
       this.onTurboRender.bind(this),
     );
   }
 
   disconnect() {
-    this.element.removeEventListener("turbo:frame-render", this.onTurboRender);
+    this.element.removeEventListener("turbo:frame-load", this.onTurboRender);
   }
 
   onTurboRender(event) {

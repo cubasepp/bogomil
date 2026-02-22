@@ -15,7 +15,12 @@
     <%= turbo_stream_from(:events) %>
     <!-- Drawer -->
     <div class="drawer lg:drawer-open" data-controller="drawer">
-      <input id="main-drawer" type="checkbox" class="drawer-toggle"/>
+      <input
+        id="main-drawer"
+        type="checkbox"
+        class="drawer-toggle"
+        data-drawer-target="toggle"
+      />
       <!-- Drawer Content -->
       <%= render "layouts/drawer_content" %>
       <%= render "layouts/drawer_side" %>

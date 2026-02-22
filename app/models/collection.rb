@@ -21,8 +21,8 @@ class Collection < ApplicationRecord
     end
   end
 
-  def collapsed_for?(user: Current.user)
-    collapse&.include?(user&.id)
+  def collapsed_for?(user_id: Current.user.id)
+    collapse&.include?(user_id)
   end
 
   def collapse
