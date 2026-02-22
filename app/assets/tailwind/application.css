@@ -4,11 +4,10 @@
 @source "../../../app/javascript/**/*.js";
 @source "../../../app/views/**/*";
 
-@plugin "daisyui" {
-  themes:
-    coffee --default,
-    dark --prefersdark,
-    retro;
+@source not "./daisyui{,*}.mjs";
+
+@plugin "./daisyui.mjs" {
+  themes: all;
 }
 
 @source inline("fieldset text-error my-2 input-error");

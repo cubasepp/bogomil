@@ -1,19 +1,40 @@
 <div class="drawer-side z-40">
-  <label for="main-drawer" class="drawer-overlay" aria-label="Close menu"></label>
-  <div class="bg-base-200 min-h-full w-64">
+  <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+  <div class="bg-base-100 min-h-full w-64">
     <div class="p-4 space-y-4 flex flex-col h-screen">
       <div id="wrapper_static_links">
-        <%= render "layouts/drawer/static_links" %>
+        <ul class="menu w-full grow p-0">
+          <li>
+            <%= link_to root_path, class: "btn", data: { drawer_target: "root link", tip: t(:"navigation.link.root_path") } do %>
+              <%= icon(:home, css: "size-4 flex-shrink-0") %>
+              <span><%= t(:"navigation.link.root_path") %></span>
+            <% end %>
+          </li>
+        </ul>
       </div>
+
       <div id="wrapper_quick_menu">
-        <%= render "layouts/drawer/quick_menu" %>
+        <% if content_for?(:quick_menu) %>
+          <%= yield :quick_menu %>
+        <% else %>
+          <%= link_to I18n.t("button.new"),
+          new_collection_path,
+          class: "btn btn-primary w-full",
+          data: {
+            turbo_frame: "main_content",
+            turbo_action: "advance",
+          } %>
+        <% end %>
       </div>
+
       <div
         class="flex-1 overflow-x-auto bg-base-300 rounded-lg p-2"
         id="wrapper_sidebar"
       >
-        <%= render "layouts/drawer/sidebar" %>
+        <%= turbo_stream_from(Current.user, :sidebar) %>
+        <%= turbo_frame_tag :sidebar, src: collections_path %>
       </div>
+
       <div class="flex items-center justify-center" id="app_info">
         <p class="text-sm">&copy; 2024-<%= Date.current.year %></p>
       </div>

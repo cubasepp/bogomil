@@ -4,21 +4,23 @@ source "https://rubygems.org"
 
 ruby file: ".ruby-version"
 
+gem "rails"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", require: false
 gem "jbuilder"
-gem "puma", ">= 5.0"
-gem "rails", "~> 8"
-gem "sprockets-rails"
-gem "sqlite3", ">= 2.0"
+gem "propshaft"
+gem "puma"
+gem "sqlite3"
 gem "stimulus-rails"
-gem "tailwindcss-rails", "~> 4.0"
+gem "tailwindcss-rails"
 gem "turbo-rails"
 gem "simple_form"
 gem "solid_queue"
-gem "chartkick"
 gem "excon"
 gem "csv"
+gem "solid_cable"
+gem "importmap-rails"
+
 gem "tzinfo-data", platforms: [:windows, :jruby]
 
 group :test do
@@ -39,9 +41,3 @@ end
 group :development do
   gem "web-console"
 end
-
-gem "jsbundling-rails", "~> 1.3"
-
-gem "solid_cable", "~> 3.0"
-
-gem "importmap-rails", "~> 2.2"
