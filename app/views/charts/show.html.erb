@@ -1,6 +1,9 @@
 <div class="box-default">
-  <%= turbo_frame_tag @setting.delete(:turbo_frame_tag_id) do %>
-    <%= line_chart @data, **@setting %>
+  <%= turbo_frame_tag @turbo_frame_tag_id do %>
+    <canvas
+      data-controller="chartjs"
+      data-chartjs-data-value="<%= @chart_data.to_json %>"
+      data-chartjs-options-value="<%= @chart_options.to_json %>"
+    />
   <% end %>
 </div>
-

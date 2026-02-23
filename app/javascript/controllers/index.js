@@ -6,6 +6,3 @@ import { application } from "controllers/application";
 
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
 eagerLoadControllersFrom("controllers", application);
-
-import Chartjs from "@stimulus-components/chartjs";
-application.register("chartjs", Chartjs);

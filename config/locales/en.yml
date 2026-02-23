@@ -28,5 +28,6 @@ en:
   consumer_index:
     chart:
       title: "Consumer Index Chart"
+      dataset: "Dataset"
       xtitle: "Date"
       ytitle: "Index"
